@@ -11,14 +11,14 @@ from PIL import Image
 
 import params as P
 import pose
-import parts_cam as C
-import parts_led as L
+import parts as PT
 import assembly as A
 import render
 import checks as K
 from lib import best_print
 from meshing import to_mesh
 
+tag = PT.tag
 HERE = os.path.dirname(os.path.abspath(__file__))
 DOCS = os.path.join(HERE, "docs")
 os.makedirs(os.path.join(DOCS, "parts"), exist_ok=True)
@@ -37,120 +37,77 @@ def _items(bodies, meshes, pred, offsets=None, transp=0.3):
     return out
 
 
-def _w(p_bf, th=None):
-    return (pose.bf2w_matrix(th) @ np.append(p_bf, 1.0))[:3]
+def _w(p_bf):
+    return (pose.bf2w_matrix() @ np.append(p_bf, 1.0))[:3]
 
 
 def explode_offsets(bodies):
-    """World offset per body for the exploded view."""
+    """World offset per body for the exploded view (BF / K directions rotated to the world)."""
     Mbf = pose.bf2w_matrix()
     Rbf = Mbf[:3, :3]
-    Rkp = {s: (Mbf @ C.kp2bf(s))[:3, :3] for s in (1, -1)}
-    kp_y = {"CP-1": 10, "PCB": -25, "HOLDER": -25, "FPCCONN": -25, "LENS": 50, "FH-1": 105, "FILTER": 130, "FR-1": 155}
-    lp_y = {}
-    bf_off = {"CB-1": (0, 0, -10), "YS-1": (0, 0, 22), "LE-1": (0, 0, -35), "AL-1": (0, 40, 0), "SA-1": (0, 20, 45), "SG-1": (0, 0, 50),
-              "SHIELD": (0, 120, 45), "BA-1": (0, -25, 0), "CC-1": (0, 0, -45), "PI-1": (0, -50, 0), "PB-2": (0, -50, 0),
-              "RJ-1": (0, -60, 0), "PI5": (0, -110, 0), "CTRL": (0, -110, 0), "PICO": (0, -130, 0), "DR-1": (0, 0, -45),
-              "LD-2": (0, 75, 0), "DIFFUSER": (0, 55, 0), "LEDLENS": (0, 38, 0), "LEDSTARS": (0, 26, 0), "LEDPLATE": (0, 14, 0),
-              "SM-1": (0, -22, 0), "MODPCB": (0, -45, 0), "MODPARTS": (0, -62, 0), "ARMED": (0, 40, 0)}
-    w_off = {"PV-1": (0, 0, -70), "MC-1": (0, 0, -110), "EXT-MAST": (0, 0, -150), "HB-1": (0, 0, -200),
-             "RUBBER": (0, 0, -90), "FP-1": (0, 0, -50), "KN-1": (0, 0, 70), "BOLT": (0, 0, 20)}
+    Rk = {s: (Mbf @ pose.k2bf(s))[:3, :3] for s in (1, -1)}
+    k_off = {"PCB": (0, -45, 0), "HOLDER": (0, -45, 0), "FPCCONN": (0, -45, 0), "LENS": (0, 70, 0), "FILTER": (0, 0, 70)}
+    bf_off = {"CM-1": (0, 0, 35), "LT-1": (0, 60, 0), "SC-1": (0, 90, 70), "SHIELD": (0, 160, 70),
+              "LEDPLATE": (0, 110, 0), "LEDSTARS": (0, 125, 0), "LEDLENS": (0, 142, 0), "DIFFUSER": (0, 175, 0),
+              "MODPCB": (0, -45, 0), "MODPARTS": (0, -45, 0),
+              "EB-1": (0, -50, 0), "PI5": (0, -100, 0), "CTRL": (0, -100, 0), "PICO": (0, -110, 0), "EL-1": (0, -190, 0),
+              "TA-1": (0, 0, -60), "TRIPOD": (0, 0, -120)}
     out = []
     for b in bodies:
         base = b.name.split("#")[0]
-        tag = b.name.split("#")[1] if "#" in b.name else ""
+        t = b.name.split("#")[1] if "#" in b.name else ""
         off = None
-        if tag in ("R", "L") and base in kp_y:
-            s = 1 if tag == "R" else -1
-            off = Rkp[s] @ np.array([0, kp_y[base], 0])
-        elif base == "YS-1":
-            s = 1 if tag == "R" else -1
-            off = Rbf @ np.array([0, 0, 22.0])
-        elif base in lp_y:
-            off = Rlp @ np.array([0, lp_y[base], 0])
+        if t in ("R", "L") and base in k_off:
+            off = Rk[1 if t == "R" else -1] @ np.array(k_off[base], float)
         else:
             for key, v in bf_off.items():
                 if base.startswith(key):
                     off = Rbf @ np.array(v, float)
                     break
-            if off is None:
-                for key, v in w_off.items():
-                    if base.startswith(key):
-                        off = np.array(v, float)
-                        break
-        if base.startswith("EXT-LEG") or base.startswith("FB-1"):
-            k = int(b.name[-1])
-            phi = math.radians(P.LEG_ANGLES[k])
-            d = np.array([math.cos(phi), math.sin(phi), 0.0])
-            off = d * (90 if base.startswith("EXT-LEG") else 160) + np.array([0, 0, -170 if base.startswith("EXT-LEG") else -120])
-            off = d * (60 if base.startswith("EXT-LEG") else 130) + np.array([0, 0, -190 if base.startswith("EXT-LEG") else -150])
-        if base.startswith("EXT-BEAM"):
-            off = np.zeros(3)
         out.append(off)
     return out
 
 
 def make_all(bodies, meshes, parts, rep):
-    rig = lambda b: b.name not in ("MAT",)
-    nomat = lambda b: b.name not in ("MAT", "BALL") and b.group != "tmpl" and not b.name.startswith("EXT-STICK") and b.name != "TPL-PIN"
-    nobase = lambda b: nomat(b) and b.group != "base" and not b.name.startswith("EXT-LEG")
+    rig = lambda b: b.name != "MAT"
+    norig = lambda b: b.name not in ("MAT", "BALL", "AC-1")
     size = (1500, 950)
-    ctr = np.array([60.0, -400.0, 130.0])
-
-    # ---------- overall views
+    ctr = np.array([100.0, -400.0, 150.0])
     it = _items(bodies, meshes, rig)
-    mat = [x for x in it]
-    render.render(it, os.path.join(DOCS, "assembly_iso.png"), eye=ctr + np.array([1000, -1250, 800]), focal=ctr, size=size, view_angle=30)
-    render.render(it, os.path.join(DOCS, "assembly_iso_back.png"), eye=ctr + np.array([-900, -1300, 700]), focal=ctr, size=size, view_angle=30)
-    render.render(it, os.path.join(DOCS, "assembly_iso_ball_side.png"), eye=ctr + np.array([700, 1300, 700]), focal=ctr, size=size, view_angle=30)
-    render.render(it, os.path.join(DOCS, "assembly_top.png"), eye=(60, -400, 2600), focal=(60, -400, 0), up=(0, 1, 0), size=size, parallel_scale=520)
-    render.render(it, os.path.join(DOCS, "assembly_side.png"), eye=(2600, -400, 150), focal=(60, -400, 150), size=size, parallel_scale=480)
-    render.render(it, os.path.join(DOCS, "assembly_front.png"), eye=(60, 2600, 200), focal=(60, -400, 200), size=size, parallel_scale=420)
-    render.render(it, os.path.join(DOCS, "assembly_rear.png"), eye=(60, -2600, 200), focal=(60, -400, 200), size=size, parallel_scale=420)
-
-    # ---------- close-ups of the rig (base hidden where it only gets in the way)
-    c = _w((0, 40, 45))
-    render.render(_items(bodies, meshes, nobase), os.path.join(DOCS, "detail_cameras.png"),
-                  eye=c + np.array([260, 520, 330]), focal=c, size=size, view_angle=28)
-    c = _w((140, 80, -20))
-    render.render(_items(bodies, meshes, nobase), os.path.join(DOCS, "detail_led.png"),
-                  eye=c + np.array([260, 380, 260]), focal=c, size=size, view_angle=30)
-    render.render(_items(bodies, meshes, nobase), os.path.join(DOCS, "detail_led_rear.png"),
-                  eye=c + np.array([-300, -420, 120]), focal=c, size=size, view_angle=30)
-    c = _w((-60, -30, 10))
-    render.render(_items(bodies, meshes, nobase), os.path.join(DOCS, "detail_rear_boards.png"),
-                  eye=c + np.array([260, -520, 300]), focal=c, size=size, view_angle=30)
-    c = pose.PIVOT_W + np.array([0, 0, -30])
-    render.render(_items(bodies, meshes, nomat), os.path.join(DOCS, "detail_pivot.png"),
-                  eye=c + np.array([-330, -280, 150]), focal=c, size=size, view_angle=28)
-    render.render(_items(bodies, meshes, nomat), os.path.join(DOCS, "detail_pivot_side.png"),
-                  eye=c + np.array([420, 0, 40]), focal=c, size=size, view_angle=28, up=(0, 0, 1))
-    c = np.array([pose.PIVOT_W[0], pose.PIVOT_W[1], 60.0])
-    render.render(_items(bodies, meshes, lambda b: nomat(b) and b.group in ("base", "ext", "pivot")), os.path.join(DOCS, "detail_hub_feet.png"),
-                  eye=c + np.array([420, 520, 520]), focal=c + np.array([0, -40, 0]), size=size, view_angle=34)
-    c = np.array([60.0, -250.0, 20.0])
-    render.render(_items(bodies, meshes, lambda b: b.group in ("tmpl", "ball", "ext", "base") or b.name in ("BALL",)),
-                  os.path.join(DOCS, "detail_template.png"),
-                  eye=c + np.array([380, 650, 380]), focal=c, size=size, view_angle=32)
-
-    # ---------- exploded view
+    itr = _items(bodies, meshes, norig)
+    cr = np.array([110.0, -470.0, 190.0])
+    render.render(it, os.path.join(DOCS, "assembly_overview.png"), eye=np.array([900, -1500, 750]), focal=np.array([90, -260, 130]), size=size, view_angle=30)
+    render.render(itr, os.path.join(DOCS, "assembly_iso.png"), eye=cr + np.array([650, -800, 420]), focal=cr, size=size, view_angle=30)
+    render.render(itr, os.path.join(DOCS, "assembly_iso_ball_side.png"), eye=cr + np.array([450, 700, 330]), focal=cr, size=size, view_angle=30)
+    render.render(itr, os.path.join(DOCS, "assembly_iso_back.png"), eye=cr + np.array([-600, -750, 400]), focal=cr, size=size, view_angle=30)
+    render.render(it, os.path.join(DOCS, "assembly_top.png"), eye=(110, -300, 2600), focal=(110, -300, 0), up=(0, 1, 0), size=size, parallel_scale=330)
+    render.render(it, os.path.join(DOCS, "assembly_side.png"), eye=(2600, -300, 150), focal=(110, -300, 150), size=size, parallel_scale=420)
+    render.render(it, os.path.join(DOCS, "assembly_front.png"), eye=(110, 2600, 200), focal=(110, -300, 200), size=size, parallel_scale=300)
+    render.render(it, os.path.join(DOCS, "assembly_rear.png"), eye=(110, -2600, 200), focal=(110, -300, 200), size=size, parallel_scale=300)
+    c = _w((0, 40, 20))
+    render.render(_items(bodies, meshes, norig), os.path.join(DOCS, "detail_cameras.png"), eye=c + np.array([250, 500, 330]), focal=c, size=size, view_angle=28)
+    c = _w((140, 60, -20))
+    render.render(_items(bodies, meshes, norig), os.path.join(DOCS, "detail_led.png"), eye=c + np.array([250, 380, 260]), focal=c, size=size, view_angle=30)
+    render.render(_items(bodies, meshes, lambda b: norig(b) and b.name != "SHIELD"), os.path.join(DOCS, "detail_led_back.png"), eye=c + np.array([-300, -420, 120]), focal=c, size=size, view_angle=30)
+    c = _w((60, -30, 80))
+    render.render(_items(bodies, meshes, lambda b: norig(b) and b.name != "EL-1"), os.path.join(DOCS, "detail_box.png"), eye=c + np.array([-250, -520, 300]), focal=c, size=size, view_angle=30)
+    render.render(_items(bodies, meshes, norig), os.path.join(DOCS, "detail_box_closed.png"), eye=c + np.array([-250, -520, 300]), focal=c, size=size, view_angle=30)
+    c = _w((P.TA_X, P.TA_Y * 0.6, -25))
+    hid = ("LT-1", "LED", "MOD", "SC-1", "SHIELD")
+    render.render(_items(bodies, meshes, lambda b: norig(b) and not b.name.startswith(hid)), os.path.join(DOCS, "detail_tripod.png"), eye=c + np.array([-300, -330, -120]), focal=c, size=size, view_angle=28)
+    c = np.array([60.0, -240.0, 20.0])
+    render.render(_items(bodies, meshes, lambda b: b.name in ("AC-1", "BALL")), os.path.join(DOCS, "detail_card.png"), eye=np.array([200, -380, 300]), focal=np.array([40, -20, 0]), size=size, view_angle=30)
     offs = explode_offsets(bodies)
-    expl = lambda b: nomat(b)
     c = ctr + np.array([0, -60, 20])
-    render.render(_items(bodies, meshes, expl, offs), os.path.join(DOCS, "exploded.png"),
-                  eye=c + np.array([1150, 900, 650]), focal=c, size=(1700, 1100), view_angle=32)
-    render.render(_items(bodies, meshes, expl, offs), os.path.join(DOCS, "exploded_side.png"),
-                  eye=c + np.array([2200, 0, 120]), focal=c, size=(1700, 1000), parallel_scale=560)
+    render.render(_items(bodies, meshes, norig, offs), os.path.join(DOCS, "exploded.png"), eye=c + np.array([1000, 900, 650]), focal=c, size=(1700, 1100), view_angle=32)
+    render.render(_items(bodies, meshes, norig, offs), os.path.join(DOCS, "exploded_side.png"), eye=c + np.array([2200, 0, 120]), focal=c, size=(1700, 1000), parallel_scale=480)
 
-    # ---------- one picture per printed part (print orientation)
     pics = []
+    grpmap = {"CM": "cam", "LT": "led", "SC": "shield", "EB": "box", "EL": "box", "TA": "tripod", "AC": "card"}
     for name, p in parts.items():
         w, _ = best_print(p.wp, p.up)
         m = to_mesh(w, 0.05, 0.2)
-        grp = {"CB": "cam", "YS": "cam", "CP": "cam", "FH": "cam", "FR": "cam", "LB": "led", "LC": "led", "LD": "led",
-               "DR": "pivot", "PV": "pivot", "MC": "pivot", "HB": "base", "FB": "base", "FP": "base", "KN": "base",
-               "BT": "tmpl", "CT": "tmpl", "SA": "shield", "LE": "led", "LP": "led", "SM": "led", "AL": "led", "OS": "tmpl", "MM": "tmpl"}.get(name[:2], "rear")
-        col = A.COLORS[grp]
+        col = A.COLORS[grpmap[name[:2]]]
         ctrp = m.bounds.mean(axis=0)
         diag = float(np.linalg.norm(m.extents))
         bed = trimesh.creation.box(extents=(max(m.extents[0], 40) + 20, max(m.extents[1], 40) + 20, 0.6))
@@ -167,16 +124,11 @@ def make_all(bodies, meshes, parts, rep):
         ax.axis("off")
     for ax, (name, qty, path, ext) in zip(axs.ravel(), pics):
         ax.imshow(Image.open(path))
-        ax.set_title("%s  x%d   %.0fx%.0fx%.0f mm" % (name, qty, ext[0], ext[1], ext[2]), fontsize=8)
+        ax.set_title("%s  %.0fx%.0fx%.0f mm" % (name, ext[0], ext[1], ext[2]), fontsize=8)
     fig.tight_layout()
     fig.savefig(os.path.join(DOCS, "parts_sheet.png"), dpi=110)
     plt.close(fig)
-
     fov_figure(bodies, rep)
-    # remove scratch files
-    for f in os.listdir(DOCS):
-        if f.startswith("_t_"):
-            os.remove(os.path.join(DOCS, f))
 
 
 def fov_figure(bodies, rep):
@@ -207,7 +159,7 @@ def fov_figure(bodies, rep):
         ax.set_xlim(-hu - 8, hu + 8)
         ax.set_ylim(-hv - 6, hv + 6)
         ax.set_aspect("equal")
-        ax.set_title("camera %s (x = %+.0f mm): image of ball and flight (dots at 100/200/250 mm)" % (C.side_tag(side), side * P.BASELINE / 2), fontsize=9)
+        ax.set_title("camera %s (x = %+.0f mm): image of ball and flight (dots at 100/200/250 mm)" % (tag(side), side * P.BASELINE / 2), fontsize=9)
         ax.set_xlabel("azimuth in image [deg]  (+ = down-range)")
         ax.set_ylabel("elevation [deg]")
         ax.grid(alpha=0.3)

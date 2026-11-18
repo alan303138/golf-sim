@@ -2,478 +2,142 @@
  "stl": {
   "ok": true,
   "parts": {
-   "CB-1R": {
+   "CM-1R": {
     "extents": [
-     104.0,
-     32.6,
-     11.6
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 32976,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "CB-1L": {
-    "extents": [
-     104.0,
-     32.6,
-     11.6
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 32974,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "YS-1": {
-    "extents": [
-     66.8,
-     66.0,
-     70.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 51815,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "CP-1": {
-    "extents": [
-     54.0,
-     54.6,
-     12.1
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 18777,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "FH-1": {
-    "extents": [
-     57.0,
-     57.0,
-     51.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 37019,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "FR-1": {
-    "extents": [
-     57.0,
-     57.0,
-     4.6
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 8278,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "LE-1R": {
-    "extents": [
-     29.0,
-     40.0,
+     80.0,
+     110.5,
      50.0
     ],
     "fits": true,
     "watertight": true,
     "winding": true,
-    "volume_mm3": 23058,
+    "volume_mm3": 104202,
     "bodies": 1,
     "on_bed": true,
     "ok": true
    },
-   "LD-2R": {
+   "LT-1R": {
     "extents": [
-     149.0,
-     97.0,
-     31.6
+     142.1,
+     99.0,
+     96.0
     ],
     "fits": true,
     "watertight": true,
     "winding": true,
-    "volume_mm3": 92352,
+    "volume_mm3": 270374,
     "bodies": 1,
     "on_bed": true,
     "ok": true
    },
-   "LE-1L": {
+   "SC-1R": {
     "extents": [
-     29.0,
-     40.0,
-     50.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 23057,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "LD-2L": {
-    "extents": [
-     149.0,
-     97.0,
-     31.6
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 92351,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "LP-2": {
-    "extents": [
-     134.0,
-     94.0,
-     11.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 74016,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "SM-1": {
-    "extents": [
-     96.0,
-     76.0,
-     10.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 30339,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "AL-1": {
-    "extents": [
-     34.0,
-     23.0,
-     22.6
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 15350,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "DR-1": {
-    "extents": [
-     80.8,
-     64.0,
-     50.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 161049,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "PV-1": {
-    "extents": [
-     68.4,
-     61.5,
-     66.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 63244,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "MC-1": {
-    "extents": [
-     48.0,
-     60.6,
+     171.0,
+     132.0,
      34.0
     ],
     "fits": true,
     "watertight": true,
     "winding": true,
-    "volume_mm3": 33724,
+    "volume_mm3": 52157,
     "bodies": 1,
     "on_bed": true,
     "ok": true
    },
-   "HB-1": {
+   "CM-1L": {
     "extents": [
-     141.3,
-     154.0,
+     80.0,
+     111.7,
+     50.0
+    ],
+    "fits": true,
+    "watertight": true,
+    "winding": true,
+    "volume_mm3": 104116,
+    "bodies": 1,
+    "on_bed": true,
+    "ok": true
+   },
+   "LT-1L": {
+    "extents": [
+     142.1,
+     99.0,
+     96.0
+    ],
+    "fits": true,
+    "watertight": true,
+    "winding": true,
+    "volume_mm3": 270373,
+    "bodies": 1,
+    "on_bed": true,
+    "ok": true
+   },
+   "SC-1L": {
+    "extents": [
+     171.0,
+     132.0,
+     34.0
+    ],
+    "fits": true,
+    "watertight": true,
+    "winding": true,
+    "volume_mm3": 52156,
+    "bodies": 1,
+    "on_bed": true,
+    "ok": true
+   },
+   "EB-1": {
+    "extents": [
+     207.0,
+     193.0,
      44.0
     ],
     "fits": true,
     "watertight": true,
     "winding": true,
-    "volume_mm3": 150567,
+    "volume_mm3": 334589,
     "bodies": 1,
     "on_bed": true,
     "ok": true
    },
-   "FB-1": {
+   "EL-1": {
     "extents": [
-     56.0,
-     34.0,
-     30.6
+     207.0,
+     193.0,
+     3.6
     ],
     "fits": true,
     "watertight": true,
     "winding": true,
-    "volume_mm3": 44722,
+    "volume_mm3": 119107,
     "bodies": 1,
     "on_bed": true,
     "ok": true
    },
-   "FP-1": {
+   "TA-1": {
     "extents": [
-     36.0,
-     36.0,
-     10.6
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 8919,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "KN-1": {
-    "extents": [
-     33.0,
-     33.0,
-     14.6
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 9281,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "BA-1": {
-    "extents": [
-     30.0,
-     20.6,
-     30.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 15500,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "PI-1": {
-    "extents": [
-     140.0,
-     68.0,
+     60.6,
+     102.1,
      12.0
     ],
     "fits": true,
     "watertight": true,
     "winding": true,
-    "volume_mm3": 39096,
+    "volume_mm3": 69926,
     "bodies": 1,
     "on_bed": true,
     "ok": true
    },
-   "PB-2": {
+   "AC-1": {
     "extents": [
-     170.0,
-     108.0,
-     12.0
+     216.0,
+     200.0,
+     9.0
     ],
     "fits": true,
     "watertight": true,
     "winding": true,
-    "volume_mm3": 74611,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "RJ-1": {
-    "extents": [
-     76.0,
-     44.0,
-     78.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 50444,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "SA-1R": {
-    "extents": [
-     116.0,
-     128.0,
-     34.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 45857,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "SA-1L": {
-    "extents": [
-     116.0,
-     128.0,
-     34.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 45856,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "SG-1F": {
-    "extents": [
-     34.0,
-     28.0,
-     42.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 8695,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "SG-1R": {
-    "extents": [
-     34.0,
-     28.0,
-     42.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 8758,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "CC-1": {
-    "extents": [
-     32.0,
-     20.5,
-     20.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 5650,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "BT-1": {
-    "extents": [
-     97.0,
-     105.0,
-     27.4
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 73278,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "BT-2": {
-    "extents": [
-     28.5,
-     88.0,
-     28.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 30799,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "CT-1": {
-    "extents": [
-     130.0,
-     90.0,
-     34.0
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 112675,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "OS-1": {
-    "extents": [
-     26.5,
-     28.0,
-     22.9
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 11834,
-    "bodies": 1,
-    "on_bed": true,
-    "ok": true
-   },
-   "MM-1": {
-    "extents": [
-     32.0,
-     64.0,
-     8.6
-    ],
-    "fits": true,
-    "watertight": true,
-    "winding": true,
-    "volume_mm3": 14255,
+    "volume_mm3": 164976,
     "bodies": 1,
     "on_bed": true,
     "ok": true
@@ -482,8 +146,8 @@
  },
  "interference": {
   "ok": true,
-  "bodies": 99,
-  "pairs_tested": 253,
+  "bodies": 44,
+  "pairs_tested": 129,
   "threshold_mm3": 0.5,
   "overlaps": [],
   "skipped": []
@@ -498,50 +162,50 @@
   "cams": {
    "R": {
     "pupil_world": [
-     189.3,
+     190.0,
      -474.8,
      254.9
     ],
     "ball_distance_mm": 562,
-    "ball_margin_deg": 1.45,
+    "ball_margin_deg": 1.39,
     "ball_visible": true,
     "rays": 221,
     "rays_clipped": 0,
     "clipped_by": [],
-    "shield_edge_margin_mm": 35.1,
+    "shield_edge_margin_mm": 26.8,
     "shield_covers_all_rays": true,
     "downrange_mm_at_launch_deg": {
-     "0": 262.0,
-     "15": 258.0,
-     "30": 254.0,
+     "0": 264.0,
+     "15": 260.0,
+     "30": 256.0,
      "45": 172.0
     }
    },
    "L": {
     "pupil_world": [
-     46.7,
+     30.0,
      -475.2,
      255.1
     ],
-    "ball_distance_mm": 532,
-    "ball_margin_deg": 1.01,
+    "ball_distance_mm": 530,
+    "ball_margin_deg": 1.31,
     "ball_visible": true,
     "rays": 221,
     "rays_clipped": 0,
     "clipped_by": [],
-    "shield_edge_margin_mm": 34.7,
+    "shield_edge_margin_mm": 26.3,
     "shield_covers_all_rays": true,
     "downrange_mm_at_launch_deg": {
      "0": 270.0,
      "15": 260.0,
      "30": 250.0,
-     "45": 174.0
+     "45": 176.0
     }
    }
   },
   "both_cameras_downrange_mm_at_launch_deg": {
-   "0": 262.0,
-   "15": 258.0,
+   "0": 264.0,
+   "15": 260.0,
    "30": 250.0,
    "45": 172.0
   },
@@ -555,16 +219,17 @@
  "led": {
   "ok": true,
   "emitters": 36,
+  "emission_half_angle_deg": 100.0,
   "cams": {
    "R": {
     "segments": 612,
     "direct_lines": 0,
     "outside_emission_cone": 0,
     "blocked_inside_cone": 612,
-    "min_angle_off_led_axis_deg": 90.3,
+    "min_angle_off_led_axis_deg": 89.2,
     "blocked_by": {
-     "LD-2R": 306,
-     "LD-2L": 306
+     "LT-1R": 306,
+     "LT-1L": 306
     }
    },
    "L": {
@@ -572,1536 +237,434 @@
     "direct_lines": 0,
     "outside_emission_cone": 0,
     "blocked_inside_cone": 612,
-    "min_angle_off_led_axis_deg": 90.3,
+    "min_angle_off_led_axis_deg": 89.1,
     "blocked_by": {
-     "LD-2R": 306,
-     "LD-2L": 306
+     "LT-1R": 306,
+     "LT-1L": 306
     }
    }
   },
-  "baffle_alone_bare_lens": {
+  "led_mount_alone_bare_lens": {
    "R": {
     "segments": 612,
     "direct_lines": 0,
-    "outside_emission_cone": 0,
-    "blocked_inside_cone": 612,
-    "min_angle_off_led_axis_deg": 91.3,
+    "outside_emission_cone": 4,
+    "blocked_inside_cone": 608,
+    "min_angle_off_led_axis_deg": 91.4,
     "blocked_by": {
-     "LD-2R": 306,
-     "LD-2L": 306
+     "LT-1L": 306,
+     "LT-1R": 302
     }
    },
    "L": {
     "segments": 612,
     "direct_lines": 0,
-    "outside_emission_cone": 0,
-    "blocked_inside_cone": 612,
-    "min_angle_off_led_axis_deg": 91.3,
+    "outside_emission_cone": 7,
+    "blocked_inside_cone": 605,
+    "min_angle_off_led_axis_deg": 91.4,
     "blocked_by": {
-     "LD-2R": 306,
-     "LD-2L": 306
+     "LT-1R": 306,
+     "LT-1L": 299
     }
    }
   },
-  "control_bare_lens_no_baffle": {
+  "control_no_led_mount": {
    "R": {
     "segments": 612,
-    "direct_lines": 612,
-    "outside_emission_cone": 0,
+    "direct_lines": 608,
+    "outside_emission_cone": 4,
     "blocked_inside_cone": 0,
-    "min_angle_off_led_axis_deg": 91.3,
+    "min_angle_off_led_axis_deg": 91.4,
     "blocked_by": {}
    },
    "L": {
     "segments": 612,
-    "direct_lines": 612,
-    "outside_emission_cone": 0,
-    "blocked_inside_cone": 0,
-    "min_angle_off_led_axis_deg": 91.3,
-    "blocked_by": {}
+    "direct_lines": 599,
+    "outside_emission_cone": 7,
+    "blocked_inside_cone": 6,
+    "min_angle_off_led_axis_deg": 91.4,
+    "blocked_by": {
+     "TA-1": 6
+    }
    }
   },
   "control_finds_lines": true,
+  "control_no_baffle_wing": {
+   "R": {
+    "segments": 612,
+    "direct_lines": 0,
+    "outside_emission_cone": 4,
+    "blocked_inside_cone": 608,
+    "min_angle_off_led_axis_deg": 91.4,
+    "blocked_by": {
+     "LT-1L-nowing": 306,
+     "LT-1R-nowing": 302
+    }
+   },
+   "L": {
+    "segments": 612,
+    "direct_lines": 0,
+    "outside_emission_cone": 7,
+    "blocked_inside_cone": 605,
+    "min_angle_off_led_axis_deg": 91.4,
+    "blocked_by": {
+     "LT-1R-nowing": 306,
+     "LT-1L-nowing": 299
+    }
+   }
+  },
   "emitters_with_clear_path_to_ball": 36,
   "ball_illuminated": true
  },
- "stability": {
-  "ok": true,
-  "feet_xy": [
-   [
-    361.9,
-    -452.1
-   ],
-   [
-    -129.3,
-    -452.1
-   ],
-   [
-    116.3,
-    -837.6
-   ]
+ "com": {
+  "head_mass_g": 2456,
+  "com_bf_mm": [
+   15.5,
+   44.4,
+   3.6
   ],
-  "cases": {
-   "0.0": {
-    "com": [
-     108.8,
-     -540.2,
-     182.6
-    ],
-    "total_mass_g": 2987,
-    "margin_mm": 88.2
-   },
-   "17.0": {
-    "com": [
-     108.8,
-     -531.7,
-     173.4
-    ],
-    "total_mass_g": 2987,
-    "margin_mm": 79.6
-   },
-   "25.0": {
-    "com": [
-     108.8,
-     -528.7,
-     168.3
-    ],
-    "total_mass_g": 2987,
-    "margin_mm": 76.7
-   },
-   "lens 300 mm, pitch 25": {
-    "com": [
-     108.9,
-     -529.0,
-     202.8
-    ],
-    "total_mass_g": 3010,
-    "margin_mm": 76.9
-   }
-  },
-  "tip_angle_deg_at_max_pitch": 24.5,
-  "tip_angle_deg_at_300mm_max_pitch": 20.8
+  "com_world_mm": [
+   125.5,
+   -511.1,
+   233.2
+  ],
+  "stud_world_mm": [
+   125.2,
+   -511.2,
+   206.5
+  ],
+  "horizontal_offset_com_to_stud_mm": [
+   0.3,
+   0.1
+  ],
+  "offset_mm": 0.4,
+  "tipping_torque_Nm": 0.009,
+  "stud_height_above_mat_mm": 206.5,
+  "pitch_deg": 17.0,
+  "ok": true,
+  "note": "COM from meshes of printed parts and proxies (printed mass at 50% infill estimate); recommended stud position in BF for zero offset is reported by recommend_stud()"
  },
+ "stud_recommended": [
+  15.525950003070704,
+  52.24335693863075
+ ],
  "fpc": {
   "ok": true,
   "paths_mm": {
-   "CSI0->R": 165,
-   "CSI0->L": 165,
-   "CSI1->R": 176,
-   "CSI1->L": 154
+   "CSI0->R": 167,
+   "CSI0->L": 182,
+   "CSI1->R": 182,
+   "CSI1->L": 167
   },
-  "best_assignment_longest_mm": 165,
+  "best_assignment_longest_mm": 167,
   "limit_mm": 200.0
  },
- "glare": {
-  "ok": true,
-  "cams": {
-   "R": {
-    "reflections_inside_fov_on_sheet": 0,
-    "closest_to_fov_edge_deg": 30.3
-   },
-   "L": {
-    "reflections_inside_fov_on_sheet": 0,
-    "closest_to_fov_edge_deg": 31.2
-   }
-  }
- },
- "lens_height": {
-  "rows": [
-   {
-    "pitch_deg": 15.0,
-    "min_lens_height_mm_feet_retracted": 208,
-    "min_lens_height_mm_nominal_feet": 222
-   },
-   {
-    "pitch_deg": 17.0,
-    "min_lens_height_mm_feet_retracted": 205,
-    "min_lens_height_mm_nominal_feet": 219
-   },
-   {
-    "pitch_deg": 25.0,
-    "min_lens_height_mm_feet_retracted": 191,
-    "min_lens_height_mm_nominal_feet": 205
-   }
-  ],
-  "cut_mast_mm": 100.3,
-  "height_with_this_mast_mm": {
-   "15.0": [
-    244,
-    258,
-    274
-   ],
-   "17.0": [
-    241,
-    255,
-    271
-   ],
-   "25.0": [
-    228,
-    242,
-    258
-   ]
-  }
- },
  "overhang": {
-  "CB-1R": {
-   "sloped_overhang_mm2": 3.2,
-   "horizontal_mm2": 161.3,
-   "max_bridge_span_mm": 5.6,
+  "CM-1R": {
+   "sloped_overhang_mm2": 63.2,
+   "horizontal_mm2": 944.9,
+   "max_bridge_span_mm": 21.2,
    "widest_bridge_patch": [
-    24.6,
+    636.9,
     [
-     0.0,
-     0.3,
-     5.5
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "CB-1L": {
-   "sloped_overhang_mm2": 2.5,
-   "horizontal_mm2": 160.4,
-   "max_bridge_span_mm": 5.6,
-   "widest_bridge_patch": [
-    24.6,
-    [
-     0.0,
-     0.3,
-     5.5
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "YS-1": {
-   "sloped_overhang_mm2": 67.1,
-   "horizontal_mm2": 352.4,
-   "max_bridge_span_mm": 10.7,
-   "widest_bridge_patch": [
-    287.8,
-    [
-     0.3,
-     6.1,
-     64.0
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "CP-1": {
-   "sloped_overhang_mm2": 81.2,
-   "horizontal_mm2": 91.6,
-   "max_bridge_span_mm": 4.2,
-   "widest_bridge_patch": [
-    13.8,
-    [
-     -21.0,
-     -21.4,
-     5.7
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "FH-1": {
-   "sloped_overhang_mm2": 0.2,
-   "horizontal_mm2": 806.7,
-   "max_bridge_span_mm": 16.4,
-   "widest_bridge_patch": [
-    802.4,
-    [
-     0.0,
-     0.0,
-     46.5
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "FR-1": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 0.0,
-   "max_bridge_span_mm": 0.0,
-   "widest_bridge_patch": null,
-   "needs_support_review": false
-  },
-  "LE-1R": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 804.4,
-   "max_bridge_span_mm": 8.7,
-   "widest_bridge_patch": [
-    636.5,
-    [
-     1.3,
-     11.9,
-     44.0
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "LD-2R": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 6625.0,
-   "max_bridge_span_mm": 20.5,
-   "widest_bridge_patch": [
-    4664.4,
-    [
-     10.7,
-     -45.0,
-     0.6
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "LE-1L": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 803.6,
-   "max_bridge_span_mm": 8.7,
-   "widest_bridge_patch": [
-    638.3,
-    [
-     0.2,
-     10.5,
-     44.0
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "LD-2L": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 6626.5,
-   "max_bridge_span_mm": 20.6,
-   "widest_bridge_patch": [
-    4667.3,
-    [
-     -6.0,
-     -44.8,
-     0.6
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "LP-2": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 76.7,
-   "max_bridge_span_mm": 2.6,
-   "widest_bridge_patch": [
-    19.2,
-    [
-     -61.0,
-     41.0,
-     3.4
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "SM-1": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 0.0,
-   "max_bridge_span_mm": 0.0,
-   "widest_bridge_patch": null,
-   "needs_support_review": false
-  },
-  "AL-1": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 0.0,
-   "max_bridge_span_mm": 0.0,
-   "widest_bridge_patch": null,
-   "needs_support_review": false
-  },
-  "DR-1": {
-   "sloped_overhang_mm2": 68.8,
-   "horizontal_mm2": 447.3,
-   "max_bridge_span_mm": 9.1,
-   "widest_bridge_patch": [
-    121.3,
-    [
-     -28.2,
-     14.3,
-     7.0
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "PV-1": {
-   "sloped_overhang_mm2": 275.3,
-   "horizontal_mm2": 183.5,
-   "max_bridge_span_mm": 5.8,
-   "widest_bridge_patch": [
-    36.1,
-    [
-     30.9,
-     27.7,
-     38.0
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "MC-1": {
-   "sloped_overhang_mm2": 36.0,
-   "horizontal_mm2": 114.3,
-   "max_bridge_span_mm": 5.6,
-   "widest_bridge_patch": [
-    24.6,
-    [
-     -14.0,
+     0.5,
      22.3,
-     5.5
+     46.0
     ]
    ],
    "needs_support_review": false
   },
-  "HB-1": {
-   "sloped_overhang_mm2": 34.4,
-   "horizontal_mm2": 2631.4,
-   "max_bridge_span_mm": 23.9,
-   "widest_bridge_patch": [
-    873.0,
-    [
-     -44.9,
-     13.9,
-     25.2
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "FB-1": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 565.3,
-   "max_bridge_span_mm": 18.3,
-   "widest_bridge_patch": [
-    505.8,
-    [
-     -15.1,
-     -0.0,
-     25.2
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "FP-1": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 292.5,
-   "max_bridge_span_mm": 13.8,
-   "widest_bridge_patch": [
-    292.5,
-    [
-     -0.0,
-     -0.0,
-     1.6
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "KN-1": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 95.5,
-   "max_bridge_span_mm": 10.5,
-   "widest_bridge_patch": [
-    95.5,
-    [
-     0.0,
-     0.0,
-     5.2
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "BA-1": {
+  "LT-1R": {
    "sloped_overhang_mm2": 1.0,
-   "horizontal_mm2": 95.2,
-   "max_bridge_span_mm": 4.9,
+   "horizontal_mm2": 4887.0,
+   "max_bridge_span_mm": 23.0,
    "widest_bridge_patch": [
-    61.9,
+    4117.0,
     [
-     -0.0,
-     0.3,
-     26.0
+     10.9,
+     -1.0,
+     60.4
     ]
    ],
    "needs_support_review": false
   },
-  "PI-1": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 0.0,
-   "max_bridge_span_mm": 0.0,
-   "widest_bridge_patch": null,
-   "needs_support_review": false
-  },
-  "PB-2": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 0.0,
-   "max_bridge_span_mm": 0.0,
-   "widest_bridge_patch": null,
-   "needs_support_review": false
-  },
-  "RJ-1": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 61.9,
-   "max_bridge_span_mm": 4.9,
+  "SC-1R": {
+   "sloped_overhang_mm2": 3.6,
+   "horizontal_mm2": 5.0,
+   "max_bridge_span_mm": 1.0,
    "widest_bridge_patch": [
-    61.9,
+    1.7,
     [
-     2.0,
-     0.0,
-     74.0
+     33.8,
+     -60.6,
+     14.7
     ]
    ],
    "needs_support_review": false
   },
-  "SA-1R": {
-   "sloped_overhang_mm2": 5.2,
+  "CM-1L": {
+   "sloped_overhang_mm2": 63.2,
+   "horizontal_mm2": 944.9,
+   "max_bridge_span_mm": 21.2,
+   "widest_bridge_patch": [
+    636.9,
+    [
+     -1.0,
+     21.3,
+     46.0
+    ]
+   ],
+   "needs_support_review": false
+  },
+  "LT-1L": {
+   "sloped_overhang_mm2": 0.3,
+   "horizontal_mm2": 4886.3,
+   "max_bridge_span_mm": 23.0,
+   "widest_bridge_patch": [
+    4117.0,
+    [
+     -11.9,
+     -1.0,
+     60.4
+    ]
+   ],
+   "needs_support_review": false
+  },
+  "SC-1L": {
+   "sloped_overhang_mm2": 3.2,
    "horizontal_mm2": 4.4,
    "max_bridge_span_mm": 1.0,
    "widest_bridge_patch": [
     1.7,
     [
-     -45.7,
-     -58.6,
-     14.8
+     -33.8,
+     -60.5,
+     20.8
     ]
    ],
    "needs_support_review": false
   },
-  "SA-1L": {
-   "sloped_overhang_mm2": 4.8,
-   "horizontal_mm2": 3.8,
-   "max_bridge_span_mm": 1.0,
-   "widest_bridge_patch": [
-    1.7,
-    [
-     45.7,
-     -58.5,
-     20.7
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "SG-1F": {
+  "EB-1": {
    "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 3.6,
-   "max_bridge_span_mm": 1.7,
+   "horizontal_mm2": 336.0,
+   "max_bridge_span_mm": 5.7,
    "widest_bridge_patch": [
-    3.6,
+    156.0,
     [
-     15.5,
-     0.0,
-     34.0
+     -102.0,
+     -40.5,
+     36.0
     ]
    ],
    "needs_support_review": false
   },
-  "SG-1R": {
-   "sloped_overhang_mm2": 3.3,
-   "horizontal_mm2": 1.2,
-   "max_bridge_span_mm": 0.7,
-   "widest_bridge_patch": [
-    1.2,
-    [
-     -15.5,
-     0.0,
-     25.0
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "CC-1": {
-   "sloped_overhang_mm2": 2.1,
-   "horizontal_mm2": 103.1,
-   "max_bridge_span_mm": 3.4,
-   "widest_bridge_patch": [
-    50.4,
-    [
-     0.0,
-     4.4,
-     18.5
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "BT-1": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 733.9,
-   "max_bridge_span_mm": 22.1,
-   "widest_bridge_patch": [
-    733.9,
-    [
-     13.5,
-     -32.8,
-     20.4
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "BT-2": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 875.4,
-   "max_bridge_span_mm": 23.2,
-   "widest_bridge_patch": [
-    815.9,
-    [
-     -0.0,
-     20.8,
-     20.4
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "CT-1": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 733.9,
-   "max_bridge_span_mm": 22.1,
-   "widest_bridge_patch": [
-    733.9,
-    [
-     0.0,
-     -25.3,
-     20.4
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "OS-1": {
-   "sloped_overhang_mm2": 0.0,
-   "horizontal_mm2": 333.9,
-   "max_bridge_span_mm": 17.1,
-   "widest_bridge_patch": [
-    333.9,
-    [
-     0.0,
-     0.0,
-     18.6
-    ]
-   ],
-   "needs_support_review": false
-  },
-  "MM-1": {
+  "EL-1": {
    "sloped_overhang_mm2": 0.0,
    "horizontal_mm2": 0.0,
    "max_bridge_span_mm": 0.0,
    "widest_bridge_patch": null,
    "needs_support_review": false
-  }
- },
- "motion": {
-  "ok": true,
-  "cases": {
-   "head pitch -3 deg": [],
-   "head pitch 0 deg": [],
-   "head pitch 15 deg": [],
-   "head pitch 25 deg": [],
-   "head pitch 30 deg": [],
-   "camera R yaw -5 deg": [],
-   "camera R yaw +5 deg": [],
-   "camera R tilt -4 deg": [],
-   "camera R tilt +4 deg": [],
-   "camera L yaw -5 deg": [],
-   "camera L yaw +5 deg": [],
-   "camera L tilt -4 deg": [],
-   "camera L tilt +4 deg": []
+  },
+  "TA-1": {
+   "sloped_overhang_mm2": 0.0,
+   "horizontal_mm2": 106.2,
+   "max_bridge_span_mm": 4.2,
+   "widest_bridge_patch": [
+    50.8,
+    [
+     -22.3,
+     -41.0,
+     3.2
+    ]
+   ],
+   "needs_support_review": false
+  },
+  "AC-1": {
+   "sloped_overhang_mm2": 0.0,
+   "horizontal_mm2": 115.2,
+   "max_bridge_span_mm": 9.3,
+   "widest_bridge_patch": [
+    115.2,
+    [
+     97.3,
+     0.0,
+     3.9
+    ]
+   ],
+   "needs_support_review": false
   }
  },
  "beam": {
   "area_mm2": 191.9,
   "I_mm4": 7862,
   "E_N_per_mm2": 70000.0,
-  "head_load_N": 18.7,
-  "right_camera_sag_um": 4.2,
-  "left_camera_sag_um": 5.2,
-  "LED_board_(right)_sag_um": 10.3,
-  "note": "hand calculation: beam treated as clamped at the pitch drum with every head mass as a point load; printed camera stages are NOT included (they set the pointing, so the stereo extrinsics must be calibrated in software)"
+  "head_load_N": 21.6,
+  "right_camera_sag_um": 3.2,
+  "left_camera_sag_um": 6.4,
+  "right_LED_board_sag_um": 9.2,
+  "note": "hand calculation: beam clamped at the tripod stud, head masses as point loads; the cameras' pointing is set by the printed mounts, extrinsics must be calibrated in software"
  },
  "wall_scan": {
-  "CB-1R": {
-   "thin_area_mm2": 136.8,
-   "thin_fraction": 0.0132,
-   "min_thickness_mm": 0.05,
+  "CM-1R": {
+   "thin_area_mm2": 60.2,
+   "thin_fraction": 0.0017,
+   "min_thickness_mm": 0.4,
    "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      120,
-      0,
-      0
-     ],
-     "samples": 16,
-     "min_mm": 0.07
-    },
-    {
-     "cell_xyz_mm": [
-      30,
-      -10,
-      0
-     ],
-     "samples": 15,
-     "min_mm": 0.05
-    },
-    {
-     "cell_xyz_mm": [
-      120,
-      -10,
-      0
-     ],
-     "samples": 13,
-     "min_mm": 0.31
-    },
     {
      "cell_xyz_mm": [
       70,
-      10,
+      -10,
       10
      ],
-     "samples": 13,
-     "min_mm": 0.41
-    }
-   ]
-  },
-  "CB-1L": {
-   "thin_area_mm2": 138.4,
-   "thin_fraction": 0.0133,
-   "min_thickness_mm": 0.05,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      -40,
-      0,
-      0
-     ],
-     "samples": 18,
-     "min_mm": 0.06
+     "samples": 6,
+     "min_mm": 0.4
     },
     {
      "cell_xyz_mm": [
-      -130,
-      0,
-      0
-     ],
-     "samples": 15,
-     "min_mm": 0.09
-    },
-    {
-     "cell_xyz_mm": [
-      -90,
-      10,
+      80,
+      -10,
       10
      ],
-     "samples": 15,
-     "min_mm": 0.41
-    },
-    {
-     "cell_xyz_mm": [
-      -40,
-      -10,
-      0
-     ],
-     "samples": 13,
-     "min_mm": 0.05
+     "samples": 4,
+     "min_mm": 0.43
     }
    ]
   },
-  "YS-1": {
-   "thin_area_mm2": 35.9,
-   "thin_fraction": 0.0017,
-   "min_thickness_mm": 0.36,
+  "LT-1R": {
+   "thin_area_mm2": 19.9,
+   "thin_fraction": 0.0002,
+   "min_thickness_mm": 0.47,
    "worst_cells": [
     {
      "cell_xyz_mm": [
-      -10,
-      -20,
-      0
-     ],
-     "samples": 7,
-     "min_mm": 0.39
-    },
-    {
-     "cell_xyz_mm": [
-      0,
-      -20,
-      0
-     ],
-     "samples": 3,
-     "min_mm": 0.36
-    }
-   ]
-  },
-  "CP-1": {
-   "thin_area_mm2": 31.5,
-   "thin_fraction": 0.0037,
-   "min_thickness_mm": 0.36,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      0,
+      190,
       30,
-      60
-     ],
-     "samples": 12,
-     "min_mm": 0.36
-    },
-    {
-     "cell_xyz_mm": [
-      -10,
-      30,
-      60
-     ],
-     "samples": 10,
-     "min_mm": 0.41
-    }
-   ]
-  },
-  "FH-1": {
-   "thin_area_mm2": 20.7,
-   "thin_fraction": 0.001,
-   "min_thickness_mm": 0.29,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      20,
-      40,
-      30
-     ],
-     "samples": 3,
-     "min_mm": 0.33
-    },
-    {
-     "cell_xyz_mm": [
-      20,
-      30,
-      30
-     ],
-     "samples": 2,
-     "min_mm": 0.37
-    },
-    {
-     "cell_xyz_mm": [
-      20,
-      40,
-      40
+      -20
      ],
      "samples": 1,
-     "min_mm": 0.29
+     "min_mm": 0.47
     }
    ]
   },
-  "FR-1": {
-   "thin_area_mm2": 25.4,
-   "thin_fraction": 0.0047,
-   "min_thickness_mm": 0.26,
+  "SC-1R": {
+   "thin_area_mm2": 61.6,
+   "thin_fraction": 0.003,
+   "min_thickness_mm": 0.32,
    "worst_cells": [
     {
      "cell_xyz_mm": [
+      200,
       -10,
-      90,
-      10
-     ],
-     "samples": 18,
-     "min_mm": 0.33
-    },
-    {
-     "cell_xyz_mm": [
-      0,
-      90,
-      10
+      20
      ],
      "samples": 10,
-     "min_mm": 0.26
-    }
-   ]
-  },
-  "LE-1R": {
-   "thin_area_mm2": 119.4,
-   "thin_fraction": 0.0158,
-   "min_thickness_mm": 0.26,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      190,
-      10,
-      0
-     ],
-     "samples": 21,
-     "min_mm": 0.26
+     "min_mm": 0.32
     },
     {
      "cell_xyz_mm": [
       190,
-      50,
-      -10
+      -10,
+      20
      ],
-     "samples": 15,
-     "min_mm": 2.0
+     "samples": 3,
+     "min_mm": 1.78
     },
     {
      "cell_xyz_mm": [
       210,
-      10,
-      0
-     ],
-     "samples": 13,
-     "min_mm": 2.1
-    },
-    {
-     "cell_xyz_mm": [
-      200,
-      10,
-      0
-     ],
-     "samples": 11,
-     "min_mm": 0.36
-    }
-   ]
-  },
-  "LD-2R": {
-   "thin_area_mm2": 37.1,
-   "thin_fraction": 0.0012,
-   "min_thickness_mm": 0.31,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      140,
-      90,
-      -80
-     ],
-     "samples": 4,
-     "min_mm": 0.33
-    },
-    {
-     "cell_xyz_mm": [
-      140,
-      90,
-      -70
-     ],
-     "samples": 2,
-     "min_mm": 0.31
-    },
-    {
-     "cell_xyz_mm": [
-      130,
-      90,
-      -80
-     ],
-     "samples": 1,
-     "min_mm": 0.37
-    }
-   ]
-  },
-  "LE-1L": {
-   "thin_area_mm2": 114.3,
-   "thin_fraction": 0.0152,
-   "min_thickness_mm": 0.29,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      -200,
-      50,
-      -10
-     ],
-     "samples": 18,
-     "min_mm": 2.0
-    },
-    {
-     "cell_xyz_mm": [
-      -200,
-      10,
-      0
-     ],
-     "samples": 16,
-     "min_mm": 0.29
-    },
-    {
-     "cell_xyz_mm": [
-      -220,
-      10,
-      -10
-     ],
-     "samples": 11,
-     "min_mm": 2.1
-    },
-    {
-     "cell_xyz_mm": [
-      -190,
-      10,
-      0
-     ],
-     "samples": 11,
-     "min_mm": 2.12
-    }
-   ]
-  },
-  "LD-2L": {
-   "thin_area_mm2": 26.5,
-   "thin_fraction": 0.0008,
-   "min_thickness_mm": 0.33,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      -150,
-      90,
-      -80
-     ],
-     "samples": 2,
-     "min_mm": 0.33
-    },
-    {
-     "cell_xyz_mm": [
-      -150,
-      90,
-      -70
-     ],
-     "samples": 1,
-     "min_mm": 0.37
-    },
-    {
-     "cell_xyz_mm": [
-      -140,
-      90,
-      -70
-     ],
-     "samples": 1,
-     "min_mm": 0.33
-    },
-    {
-     "cell_xyz_mm": [
-      -140,
-      90,
-      -80
-     ],
-     "samples": 1,
-     "min_mm": 0.36
-    }
-   ]
-  },
-  "LP-2": {
-   "thin_area_mm2": 19.9,
-   "thin_fraction": 0.0007,
-   "min_thickness_mm": 0.44,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
       -10,
-      60,
-      10
+      20
      ],
      "samples": 3,
-     "min_mm": 0.47
+     "min_mm": 0.35
     },
     {
      "cell_xyz_mm": [
-      0,
-      60,
+      190,
+      -10,
       10
+     ],
+     "samples": 1,
+     "min_mm": 2.06
+    }
+   ]
+  },
+  "CM-1L": {
+   "thin_area_mm2": 42.1,
+   "thin_fraction": 0.0012,
+   "min_thickness_mm": 0.36,
+   "worst_cells": [
+    {
+     "cell_xyz_mm": [
+      -90,
+      -10,
+      10
+     ],
+     "samples": 6,
+     "min_mm": 0.38
+    },
+    {
+     "cell_xyz_mm": [
+      -80,
+      -10,
+      10
+     ],
+     "samples": 1,
+     "min_mm": 0.36
+    }
+   ]
+  },
+  "LT-1L": {
+   "thin_area_mm2": 39.7,
+   "thin_fraction": 0.0003,
+   "min_thickness_mm": 0.41,
+   "worst_cells": [
+    {
+     "cell_xyz_mm": [
+      -210,
+      40,
+      -20
+     ],
+     "samples": 1,
+     "min_mm": 0.41
+    },
+    {
+     "cell_xyz_mm": [
+      -200,
+      40,
+      -20
      ],
      "samples": 1,
      "min_mm": 0.44
     }
    ]
   },
-  "SM-1": {
-   "thin_area_mm2": 25.8,
-   "thin_fraction": 0.0015,
-   "min_thickness_mm": 0.29,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      -10,
-      50,
-      -70
-     ],
-     "samples": 4,
-     "min_mm": 0.29
-    },
-    {
-     "cell_xyz_mm": [
-      0,
-      50,
-      -70
-     ],
-     "samples": 3,
-     "min_mm": 0.31
-    },
-    {
-     "cell_xyz_mm": [
-      0,
-      50,
-      -60
-     ],
-     "samples": 2,
-     "min_mm": 0.3
-    }
-   ]
-  },
-  "AL-1": {
-   "thin_area_mm2": 109.3,
-   "thin_fraction": 0.0212,
-   "min_thickness_mm": 0.29,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      80,
-      30,
-      -10
-     ],
-     "samples": 19,
-     "min_mm": 1.11
-    },
-    {
-     "cell_xyz_mm": [
-      50,
-      20,
-      0
-     ],
-     "samples": 17,
-     "min_mm": 1.11
-    },
-    {
-     "cell_xyz_mm": [
-      50,
-      30,
-      -10
-     ],
-     "samples": 16,
-     "min_mm": 1.11
-    },
-    {
-     "cell_xyz_mm": [
-      50,
-      30,
-      0
-     ],
-     "samples": 15,
-     "min_mm": 1.17
-    }
-   ]
-  },
-  "DR-1": {
-   "thin_area_mm2": 130.8,
-   "thin_fraction": 0.006,
-   "min_thickness_mm": 0.35,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      20,
-      -10,
-      -10
-     ],
-     "samples": 4,
-     "min_mm": 0.41
-    },
-    {
-     "cell_xyz_mm": [
-      20,
-      0,
-      -10
-     ],
-     "samples": 4,
-     "min_mm": 0.35
-    },
-    {
-     "cell_xyz_mm": [
-      20,
-      -10,
-      10
-     ],
-     "samples": 4,
-     "min_mm": 1.64
-    },
-    {
-     "cell_xyz_mm": [
-      20,
-      -10,
-      0
-     ],
-     "samples": 4,
-     "min_mm": 1.63
-    }
-   ]
-  },
-  "PV-1": {
-   "thin_area_mm2": 529.8,
-   "thin_fraction": 0.0218,
-   "min_thickness_mm": 0.12,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      -40,
-      0,
-      10
-     ],
-     "samples": 17,
-     "min_mm": 0.24
-    },
-    {
-     "cell_xyz_mm": [
-      30,
-      -10,
-      10
-     ],
-     "samples": 13,
-     "min_mm": 0.12
-    },
-    {
-     "cell_xyz_mm": [
-      30,
-      20,
-      -10
-     ],
-     "samples": 13,
-     "min_mm": 0.26
-    },
-    {
-     "cell_xyz_mm": [
-      -40,
-      20,
-      -10
-     ],
-     "samples": 11,
-     "min_mm": 0.28
-    }
-   ]
-  },
-  "MC-1": {
-   "thin_area_mm2": 69.3,
-   "thin_fraction": 0.0052,
-   "min_thickness_mm": 0.06,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      -10,
-      30,
-      -50
-     ],
-     "samples": 14,
-     "min_mm": 0.38
-    },
-    {
-     "cell_xyz_mm": [
-      0,
-      30,
-      -50
-     ],
-     "samples": 5,
-     "min_mm": 0.06
-    },
-    {
-     "cell_xyz_mm": [
-      10,
-      0,
-      -60
-     ],
-     "samples": 5,
-     "min_mm": 2.22
-    },
-    {
-     "cell_xyz_mm": [
-      10,
-      0,
-      -80
-     ],
-     "samples": 5,
-     "min_mm": 2.12
-    }
-   ]
-  },
-  "HB-1": {
-   "thin_area_mm2": 23.5,
-   "thin_fraction": 0.0005,
-   "min_thickness_mm": 0.4,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      0,
-      -50,
-      30
-     ],
-     "samples": 2,
-     "min_mm": 0.4
-    },
-    {
-     "cell_xyz_mm": [
-      -10,
-      -50,
-      30
-     ],
-     "samples": 1,
-     "min_mm": 0.41
-    }
-   ]
-  },
-  "FB-1": {
-   "thin_area_mm2": 20.1,
-   "thin_fraction": 0.0017,
-   "min_thickness_mm": 0.29,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      30,
-      -10,
-      30
-     ],
-     "samples": 6,
-     "min_mm": 0.33
-    },
-    {
-     "cell_xyz_mm": [
-      30,
-      0,
-      30
-     ],
-     "samples": 3,
-     "min_mm": 0.29
-    },
-    {
-     "cell_xyz_mm": [
-      20,
-      -10,
-      30
-     ],
-     "samples": 1,
-     "min_mm": 0.33
-    }
-   ]
-  },
-  "FP-1": {
-   "thin_area_mm2": 18.5,
-   "thin_fraction": 0.0055,
-   "min_thickness_mm": 0.25,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      0,
-      10,
-      10
-     ],
-     "samples": 17,
-     "min_mm": 0.25
-    },
-    {
-     "cell_xyz_mm": [
-      -10,
-      10,
-      10
-     ],
-     "samples": 16,
-     "min_mm": 0.29
-    }
-   ]
-  },
-  "KN-1": {
-   "thin_area_mm2": 120.6,
-   "thin_fraction": 0.0342,
-   "min_thickness_mm": 0.04,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      -10,
-      0,
-      10
-     ],
-     "samples": 22,
-     "min_mm": 0.37
-    },
-    {
-     "cell_xyz_mm": [
-      -20,
-      -10,
-      0
-     ],
-     "samples": 20,
-     "min_mm": 0.19
-    },
-    {
-     "cell_xyz_mm": [
-      10,
-      0,
-      0
-     ],
-     "samples": 20,
-     "min_mm": 0.13
-    },
-    {
-     "cell_xyz_mm": [
-      0,
-      10,
-      0
-     ],
-     "samples": 14,
-     "min_mm": 0.19
-    }
-   ]
-  },
-  "BA-1": {
-   "thin_area_mm2": 51.7,
-   "thin_fraction": 0.0098,
-   "min_thickness_mm": 0.35,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      60,
-      -30,
-      10
-     ],
-     "samples": 29,
-     "min_mm": 0.36
-    },
-    {
-     "cell_xyz_mm": [
-      70,
-      -40,
-      0
-     ],
-     "samples": 7,
-     "min_mm": 2.16
-    },
-    {
-     "cell_xyz_mm": [
-      70,
-      -30,
-      10
-     ],
-     "samples": 6,
-     "min_mm": 0.35
-    },
-    {
-     "cell_xyz_mm": [
-      70,
-      -40,
-      -10
-     ],
-     "samples": 6,
-     "min_mm": 2.15
-    }
-   ]
-  },
-  "PI-1": {
-   "thin_area_mm2": 25.5,
-   "thin_fraction": 0.0012,
-   "min_thickness_mm": 0.32,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      0,
-      -50,
-      -20
-     ],
-     "samples": 4,
-     "min_mm": 0.4
-    },
-    {
-     "cell_xyz_mm": [
-      10,
-      -50,
-      -20
-     ],
-     "samples": 3,
-     "min_mm": 0.32
-    }
-   ]
-  },
-  "PB-2": {
-   "thin_area_mm2": 13.4,
-   "thin_fraction": 0.0003,
-   "min_thickness_mm": 0.48,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      -150,
-      -50,
-      0
-     ],
-     "samples": 1,
-     "min_mm": 0.56
-    },
-    {
-     "cell_xyz_mm": [
-      -150,
-      -50,
-      -10
-     ],
-     "samples": 1,
-     "min_mm": 0.48
-    }
-   ]
-  },
-  "RJ-1": {
-   "thin_area_mm2": 14.5,
-   "thin_fraction": 0.0008,
+  "SC-1L": {
+   "thin_area_mm2": 37.7,
+   "thin_fraction": 0.0018,
    "min_thickness_mm": 0.33,
    "worst_cells": [
     {
      "cell_xyz_mm": [
-      150,
-      -90,
-      -20
-     ],
-     "samples": 5,
-     "min_mm": 0.33
-    }
-   ]
-  },
-  "SA-1R": {
-   "thin_area_mm2": 46.3,
-   "thin_fraction": 0.0027,
-   "min_thickness_mm": 0.28,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      150,
-      -10,
-      20
-     ],
-     "samples": 8,
-     "min_mm": 0.28
-    },
-    {
-     "cell_xyz_mm": [
-      130,
-      -10,
-      20
-     ],
-     "samples": 2,
-     "min_mm": 1.87
-    },
-    {
-     "cell_xyz_mm": [
-      140,
-      -10,
-      20
-     ],
-     "samples": 2,
-     "min_mm": 0.34
-    },
-    {
-     "cell_xyz_mm": [
-      130,
-      -10,
-      10
-     ],
-     "samples": 1,
-     "min_mm": 1.2
-    }
-   ]
-  },
-  "SA-1L": {
-   "thin_area_mm2": 40.5,
-   "thin_fraction": 0.0023,
-   "min_thickness_mm": 0.09,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      -160,
+      -220,
       -10,
       20
      ],
      "samples": 6,
-     "min_mm": 0.09
+     "min_mm": 0.33
     },
     {
      "cell_xyz_mm": [
-      -150,
+      -210,
       -10,
       20
      ],
-     "samples": 3,
-     "min_mm": 0.29
+     "samples": 2,
+     "min_mm": 0.35
     },
     {
      "cell_xyz_mm": [
-      -140,
+      -200,
       -10,
       20
      ],
@@ -2110,344 +673,138 @@
     },
     {
      "cell_xyz_mm": [
-      -140,
+      -200,
       0,
-      20
+      10
      ],
      "samples": 1,
-     "min_mm": 1.96
+     "min_mm": 1.36
     }
    ]
   },
-  "SG-1F": {
-   "thin_area_mm2": 31.7,
-   "thin_fraction": 0.0062,
-   "min_thickness_mm": 0.29,
+  "EB-1": {
+   "thin_area_mm2": 75.5,
+   "thin_fraction": 0.0005,
+   "min_thickness_mm": 0.49,
    "worst_cells": [
     {
      "cell_xyz_mm": [
-      210,
       0,
-      10
-     ],
-     "samples": 20,
-     "min_mm": 0.29
-    },
-    {
-     "cell_xyz_mm": [
-      220,
-      0,
-      10
-     ],
-     "samples": 8,
-     "min_mm": 0.33
-    },
-    {
-     "cell_xyz_mm": [
-      220,
-      10,
-      10
-     ],
-     "samples": 5,
-     "min_mm": 0.29
-    },
-    {
-     "cell_xyz_mm": [
-      210,
-      10,
-      10
-     ],
-     "samples": 4,
-     "min_mm": 0.31
-    }
-   ]
-  },
-  "SG-1R": {
-   "thin_area_mm2": 37.2,
-   "thin_fraction": 0.0073,
-   "min_thickness_mm": 0.29,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      -220,
-      0,
-      10
-     ],
-     "samples": 25,
-     "min_mm": 0.29
-    },
-    {
-     "cell_xyz_mm": [
-      -230,
-      0,
-      10
-     ],
-     "samples": 12,
-     "min_mm": 0.34
-    },
-    {
-     "cell_xyz_mm": [
-      -220,
-      10,
-      10
-     ],
-     "samples": 5,
-     "min_mm": 0.3
-    },
-    {
-     "cell_xyz_mm": [
-      -230,
-      10,
-      10
+      -20,
+      90
      ],
      "samples": 2,
-     "min_mm": 0.31
+     "min_mm": 0.49
+    },
+    {
+     "cell_xyz_mm": [
+      10,
+      -20,
+      100
+     ],
+     "samples": 1,
+     "min_mm": 0.56
     }
    ]
   },
-  "CC-1": {
-   "thin_area_mm2": 235.9,
-   "thin_fraction": 0.0588,
-   "min_thickness_mm": 0.03,
+  "EL-1": {
+   "thin_area_mm2": 68.5,
+   "thin_fraction": 0.0008,
+   "min_thickness_mm": 0.66,
    "worst_cells": [
     {
      "cell_xyz_mm": [
-      -70,
-      0,
-      -30
+      10,
+      -60,
+      90
      ],
-     "samples": 53,
-     "min_mm": 0.06
+     "samples": 3,
+     "min_mm": 0.66
     },
     {
      "cell_xyz_mm": [
-      -70,
-      -10,
-      -30
+      10,
+      -60,
+      100
      ],
-     "samples": 50,
-     "min_mm": 0.05
-    },
-    {
-     "cell_xyz_mm": [
-      -80,
-      -10,
-      -30
-     ],
-     "samples": 49,
-     "min_mm": 0.03
-    },
-    {
-     "cell_xyz_mm": [
-      -80,
-      0,
-      -30
-     ],
-     "samples": 48,
-     "min_mm": 0.03
+     "samples": 2,
+     "min_mm": 0.66
     }
    ]
   },
-  "BT-1": {
-   "thin_area_mm2": 353.9,
-   "thin_fraction": 0.015,
-   "min_thickness_mm": 0.11,
+  "TA-1": {
+   "thin_area_mm2": 20.1,
+   "thin_fraction": 0.0012,
+   "min_thickness_mm": 0.39,
    "worst_cells": [
     {
      "cell_xyz_mm": [
-      -10,
-      0,
-      0
+      40,
+      40,
+      -20
      ],
-     "samples": 20,
-     "min_mm": 0.11
+     "samples": 5,
+     "min_mm": 0.44
     },
     {
      "cell_xyz_mm": [
-      -10,
-      -10,
-      0
+      40,
+      30,
+      -20
      ],
-     "samples": 17,
-     "min_mm": 0.23
-    },
+     "samples": 2,
+     "min_mm": 0.39
+    }
+   ]
+  },
+  "AC-1": {
+   "thin_area_mm2": 1809.6,
+   "thin_fraction": 0.0213,
+   "min_thickness_mm": 0.08,
+   "worst_cells": [
     {
      "cell_xyz_mm": [
+      100,
       0,
-      0,
-      0
-     ],
-     "samples": 15,
-     "min_mm": 0.25
-    },
-    {
-     "cell_xyz_mm": [
-      0,
-      -10,
       0
      ],
      "samples": 13,
-     "min_mm": 0.15
-    }
-   ]
-  },
-  "BT-2": {
-   "thin_area_mm2": 26.0,
-   "thin_fraction": 0.0022,
-   "min_thickness_mm": 0.36,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      -10,
-      20,
-      20
-     ],
-     "samples": 8,
-     "min_mm": 0.37
+     "min_mm": 0.7
     },
     {
      "cell_xyz_mm": [
-      0,
-      20,
-      20
-     ],
-     "samples": 5,
-     "min_mm": 0.36
-    }
-   ]
-  },
-  "CT-1": {
-   "thin_area_mm2": 17.9,
-   "thin_fraction": 0.0005,
-   "min_thickness_mm": 0.41,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      0,
-      -20,
+      100,
+      -10,
       0
      ],
-     "samples": 2,
+     "samples": 10,
+     "min_mm": 0.7
+    },
+    {
+     "cell_xyz_mm": [
+      -30,
+      40,
+      0
+     ],
+     "samples": 7,
      "min_mm": 0.41
     },
     {
      "cell_xyz_mm": [
       -10,
-      -20,
+      0,
       0
      ],
-     "samples": 1,
-     "min_mm": 0.41
-    }
-   ]
-  },
-  "OS-1": {
-   "thin_area_mm2": 197.4,
-   "thin_fraction": 0.0362,
-   "min_thickness_mm": 0.27,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      -50,
-      -10,
-      20
-     ],
-     "samples": 45,
-     "min_mm": 1.5
-    },
-    {
-     "cell_xyz_mm": [
-      -50,
-      0,
-      20
-     ],
-     "samples": 38,
-     "min_mm": 1.5
-    },
-    {
-     "cell_xyz_mm": [
-      -50,
-      0,
-      10
-     ],
-     "samples": 27,
-     "min_mm": 1.51
-    },
-    {
-     "cell_xyz_mm": [
-      -50,
-      -10,
-      10
-     ],
-     "samples": 23,
-     "min_mm": 1.5
-    }
-   ]
-  },
-  "MM-1": {
-   "thin_area_mm2": 33.1,
-   "thin_fraction": 0.0053,
-   "min_thickness_mm": 0.23,
-   "worst_cells": [
-    {
-     "cell_xyz_mm": [
-      -20,
-      0,
-      20
-     ],
-     "samples": 16,
-     "min_mm": 0.23
-    },
-    {
-     "cell_xyz_mm": [
-      -20,
-      -10,
-      20
-     ],
-     "samples": 16,
-     "min_mm": 0.26
+     "samples": 6,
+     "min_mm": 0.08
     }
    ]
   }
  },
  "parts": {
-  "CB-1R": {
+  "CM-1R": {
    "qty": 1,
-   "desc": "camera clamp base (key in T-slot = datum)",
-   "print_up_in_design_frame": [
-    0,
-    0,
-    -1
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    104.0,
-    32.6,
-    11.6
-   ],
-   "volume_cm3": 33.0,
-   "est_mass_g": 21
-  },
-  "CB-1L": {
-   "qty": 1,
-   "desc": "camera clamp base (key in T-slot = datum)",
-   "print_up_in_design_frame": [
-    0,
-    0,
-    -1
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    104.0,
-    32.6,
-    11.6
-   ],
-   "volume_cm3": 33.0,
-   "est_mass_g": 21
-  },
-  "YS-1": {
-   "qty": 2,
-   "desc": "yaw stage with tilt cheeks and FPC strain relief",
+   "desc": "camera mount",
    "print_up_in_design_frame": [
     0,
     0,
@@ -2455,203 +812,50 @@
    ],
    "spin_deg": 0.0,
    "size_mm": [
-    66.8,
-    66.0,
-    70.0
+    80.0,
+    110.5,
+    50.0
    ],
-   "volume_cm3": 51.8,
+   "volume_cm3": 104.2,
+   "est_mass_g": 66
+  },
+  "LT-1R": {
+   "qty": 1,
+   "desc": "LED board mount",
+   "print_up_in_design_frame": [
+    0,
+    1,
+    0
+   ],
+   "spin_deg": 0.0,
+   "size_mm": [
+    142.1,
+    99.0,
+    96.0
+   ],
+   "volume_cm3": 270.4,
+   "est_mass_g": 172
+  },
+  "SC-1R": {
+   "qty": 1,
+   "desc": "shield clamp",
+   "print_up_in_design_frame": [
+    -1,
+    0,
+    0
+   ],
+   "spin_deg": 0.0,
+   "size_mm": [
+    171.0,
+    132.0,
+    34.0
+   ],
+   "volume_cm3": 52.2,
    "est_mass_g": 33
   },
-  "CP-1": {
-   "qty": 2,
-   "desc": "camera plate (board datum, window, hinge inserts)",
-   "print_up_in_design_frame": [
-    0,
-    -1,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    54.0,
-    54.6,
-    12.1
-   ],
-   "volume_cm3": 18.8,
-   "est_mass_g": 12
-  },
-  "FH-1": {
-   "qty": 2,
-   "desc": "filter housing (light-tight sleeve + filter seat)",
-   "print_up_in_design_frame": [
-    0,
-    1,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    57.1,
-    57.1,
-    51.0
-   ],
-   "volume_cm3": 37.0,
-   "est_mass_g": 24
-  },
-  "FR-1": {
-   "qty": 2,
-   "desc": "filter retaining ring",
-   "print_up_in_design_frame": [
-    0,
-    1,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    57.0,
-    57.0,
-    4.6
-   ],
-   "volume_cm3": 8.3,
-   "est_mass_g": 5
-  },
-  "LE-1R": {
+  "CM-1L": {
    "qty": 1,
-   "desc": "LED board arm (beam front slot)",
-   "print_up_in_design_frame": [
-    0,
-    -1,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    29.0,
-    40.0,
-    50.0
-   ],
-   "volume_cm3": 23.1,
-   "est_mass_g": 15
-  },
-  "LD-2R": {
-   "qty": 1,
-   "desc": "diffuser frame + baffle wing",
-   "print_up_in_design_frame": [
-    0,
-    -1,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    149.0,
-    97.0,
-    31.6
-   ],
-   "volume_cm3": 92.4,
-   "est_mass_g": 59
-  },
-  "LE-1L": {
-   "qty": 1,
-   "desc": "LED board arm (beam front slot)",
-   "print_up_in_design_frame": [
-    0,
-    -1,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    29.0,
-    40.0,
-    50.0
-   ],
-   "volume_cm3": 23.1,
-   "est_mass_g": 15
-  },
-  "LD-2L": {
-   "qty": 1,
-   "desc": "diffuser frame + baffle wing",
-   "print_up_in_design_frame": [
-    0,
-    -1,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    149.0,
-    97.0,
-    31.6
-   ],
-   "volume_cm3": 92.4,
-   "est_mass_g": 59
-  },
-  "LP-2": {
-   "qty": 2,
-   "desc": "LED backplate (both sides, same part)",
-   "print_up_in_design_frame": [
-    0,
-    1,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    134.0,
-    94.0,
-    11.0
-   ],
-   "volume_cm3": 74.0,
-   "est_mass_g": 47
-  },
-  "SM-1": {
-   "qty": 2,
-   "desc": "strobe-module carrier plate",
-   "print_up_in_design_frame": [
-    0,
-    -1,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    96.0,
-    76.0,
-    10.0
-   ],
-   "volume_cm3": 30.3,
-   "est_mass_g": 19
-  },
-  "AL-1": {
-   "qty": 1,
-   "desc": "ARMED LED holder (front)",
-   "print_up_in_design_frame": [
-    0,
-    1,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    34.0,
-    23.0,
-    22.6
-   ],
-   "volume_cm3": 15.3,
-   "est_mass_g": 10
-  },
-  "DR-1": {
-   "qty": 1,
-   "desc": "pitch drum with beam saddle",
-   "print_up_in_design_frame": [
-    1,
-    0,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    80.8,
-    64.0,
-    50.0
-   ],
-   "volume_cm3": 161.1,
-   "est_mass_g": 102
-  },
-  "PV-1": {
-   "qty": 1,
-   "desc": "pitch ears with angle scale and arc lock slots",
+   "desc": "camera mount",
    "print_up_in_design_frame": [
     0,
     0,
@@ -2659,101 +863,67 @@
    ],
    "spin_deg": 0.0,
    "size_mm": [
-    68.4,
-    61.5,
-    66.0
+    80.0,
+    111.7,
+    50.0
    ],
-   "volume_cm3": 63.3,
-   "est_mass_g": 40
+   "volume_cm3": 104.1,
+   "est_mass_g": 66
   },
-  "MC-1": {
+  "LT-1L": {
    "qty": 1,
-   "desc": "mast collar + flange",
+   "desc": "LED board mount",
    "print_up_in_design_frame": [
     0,
-    0,
-    -1
+    1,
+    0
    ],
    "spin_deg": 0.0,
    "size_mm": [
-    48.0,
-    60.6,
+    142.1,
+    99.0,
+    96.0
+   ],
+   "volume_cm3": 270.4,
+   "est_mass_g": 172
+  },
+  "SC-1L": {
+   "qty": 1,
+   "desc": "shield clamp",
+   "print_up_in_design_frame": [
+    1,
+    0,
+    0
+   ],
+   "spin_deg": 0.0,
+   "size_mm": [
+    171.0,
+    132.0,
     34.0
    ],
-   "volume_cm3": 33.7,
-   "est_mass_g": 21
+   "volume_cm3": 52.2,
+   "est_mass_g": 33
   },
-  "HB-1": {
+  "EB-1": {
    "qty": 1,
-   "desc": "hub: mast tower, 3 leg sockets, template lug",
+   "desc": "electronics box",
    "print_up_in_design_frame": [
     0,
-    0,
-    1
+    -1,
+    0
    ],
    "spin_deg": 0.0,
    "size_mm": [
-    141.3,
-    154.0,
+    207.0,
+    193.0,
     44.0
    ],
-   "volume_cm3": 150.6,
-   "est_mass_g": 96
+   "volume_cm3": 334.6,
+   "est_mass_g": 212
   },
-  "FB-1": {
-   "qty": 3,
-   "desc": "foot bracket with trapped M6 nut",
-   "print_up_in_design_frame": [
-    0,
-    0,
-    1
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    56.0,
-    34.0,
-    30.6
-   ],
-   "volume_cm3": 44.7,
-   "est_mass_g": 28
-  },
-  "FP-1": {
-   "qty": 3,
-   "desc": "foot pad, glue on the bolt end",
-   "print_up_in_design_frame": [
-    0,
-    0,
-    1
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    36.0,
-    36.0,
-    10.6
-   ],
-   "volume_cm3": 8.9,
-   "est_mass_g": 6
-  },
-  "KN-1": {
-   "qty": 3,
-   "desc": "foot adjusting knob",
-   "print_up_in_design_frame": [
-    0,
-    0,
-    1
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    33.0,
-    33.0,
-    14.6
-   ],
-   "volume_cm3": 9.3,
-   "est_mass_g": 6
-  },
-  "BA-1": {
-   "qty": 6,
-   "desc": "rear arm block (3 plates x 2)",
+  "EL-1": {
+   "qty": 1,
+   "desc": "electronics box lid",
    "print_up_in_design_frame": [
     0,
     1,
@@ -2761,101 +931,33 @@
    ],
    "spin_deg": 0.0,
    "size_mm": [
-    30.0,
-    20.6,
-    30.0
+    207.0,
+    193.0,
+    3.6
    ],
-   "volume_cm3": 15.5,
-   "est_mass_g": 10
+   "volume_cm3": 119.1,
+   "est_mass_g": 76
   },
-  "PI-1": {
+  "TA-1": {
    "qty": 1,
-   "desc": "Raspberry Pi 5 plate",
+   "desc": "tripod adapter",
    "print_up_in_design_frame": [
     0,
-    -1,
-    0
+    0,
+    1
    ],
    "spin_deg": 0.0,
    "size_mm": [
-    140.0,
-    68.0,
+    60.6,
+    102.1,
     12.0
    ],
-   "volume_cm3": 39.1,
-   "est_mass_g": 25
+   "volume_cm3": 69.9,
+   "est_mass_g": 44
   },
-  "PB-2": {
+  "AC-1": {
    "qty": 1,
-   "desc": "100 x 160 control board plate",
-   "print_up_in_design_frame": [
-    0,
-    -1,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    170.0,
-    108.0,
-    12.0
-   ],
-   "volume_cm3": 74.6,
-   "est_mass_g": 47
-  },
-  "RJ-1": {
-   "qty": 1,
-   "desc": "rear panel arm: 12 V jack + interlock switch",
-   "print_up_in_design_frame": [
-    0,
-    1,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    76.0,
-    44.0,
-    78.0
-   ],
-   "volume_cm3": 50.4,
-   "est_mass_g": 32
-  },
-  "SA-1R": {
-   "qty": 1,
-   "desc": "shield arm with sheet channel",
-   "print_up_in_design_frame": [
-    -1,
-    0,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    116.0,
-    128.0,
-    34.0
-   ],
-   "volume_cm3": 45.9,
-   "est_mass_g": 29
-  },
-  "SA-1L": {
-   "qty": 1,
-   "desc": "shield arm with sheet channel",
-   "print_up_in_design_frame": [
-    1,
-    0,
-    0
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    116.0,
-    128.0,
-    34.0
-   ],
-   "volume_cm3": 45.9,
-   "est_mass_g": 29
-  },
-  "SG-1F": {
-   "qty": 1,
-   "desc": "sight blade (slit / peep hole)",
+   "desc": "alignment card",
    "print_up_in_design_frame": [
     0,
     0,
@@ -2863,199 +965,44 @@
    ],
    "spin_deg": 0.0,
    "size_mm": [
-    34.0,
-    28.0,
-    42.0
+    216.0,
+    200.0,
+    9.1
    ],
-   "volume_cm3": 8.7,
-   "est_mass_g": 6
-  },
-  "SG-1R": {
-   "qty": 1,
-   "desc": "sight blade (slit / peep hole)",
-   "print_up_in_design_frame": [
-    0,
-    0,
-    1
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    34.0,
-    28.0,
-    42.0
-   ],
-   "volume_cm3": 8.8,
-   "est_mass_g": 6
-  },
-  "CC-1": {
-   "qty": 4,
-   "desc": "cable clip",
-   "print_up_in_design_frame": [
-    0,
-    0,
-    -1
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    32.0,
-    20.5,
-    20.0
-   ],
-   "volume_cm3": 5.7,
-   "est_mass_g": 4
-  },
-  "BT-1": {
-   "qty": 1,
-   "desc": "ball cup (template)",
-   "print_up_in_design_frame": [
-    0,
-    0,
-    1
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    97.0,
-    105.0,
-    27.5
-   ],
-   "volume_cm3": 73.3,
-   "est_mass_g": 47
-  },
-  "BT-2": {
-   "qty": 1,
-   "desc": "hub-lug pin block (template)",
-   "print_up_in_design_frame": [
-    0,
-    0,
-    1
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    28.5,
-    88.0,
-    28.0
-   ],
-   "volume_cm3": 30.8,
-   "est_mass_g": 20
-  },
-  "CT-1": {
-   "qty": 1,
-   "desc": "calibration card holder (template)",
-   "print_up_in_design_frame": [
-    0,
-    0,
-    1
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    130.0,
-    90.0,
-    34.0
-   ],
-   "volume_cm3": 112.7,
-   "est_mass_g": 72
-  },
-  "OS-1": {
-   "qty": 1,
-   "desc": "optical sensor head holder (on BT-1)",
-   "print_up_in_design_frame": [
-    0,
-    0,
-    1
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    26.5,
-    28.0,
-    23.0
-   ],
-   "volume_cm3": 11.8,
-   "est_mass_g": 8
-  },
-  "MM-1": {
-   "qty": 1,
-   "desc": "microphone board holder (clamps on the stick)",
-   "print_up_in_design_frame": [
-    0,
-    0,
-    1
-   ],
-   "spin_deg": 0.0,
-   "size_mm": [
-    32.0,
-    64.0,
-    8.6
-   ],
-   "volume_cm3": 14.3,
-   "est_mass_g": 9
+   "volume_cm3": 165.0,
+   "est_mass_g": 105
   }
  },
  "sweep": {
   "led_offset": {
-   "100": {
-    "interference": [
-     [
-      4194.09,
-      "MODPARTS#R",
-      "AL-1"
-     ],
-     [
-      222.45,
-      "MODPARTS#R",
-      "ARMED-LED"
-     ],
-     [
-      3.19,
-      "LE-1R",
-      "CC-1#3"
-     ],
-     [
-      3.19,
-      "LE-1L",
-      "CC-1#2"
-     ]
-    ],
-    "fov_ok": true,
-    "fov_clipped": 0,
-    "coverage_both": {
-     "0": 262.0,
-     "15": 258.0,
-     "30": 250.0,
-     "45": 172.0
-    },
-    "led_ok": true,
-    "stability_margin_mm": 76.7,
-    "fpc_longest_mm": 165,
-    "ok": false
-   },
    "140": {
     "interference": [],
     "fov_ok": true,
     "fov_clipped": 0,
     "coverage_both": {
-     "0": 262.0,
-     "15": 258.0,
+     "0": 264.0,
+     "15": 260.0,
      "30": 250.0,
      "45": 172.0
     },
     "led_ok": true,
-    "stability_margin_mm": 76.7,
-    "fpc_longest_mm": 165,
+    "beam_len_mm": 480.0,
+    "fpc_longest_mm": 167,
     "ok": true
    },
-   "180": {
+   "200": {
     "interference": [],
     "fov_ok": true,
     "fov_clipped": 0,
     "coverage_both": {
-     "0": 262.0,
-     "15": 258.0,
+     "0": 264.0,
+     "15": 260.0,
      "30": 250.0,
      "45": 172.0
     },
     "led_ok": true,
-    "stability_margin_mm": 76.7,
-    "fpc_longest_mm": 165,
+    "beam_len_mm": 584.0,
+    "fpc_longest_mm": 167,
     "ok": true
    },
    "250": {
@@ -3063,14 +1010,14 @@
     "fov_ok": true,
     "fov_clipped": 0,
     "coverage_both": {
-     "0": 262.0,
-     "15": 258.0,
+     "0": 264.0,
+     "15": 260.0,
      "30": 250.0,
      "45": 172.0
     },
     "led_ok": true,
-    "stability_margin_mm": 77.1,
-    "fpc_longest_mm": 165,
+    "beam_len_mm": 684.0,
+    "fpc_longest_mm": 167,
     "ok": true
    }
   },
@@ -3080,18 +1027,18 @@
     "fov_ok": true,
     "fov_clipped": 0,
     "coverage_both": {
-     "0": 264.0,
-     "15": 258.0,
-     "30": 248.0,
+     "0": 262.0,
+     "15": 254.0,
+     "30": 244.0,
      "45": 172.0
     },
     "led_ok": true,
-    "stability_margin_mm": 77.5,
-    "fpc_longest_mm": 152,
+    "beam_len_mm": 480.0,
+    "fpc_longest_mm": 148,
     "ok": true,
     "toe_in": [
      4.0,
-     7.0
+     8.0
     ]
    },
    "220": {
@@ -3099,18 +1046,18 @@
     "fov_ok": true,
     "fov_clipped": 0,
     "coverage_both": {
-     "0": 262.0,
-     "15": 256.0,
-     "30": 244.0,
+     "0": 266.0,
+     "15": 262.0,
+     "30": 256.0,
      "45": 172.0
     },
     "led_ok": true,
-    "stability_margin_mm": 75.9,
-    "fpc_longest_mm": 187,
-    "ok": true,
+    "beam_len_mm": 480.0,
+    "fpc_longest_mm": 199,
+    "ok": false,
     "toe_in": [
      9.0,
-     11.0
+     14.0
     ]
    }
   }

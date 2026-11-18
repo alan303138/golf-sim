@@ -27,7 +27,8 @@ def cams_world(yaw_r, yaw_l, theta, height, dist=None, aim_u=None):
     pb = []
     for s, yaw in ((1, yaw_r), (-1, -yaw_l)):
         Rz = rot_z(yaw)
-        p = Rz @ np.array([0, P.PUPIL_Y, P.Z_AX]) + np.array([s * P.BASELINE / 2, 0, P.Z_CB_TOP])
+        # pupil exactly at x = s * baseline / 2 (see pose.cam_origin)
+        p = np.array([s * P.BASELINE / 2, P.CAM_Y0 + P.PUPIL_K * math.cos(math.radians(yaw)), P.CAM_AXIS_Z])
         pb.append((p, Rz))
     mean = (pb[0][0] + pb[1][0]) / 2
     Rp = rot_x(-theta)
@@ -48,7 +49,7 @@ def coverage(cams, launch_deg, step=2.0):
     return best
 
 
-def best_yaws(theta, height, yaws=np.arange(2.0, 16.1, 0.5)):
+def best_yaws(theta, height, yaws=np.arange(0.0, 20.1, 0.5)):
     res = []
     for yr in yaws:
         for yl in yaws:
@@ -62,14 +63,14 @@ def best_yaws(theta, height, yaws=np.arange(2.0, 16.1, 0.5)):
 if __name__ == "__main__":
     if "--json" in sys.argv:
         import json
-        b = best_yaws(P.PITCH_NOM, P.LENS_HEIGHT, np.arange(2.0, 16.1, 1.0))
+        b = best_yaws(P.PITCH_NOM, P.LENS_HEIGHT, np.arange(0.0, 20.1, 1.0))
         print(json.dumps({"TOE_IN_R": b[4], "TOE_IN_L": b[5], "cover_0_30_45": [b[2], b[3], b[1]]}))
         sys.exit(0)
     if "--all" in sys.argv:
         rows = []
         for th in (15, 17, 20, 25):
             for h in (200, 225, 250, 255, 275, 300):
-                b = best_yaws(th, h, np.arange(2.0, 16.1, 1.0))
+                b = best_yaws(th, h, np.arange(0.0, 20.1, 1.0))
                 rows.append((th, h) + b)
         for r in rows:
             print("pitch %2d  height %3d : covered at launch 0 deg %5.0f mm, 30 deg %5.0f mm, 45 deg %5.0f mm  (yaw R %.1f / L %.1f)"

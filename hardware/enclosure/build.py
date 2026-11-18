@@ -55,49 +55,47 @@ def export_assembly(bodies):
 
 
 def summarize(rep):
+    import params as P
     lines = []
+
     def L(s=""):
         lines.append(s)
-    L("== printed part files (build volume %s, watertight, on bed) ==" % (list(__import__("params").BUILD_VOLUME),))
+    L("== printed part files (build volume %s, watertight, on bed) ==" % (list(P.BUILD_VOLUME),))
     for n, r in rep["stl"]["parts"].items():
         L("  %-6s %-22s fits=%s watertight=%s winding=%s bodies=%d vol=%d mm3 -> %s" % (
             n, r["extents"], r["fits"], r["watertight"], r["winding"], r["bodies"], r["volume_mm3"], "OK" if r["ok"] else "FAIL"))
-    L("== interference (boolean intersection volume, threshold %.1f mm3) ==" % rep["interference"]["threshold_mm3"])
-    L("  bodies %d, overlapping pairs tested %d, overlaps: %s -> %s" % (
-        rep["interference"]["bodies"], rep["interference"]["pairs_tested"], rep["interference"]["overlaps"],
-        "OK" if rep["interference"]["ok"] else "FAIL"))
+    i = rep["interference"]
+    L("== interference (boolean intersection volume, threshold %.1f mm3) ==" % i["threshold_mm3"])
+    L("  bodies %d, overlapping pairs tested %d, overlaps: %s -> %s" % (i["bodies"], i["pairs_tested"], i["overlaps"], "OK" if i["ok"] else "FAIL"))
     f = rep["fov"]
     L("== field of view (half angles %s deg, margin %.1f deg) ==" % (f["half_fov_deg"], f["margin_deg"]))
     for c, r in f["cams"].items():
         L("  cam %s: ball distance %d mm, ball margin %.2f deg, visible=%s, rays clipped %d/%d %s, shield edge margin %.1f mm"
-          % (c, r["ball_distance_mm"], r["ball_margin_deg"], r["ball_visible"], r["rays_clipped"], r["rays"],
-             r["clipped_by"], r["shield_edge_margin_mm"]))
+          % (c, r["ball_distance_mm"], r["ball_margin_deg"], r["ball_visible"], r["rays_clipped"], r["rays"], r["clipped_by"], r["shield_edge_margin_mm"]))
         L("         down-range coverage (mm) by launch angle: %s" % r["downrange_mm_at_launch_deg"])
-    L("  both cameras: %s (target %d mm met for launch angles %s) -> %s" % (f["both_cameras_downrange_mm_at_launch_deg"], f["target_down_range_mm"], f["launch_angles_meeting_target_deg"], "OK" if f["ok"] else "FAIL"))
+    L("  both cameras: %s (target %d mm met for launch angles %s) -> %s" % (
+        f["both_cameras_downrange_mm_at_launch_deg"], f["target_down_range_mm"], f["launch_angles_meeting_target_deg"], "OK" if f["ok"] else "FAIL"))
     r = rep["led"]
-    L("== LED -> lens direct lines ==")
+    L("== LED -> lens direct lines (emission half angle %.0f deg) ==" % r["emission_half_angle_deg"])
     for c, v in r["cams"].items():
         L("  as built, cam %s: %d segments to the filter aperture, direct %d, blocked %d (by %s), nearest %.1f deg off LED axis"
           % (c, v["segments"], v["direct_lines"], v["blocked_inside_cone"], v["blocked_by"], v["min_angle_off_led_axis_deg"]))
-    for c, v in r["baffle_alone_bare_lens"].items():
-        L("  baffle alone (bare lens, no hood/arms), cam %s: direct %d, blocked %d (by %s)" % (c, v["direct_lines"], v["blocked_inside_cone"], v["blocked_by"]))
-    for c, v in r["control_bare_lens_no_baffle"].items():
-        L("  control without baffle (bare lens), cam %s: direct lines %d of %d" % (c, v["direct_lines"], v["segments"]))
+    for c, v in r["led_mount_alone_bare_lens"].items():
+        L("  LED mounts alone (bare lens, camera mounts removed), cam %s: direct %d, blocked %d" % (c, v["direct_lines"], v["blocked_inside_cone"]))
+    for c, v in r["control_no_led_mount"].items():
+        L("  control without LED mounts, cam %s: direct lines %d of %d" % (c, v["direct_lines"], v["segments"]))
+    for c, v in r["control_no_baffle_wing"].items():
+        L("  control with LED mounts but without baffle wing, cam %s: direct lines %d of %d" % (c, v["direct_lines"], v["segments"]))
     L("  emitters with a clear path to the ball: %d/%d -> %s" % (r["emitters_with_clear_path_to_ball"], r["emitters"], "OK" if r["ok"] else "FAIL"))
-    s = rep["stability"]
-    L("== stability (COM inside the foot triangle, required margin %.0f mm) ==" % __import__("params").STABILITY_MARGIN)
-    for th, v in s["cases"].items():
-        L("  case %-22s: COM %s, mass %d g, margin %.1f mm" % (th, v["com"], v["total_mass_g"], v["margin_mm"]))
-    L("  tip-over angle at max pitch ~ %.1f deg (lens height 300 mm: %.1f deg) -> %s" % (
-        s["tip_angle_deg_at_max_pitch"], s["tip_angle_deg_at_300mm_max_pitch"], "OK" if s["ok"] else "FAIL"))
+    c = rep["com"]
+    L("== head COM and tripod torque ==")
+    L("  head mass %d g, COM (BF) %s, stud (world) %s, offset %s -> %.1f mm, torque %.3f N m, stud height %.1f mm at pitch %.0f deg -> %s" % (
+        c["head_mass_g"], c["com_bf_mm"], c["stud_world_mm"], c["horizontal_offset_com_to_stud_mm"], c["offset_mm"],
+        c["tipping_torque_Nm"], c["stud_height_above_mat_mm"], c["pitch_deg"], "OK" if c["ok"] else "FAIL"))
+    L("  recommended stud (BF x, y) for zero offset: %s" % (rep["stud_recommended"],))
+    L("  sensitivity: a 20 mm error in the real COM position gives %.3f N m on the tripod head" % (c["head_mass_g"] / 1000 * 9.81 * 0.02))
     L("== extras ==")
     L("  FPC reach: %s -> %s" % (rep["fpc"]["paths_mm"], "OK" if rep["fpc"]["ok"] else "FAIL"))
-    L("  shield glare: %s -> %s" % (rep["glare"]["cams"], "OK" if rep["glare"]["ok"] else "FAIL"))
-    L("  lens height table: %s" % (rep["lens_height"],))
-    L("== adjustment ranges swept through their limits (overlaps > %.1f mm3) ==" % 0.5)
-    for k, v in rep["motion"]["cases"].items():
-        L("  %-26s %s" % (k, v if v else "no overlap"))
-    L("  -> %s" % ("OK" if rep["motion"]["ok"] else "FAIL"))
     L("== printability (unsupported overhangs steeper than 45 deg on the bed-oriented STL files) ==")
     for n, o in rep["overhang"].items():
         L("  %-6s sloped overhang %6.1f mm2, widest bridge %5.1f mm -> %s" % (n, o["sloped_overhang_mm2"], o["max_bridge_span_mm"],
@@ -105,7 +103,7 @@ def summarize(rep):
     L("== beam stiffness (hand calculation) ==")
     L("  %s" % (rep["beam"],))
     if "wall_scan" in rep:
-        L("== wall thickness scan (rays inward, rule >= %.1f mm; raised text, tongue, ticks and sharp edges show up as thin) ==" % __import__("params").MIN_WALL)
+        L("== wall thickness scan (rays inward, rule >= %.1f mm; raised text, tongue, ticks and sharp edges show up as thin) ==" % P.MIN_WALL)
         for n, w in rep["wall_scan"].items():
             L("  %-6s thin area %6.1f mm2 (%.1f %%)  worst cells %s" % (n, w["thin_area_mm2"], 100 * w["thin_fraction"],
                                                                  [(c["cell_xyz_mm"], c["min_mm"]) for c in w["worst_cells"][:2]]))
@@ -119,12 +117,10 @@ def run_checks(bodies, meshes, parts_info):
     rep["interference"] = K.check_interference(bodies, meshes)
     rep["fov"] = K.check_fov(bodies, meshes)
     rep["led"] = K.check_led_los(bodies, meshes)
-    rep["stability"] = K.check_stability(bodies, meshes)
+    rep["com"] = K.check_com(bodies, meshes)
+    rep["stud_recommended"] = K.recommend_stud(bodies, meshes)
     rep["fpc"] = K.check_fpc_reach()
-    rep["glare"] = K.check_glare(bodies)
-    rep["lens_height"] = K.lens_height_table()
     rep["overhang"] = {n: K.overhang_scan(os.path.join(STL, n + ".stl")) for n in parts_info}
-    rep["motion"] = K.check_motion(bodies, meshes)
     rep["beam"] = K.beam_stiffness(bodies, meshes)
     return rep
 
@@ -132,10 +128,7 @@ def run_checks(bodies, meshes, parts_info):
 def wall_scans(parts):
     import checks as K
     from meshing import to_mesh
-    out = {}
-    for n, p in parts.items():
-        out[n] = K.wall_scan(to_mesh(p.wp, 0.05, 0.2))
-    return out
+    return {n: K.wall_scan(to_mesh(p.wp, 0.05, 0.2)) for n, p in parts.items()}
 
 
 def main():
@@ -148,12 +141,13 @@ def main():
     t0 = time.time()
     import assembly as A
     import checks as K
+    import params as P
     if a.variant_check:
         bodies = A.build_assembly()
         meshes = K.build_meshes(bodies)
-        r = dict(interference=K.check_interference(bodies, meshes)["overlaps"],
-                 fov=K.check_fov(bodies, meshes), led=K.check_led_los(bodies, meshes),
-                 stability=K.check_stability(bodies, meshes), fpc=K.check_fpc_reach())
+        r = dict(interference=K.check_interference(bodies, meshes)["overlaps"], fov=K.check_fov(bodies, meshes),
+                 led=K.check_led_los(bodies, meshes), com=K.check_com(bodies, meshes), fpc=K.check_fpc_reach(),
+                 beam_len=P.BEAM_LEN)
         print("VARIANT_JSON " + json.dumps(r, default=jdefault))
         return
     os.makedirs(STL, exist_ok=True)
@@ -163,7 +157,7 @@ def main():
     parts = A.build_parts()
     info = export_parts(parts)
     print("  %d part designs exported (%.0f s)" % (len(parts), time.time() - t0), flush=True)
-    bodies = A.build_assembly()
+    bodies = A.build_assembly(parts=parts)
     meshes = K.build_meshes(bodies)
     if not a.quick:
         export_assembly(bodies)

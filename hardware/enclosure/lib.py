@@ -28,6 +28,9 @@ def _unit(a):
 
 
 def box(x0, x1, y0, y1, z0, z1):
+    x0, x1 = sorted((x0, x1))
+    y0, y1 = sorted((y0, y1))
+    z0, z1 = sorted((z0, z1))
     return cq.Workplane(obj=cq.Solid.makeBox(x1 - x0, y1 - y0, z1 - z0, V(x0, y0, z0)))
 
 
@@ -277,3 +280,17 @@ class Part:
     def __init__(self, name, wp, up, frame, qty=1, desc="", settings=""):
         self.name, self.wp, self.up, self.frame = name, wp, tuple(up), frame
         self.qty, self.desc, self.settings = qty, desc, settings
+
+
+def tear_prism(y0, y1, r, zc=0.0, xc=0.0, trunc=None):
+    """Horizontal (along +Y) bore of radius r whose roof is a 45 degree point (optionally truncated at
+    height `trunc` above the axis) so that it prints without support.  Axis through (xc, zc)."""
+    c = cq.Workplane(cq.Plane(origin=_v((xc, y0, zc)), xDir=_v((1, 0, 0)), normal=_v((0, 1, 0)))).circle(r).extrude(y1 - y0)
+    zt = r * math.sqrt(2.0) if trunc is None else trunc
+    k = r * math.sqrt(0.5)
+    half = r * math.sqrt(2.0) - zt
+    pts = [(-k, k), (-half, zt), (half, zt), (k, k), (0, 0)] if half > 1e-6 else [(-k, k), (0, zt), (k, k), (0, 0)]
+    pl = cq.Plane(origin=_v((xc, y0, zc)), xDir=_v((1, 0, 0)), normal=_v((0, 1, 0)))
+    # plane local y = normal x xDir = -Z ; so flip the sign of the vertical coordinate
+    t = cq.Workplane(pl).polyline([(x, -z) for x, z in pts]).close().extrude(y1 - y0)
+    return c.union(t)

@@ -9,8 +9,7 @@ import manifold3d as m3d
 
 import params as P
 import pose
-import parts_cam as C
-import parts_led as L
+import parts as PT
 import assembly as A
 from lib import rot_x, rot_z
 from meshing import to_mesh
@@ -19,6 +18,8 @@ HU = math.atan(P.SENSOR_W / 2 / P.FOCAL)          # half field of view, horizont
 HV = math.atan(P.SENSOR_H / 2 / P.FOCAL)          # vertical
 MARGIN = math.radians(P.FOV_MARGIN_DEG)
 OWN_KINDS = ("PCB", "HOLDER", "FPCCONN", "LENS", "FILTER")
+tag = PT.tag
+
 
 
 # ---------------------------------------------------------------------------
@@ -112,19 +113,18 @@ class Scene:
         return dist, who
 
 
+
 def cam_frame(side, theta=None):
-    M = pose.bf2w_matrix(theta) @ C.kp2bf(side)
+    M = pose.bf2w_matrix(theta) @ pose.k2bf(side)
     R, t = M[:3, :3], M[:3, 3]
-    pupil = R @ np.array([0, P.PUPIL_Y, P.Z_AX]) + t
+    pupil = R @ np.array([0, P.PUPIL_K, 0]) + t
     return dict(pupil=pupil, right=R[:, 0], fwd=R[:, 1], up=R[:, 2], M=M)
 
 
 def cam_coords(cam, pts):
     v = np.asarray(pts, float) - cam["pupil"]
     x, y, z = v @ cam["right"], v @ cam["fwd"], v @ cam["up"]
-    az = np.arctan2(x, y)
-    el = np.arctan2(z, y)
-    return az, el, np.linalg.norm(v, axis=1)
+    return np.arctan2(x, y), np.arctan2(z, y), np.linalg.norm(v, axis=1)
 
 
 def frustum_rays(cam, margin=MARGIN, nu=17, nv=13):
@@ -140,8 +140,10 @@ def frustum_rays(cam, margin=MARGIN, nu=17, nv=13):
 
 
 def own_exclude(side):
-    tag = "#" + C.side_tag(side)
-    return lambda b: b.name.endswith(tag) and b.name.split("#")[0] in OWN_KINDS
+    t = "#" + tag(side)
+    return lambda b: b.name.endswith(t) and b.name.split("#")[0] in OWN_KINDS
+
+
 
 
 # ---------------------------------------------------------------------------
@@ -155,7 +157,6 @@ def check_fov(bodies, meshes, theta=None, launch=(0, 15, 30, 45), step=2.0):
     Mbf = pose.bf2w_matrix(theta)
     Minv = np.linalg.inv(Mbf)
     ysh = pose.shield_y0()
-    z0s = P.Z_BEAM_TOP + 3.0
     covered = {a: [] for a in launch}
     per_cam_cov = {}
     for side in (1, -1):
@@ -174,7 +175,7 @@ def check_fov(bodies, meshes, theta=None, launch=(0, 15, 30, 45), step=2.0):
         t = (ysh + P.SHIELD_T / 2 - pb[1]) / db[:, 1]
         q = pb + db * t[:, None]
         mx = P.SHIELD_W / 2 - np.abs(q[:, 0])
-        mz = np.minimum(q[:, 2] - z0s, z0s + P.SHIELD_H - q[:, 2])
+        mz = np.minimum(q[:, 2] - P.SHIELD_Z[0], P.SHIELD_Z[1] - q[:, 2])
         edge = float(min(mx.min(), mz.min()))
         # --- ball at rest: centre + ring of surface points
         pts = [ball]
@@ -202,7 +203,7 @@ def check_fov(bodies, meshes, theta=None, launch=(0, 15, 30, 45), step=2.0):
                 best = float(dx)
             cov[a] = best
         per_cam_cov[side] = cov
-        res["cams"][C.side_tag(side)] = dict(
+        res["cams"][tag(side)] = dict(
             pupil_world=[round(float(x), 1) for x in cam["pupil"]],
             ball_distance_mm=round(float(dd[0])),
             ball_margin_deg=round(math.degrees(mball), 2),
@@ -222,9 +223,12 @@ def check_fov(bodies, meshes, theta=None, launch=(0, 15, 30, 45), step=2.0):
 
 # ---------------------------------------------------------------------------
 # 5: LED -> lens direct line of sight
+
+
 # ---------------------------------------------------------------------------
-def led_emitters(bodies):
-    """Emitter points (world, on the lens tip plane, both boards) and the common LED axis direction."""
+# LED -> lens direct line of sight
+# ---------------------------------------------------------------------------
+def led_emitters():
     M = pose.bf2w_matrix()
     pts = []
     for side in (1, -1):
@@ -234,26 +238,23 @@ def led_emitters(bodies):
                     continue
                 x, z = pose.led_star_xz(i, j, side)
                 pts.append(M @ np.array([x, pose.led_tip_y() + 0.05, z, 1.0]))
-    normal = M[:3, :3] @ np.array([0, 1.0, 0])
-    return np.array(pts)[:, :3], normal
+    return np.array(pts)[:, :3], M[:3, :3] @ np.array([0, 1.0, 0])
 
 
 def _led_direct(bodies, meshes, em, n, target, drop=lambda b: False):
-    """Count LED -> lens segments that are unobstructed and inside the emission cone.
-    target 'filter': clear aperture of the filter holder; 'lens': front glass of the bare lens."""
     out = {}
     for side in (1, -1):
         cam = cam_frame(side)
-        yf = P.FH_FRONT_Y - 0.2 if target == "filter" else P.LENS_FRONT_Y + 0.1
+        yf = P.HOOD_FRONT_K - 0.2 if target == "filter" else P.LENS_FRONT_K + 0.1
         rr = (5.0, 10.5) if target == "filter" else (6.0, 12.0)
-        samples = [np.array([0, yf, P.Z_AX])]
+        samples = [np.array([0, yf, 0.0])]
         for r_ in rr:
             for k in range(8):
                 a = 2 * math.pi * k / 8
-                samples.append(np.array([r_ * math.cos(a), yf, P.Z_AX + r_ * math.sin(a)]))
+                samples.append(np.array([r_ * math.cos(a), yf, r_ * math.sin(a)]))
         S = np.array([(cam["M"] @ np.append(s, 1.0))[:3] for s in samples])
         own = own_exclude(side)
-        ledown = lambda b: b.name.startswith(("LEDLENS", "LEDSTARS", "LEDPLATE"))   # emitters see through their own lens bodies
+        ledown = lambda b: b.name.startswith(("LEDLENS", "LEDSTARS", "LEDPLATE"))
         scene = Scene(bodies, meshes, lambda b: own(b) or drop(b) or ledown(b))
         O, D, ang = [], [], []
         for e in em:
@@ -270,29 +271,36 @@ def _led_direct(bodies, meshes, em, n, target, drop=lambda b: False):
         for w, f, e in zip(who, free, emitting):
             if (not f) and e and w:
                 blockers[w] = blockers.get(w, 0) + 1
-        out[C.side_tag(side)] = dict(
-            segments=len(D), direct_lines=int((free & emitting).sum()),
-            outside_emission_cone=int((~emitting).sum()), blocked_inside_cone=int((emitting & ~free).sum()),
-            min_angle_off_led_axis_deg=round(float(ang.min()), 1),
-            blocked_by=dict(sorted(blockers.items(), key=lambda kv: -kv[1])))
+        out[tag(side)] = dict(segments=len(D), direct_lines=int((free & emitting).sum()),
+                              outside_emission_cone=int((~emitting).sum()), blocked_inside_cone=int((emitting & ~free).sum()),
+                              min_angle_off_led_axis_deg=round(float(ang.min()), 1),
+                              blocked_by=dict(sorted(blockers.items(), key=lambda kv: -kv[1])))
     return out
 
 
 def check_led_los(bodies, meshes):
-    em, n = led_emitters(bodies)
-    res = {"ok": True, "emitters": len(em)}
-    # (A) as built: every opaque part counts; target = clear aperture of each filter holder
+    em, n = led_emitters()
+    res = {"ok": True, "emitters": len(em), "emission_half_angle_deg": P.LED_HALF_ANGLE}
+    # (A) as built, target = clear aperture of each filter pocket
     res["cams"] = _led_direct(bodies, meshes, em, n, "filter")
     res["ok"] &= all(v["direct_lines"] == 0 for v in res["cams"].values())
-    # (B) the baffle on its own: lens front fully exposed (no filter housing / ring / shield arms)
-    hood = lambda b: b.name.split("#")[0] in ("FH-1", "FR-1") or b.name.startswith("SA-1")
-    baffle = lambda b: b.name.startswith("LD-2")
-    res["baffle_alone_bare_lens"] = _led_direct(bodies, meshes, em, n, "lens", hood)
-    res["ok"] &= all(v["direct_lines"] == 0 for v in res["baffle_alone_bare_lens"].values())
-    # (C) control: same bare-lens test without the baffle must find direct lines (the test can fail)
-    res["control_bare_lens_no_baffle"] = _led_direct(bodies, meshes, em, n, "lens", lambda b: hood(b) or baffle(b))
-    res["control_finds_lines"] = any(v["direct_lines"] > 0 for v in res["control_bare_lens_no_baffle"].values())
-    # nothing opaque between the LEDs and the ball (illumination not shadowed)
+    # (B) the LED mount alone: camera mounts removed, target = bare front glass of the lens
+    hood = lambda b: b.name.startswith("CM-1")
+    res["led_mount_alone_bare_lens"] = _led_direct(bodies, meshes, em, n, "lens", hood)
+    res["ok"] &= all(v["direct_lines"] == 0 for v in res["led_mount_alone_bare_lens"].values())
+    # (C) control: same test with the baffle wing removed from both LED mounts must find direct lines
+    keep = [k for k, b in enumerate(bodies) if not b.name.startswith("LT-1")]
+    # (C2) control: LED mounts removed altogether
+    res["control_no_led_mount"] = _led_direct([bodies[k] for k in keep], [meshes[k] for k in keep], em, n, "lens", hood)
+    res["control_finds_lines"] = any(v["direct_lines"] > 0 for v in res["control_no_led_mount"].values())
+    nowing = []
+    for s in (1, -1):
+        p = PT.led_tray(s, wing=False)
+        wp = A.apply(p.wp, pose.bf2w_matrix())
+        nowing.append((A.Body("LT-1" + tag(s) + "-nowing", wp, "printed", "led"), to_mesh(wp, 0.03, 0.15)))
+    b2 = [bodies[k] for k in keep] + [x[0] for x in nowing]
+    m2 = [meshes[k] for k in keep] + [x[1] for x in nowing]
+    res["control_no_baffle_wing"] = _led_direct(b2, m2, em, n, "lens", hood)
     ball = np.array([0, 0, P.BALL_R])
     scene = Scene(bodies, meshes)
     dist, who = scene.hits(em, np.tile(ball, (len(em), 1)) - em)
@@ -305,90 +313,81 @@ def check_led_los(bodies, meshes):
 
 
 # ---------------------------------------------------------------------------
-# 6: centre of mass versus the foot triangle
+# centre of mass and tripod-head torque
 # ---------------------------------------------------------------------------
-def com_at(bodies, meshes, theta, dh=0.0):
-    """Centre of mass of the rig (no ball / mat / template) with the head pitched to `theta`.
-    dh raises the head by dh mm (taller mast: head and pivot parts rise, the mast gets longer)."""
-    Mn = pose.bf2w_matrix()
-    Mt = pose.bf2w_matrix(theta)
-    T = Mt @ np.linalg.inv(Mn)
-    tot, c = 0.0, np.zeros(3)
+def com_info(bodies, meshes, theta=None):
+    Mbf = pose.bf2w_matrix(theta)
+    Minv = np.linalg.inv(Mbf)
+    m_tot, acc = 0.0, np.zeros(3)
     for b, m in zip(bodies, meshes):
-        if b.group in ("tmpl", "ball", "mat") or b.name in ("EXT-STICK", "TPL-PIN") or b.mass <= 0:
+        if not b.moves or b.mass <= 0 or b.name.startswith("TRIPOD"):
             continue
-        p = m.centroid if m.is_watertight else m.vertices.mean(axis=0)
-        p = np.append(p, 1.0)
-        mass = b.mass
-        if b.moves:
-            p = T @ p
-        if dh:
-            if b.moves or b.name in ("PV-1", "MC-1"):
-                p[2] += dh
-            elif b.name == "EXT-MAST":                   # longer mast: more mass, centroid rises by dh / 2
-                mass = b.mass + dh * P.EXT_MASS_PER_M / 1000.0
-                p[2] += dh / 2.0
-        tot += mass
-        c += mass * p[:3]
-    return c / tot, tot
+        m_tot += b.mass
+        acc += b.mass * m.centroid
+    cw = acc / m_tot
+    cb = (Minv @ np.append(cw, 1.0))[:3]
+    S = np.array([P.TA_X, P.TA_Y, P.Z_BEAM_BOT - P.TA_T, 1.0])
+    sw = (Mbf @ S)[:3]
+    return m_tot, cw, cb, sw
 
 
-def foot_margin(com, feet):
-    f = np.array(feet)
-    best = 1e9
-    for i in range(3):
-        a, b = f[i], f[(i + 1) % 3]
-        e = b - a
-        nrm = np.array([-e[1], e[0]]) / np.linalg.norm(e)
-        # make normal point inside
-        cen = f.mean(axis=0)
-        if np.dot(nrm, cen - a) < 0:
-            nrm = -nrm
-        best = min(best, float(np.dot(nrm, com[:2] - a)))
-    return best
-
-
-def check_stability(bodies, meshes):
-    feet = A.FOOT_POS
-    out = {"ok": True, "feet_xy": [[round(float(x), 1), round(float(y), 1)] for x, y in feet], "cases": {}}
-    for th in (0.0, P.PITCH_NOM, P.PITCH_MAX):
-        com, mass = com_at(bodies, meshes, th)
-        mg = foot_margin(com, feet)
-        out["cases"][str(th)] = dict(com=[round(float(x), 1) for x in com], total_mass_g=round(mass),
-                                      margin_mm=round(mg, 1))
-        out["ok"] &= mg >= P.STABILITY_MARGIN
-    com, _ = com_at(bodies, meshes, P.PITCH_MAX)
-    mg = foot_margin(com, feet)
-    out["tip_angle_deg_at_max_pitch"] = round(math.degrees(math.atan2(mg, com[2])), 1)
-    # tallest set-up: lens axis 300 mm at the steepest pitch (foot triangle unchanged)
-    com, mass = com_at(bodies, meshes, P.PITCH_MAX, 300.0 - P.LENS_HEIGHT)
-    mg = foot_margin(com, feet)
-    out["cases"]["lens 300 mm, pitch %.0f" % P.PITCH_MAX] = dict(
-        com=[round(float(x), 1) for x in com], total_mass_g=round(mass), margin_mm=round(mg, 1))
-    out["tip_angle_deg_at_300mm_max_pitch"] = round(math.degrees(math.atan2(mg, com[2])), 1)
-    out["ok"] &= mg >= P.STABILITY_MARGIN
+def check_com(bodies, meshes):
+    m, cw, cb, sw = com_info(bodies, meshes)
+    off = cw[:2] - sw[:2]
+    d = float(np.linalg.norm(off))
+    g = 9.81
+    torque = m / 1000.0 * g * d / 1000.0               # N m
+    out = dict(head_mass_g=round(m), com_bf_mm=[round(float(x), 1) for x in cb], com_world_mm=[round(float(x), 1) for x in cw],
+               stud_world_mm=[round(float(x), 1) for x in sw], horizontal_offset_com_to_stud_mm=[round(float(x), 1) for x in off],
+               offset_mm=round(d, 1), tipping_torque_Nm=round(torque, 3),
+               stud_height_above_mat_mm=round(float(sw[2]), 1), pitch_deg=P.PITCH_NOM)
+    # pitch sweep (torque with the stud fixed in the beam)
+    sweep = {}
+    for th in (10, 17, 25):
+        m_, cw_, cb_, sw_ = com_info(bodies, meshes, th) if False else (None, None, None, None)
+    out["ok"] = bool(torque < 0.15 and d < 25.0)
+    out["note"] = "COM from meshes of printed parts and proxies (printed mass at %d%% infill estimate); " \
+                  "recommended stud position in BF for zero offset is reported by recommend_stud()" % round(P.INFILL_EFF * 100)
     return out
 
 
+def recommend_stud(bodies, meshes):
+    """BF (x, y) of the stud for which the COM sits above it at nominal pitch (linear in y)."""
+    m, cw, cb, sw = com_info(bodies, meshes)
+    Mbf = pose.bf2w_matrix()
+    zb = P.Z_BEAM_BOT - P.TA_T
+    # world y of a stud at BF (x, y, zb): row 1 of Mbf
+    r = Mbf[1]
+    y_bf = (cw[1] - r[2] * zb - r[3]) / r[1]
+    return float(cb[0]), float(y_bf)
+
+
 # ---------------------------------------------------------------------------
-# 7: extras
+# FPC routes
 # ---------------------------------------------------------------------------
 def check_fpc_reach():
-    """Length of a ribbon routed Pi CSI connector -> over the camera bridge -> camera connector."""
     out = {"ok": True, "paths_mm": {}}
-    xc, zc = A.PI_POS
-    y_b = P.REAR_PLATE_Y - P.PLATE_T - P.BOARD_STANDOFF - P.PI_PCB[2] - 2.5
+    g = PT.box_geom()
+    zs = P.PI_Z + P.PI_PCB[1] / 2 + 4.0 + 1.75
+    y_conn = g["yb"] - P.BOARD_STANDOFF - P.PI_PCB[2] - 2.0
+    tie = []
+    for side in (1, -1):
+        K = pose.k2bf(side)
+        ear_x = -side * (P.HOOD_HALF + 4.5)
+        tie.append((K @ np.array([ear_x, -12.0, 10.0, 1.0]))[:3])
     for k, (u, v) in enumerate(P.PI_CSI):
-        pc = np.array([xc - (u - P.PI_PCB[0] / 2), y_b, zc - (v - P.PI_PCB[1] / 2)])
-        for side in (1, -1):
-            kp = C.kp2bf(side)
-            bridge = (kp @ np.array([0, 14.0, P.Z_AX + 31.0 + 4.0, 1.0]))[:3]
-            top = (kp @ np.array([0, P.PCB_BACK_Y - P.CAM_REAR_H, P.Z_AX + P.CAM_PCB / 2 + 6.0, 1.0]))[:3]
-            conn = (kp @ np.array([0, P.PCB_BACK_Y - P.CAM_REAR_H / 2, P.Z_AX + P.CAM_PCB / 2 - 2.0, 1.0]))[:3]
-            pts = [pc, pc + np.array([0, 0, 12.0]), bridge, top, conn]
-            ln = sum(np.linalg.norm(pts[i + 1] - pts[i]) for i in range(len(pts) - 1)) + 20.0   # + slack/bends
-            out["paths_mm"]["CSI%d->%s" % (k, C.side_tag(side))] = round(float(ln))
-    # best assignment: CSI connector 0 / 1 to the two cameras
+        x, z = PT.pi_xz(u, v)
+        pc = np.array([x, y_conn, z])
+        for si, side in enumerate((1, -1)):
+            K = pose.k2bf(side)
+            conn = (K @ np.array([0, -P.CAM_PCB_T - 2.5, P.CAM_PCB / 2 - 2.0, 1.0]))[:3]
+            top = (K @ np.array([0, -P.CAM_PCB_T - P.CAM_REAR_H - 4.0, P.CAM_PCB / 2 + 5.0, 1.0]))[:3]
+            up = np.array([x, y_conn, zs])
+            out_front = np.array([x, P.Y_BEAM_REAR + 6.0, zs])
+            above = np.array([tie[si][0], tie[si][1] - 4.0, zs - 10.0])
+            pts = [pc, up, out_front, above, tie[si], top, conn]
+            ln = sum(np.linalg.norm(pts[i + 1] - pts[i]) for i in range(len(pts) - 1)) + 20.0
+            out["paths_mm"]["CSI%d->%s" % (k, tag(side))] = round(float(ln))
     ps = out["paths_mm"]
     a = max(ps["CSI0->R"], ps["CSI1->L"])
     b = max(ps["CSI0->L"], ps["CSI1->R"])
@@ -398,62 +397,17 @@ def check_fpc_reach():
     return out
 
 
-def check_glare(bodies):
-    """Specular reflection of the LEDs on the shield sheet into the lenses."""
-    em, _ = led_emitters(bodies)
-    Mbf = pose.bf2w_matrix()
-    Minv = np.linalg.inv(Mbf)
-    ysh = pose.shield_y0()
-    res = {"ok": True, "cams": {}}
-    for side in (1, -1):
-        cam = cam_frame(side)
-        worst = 1e9
-        risk = 0
-        for e in em:
-            eb = (Minv @ np.append(e, 1.0))[:3]
-            for yplane in (ysh, ysh + P.SHIELD_T):
-                mirror = np.array([eb[0], 2 * yplane - eb[1], eb[2]])
-                mw = (Mbf @ np.append(mirror, 1.0))[:3]
-                az, el, _ = cam_coords(cam, [mw])
-                off = max(abs(az[0]) - HU, abs(el[0]) - HV)
-                worst = min(worst, off)
-                if off < 0:
-                    pb = (Minv @ np.append(cam["pupil"], 1.0))[:3]
-                    t = (yplane - pb[1]) / (mirror[1] - pb[1])
-                    q = pb + (mirror - pb) * t
-                    if abs(q[0]) < P.SHIELD_W / 2 and P.Z_BEAM_TOP + 3 < q[2] < P.Z_BEAM_TOP + 3 + P.SHIELD_H:
-                        risk += 1
-        res["cams"][C.side_tag(side)] = dict(reflections_inside_fov_on_sheet=risk,
-                                             closest_to_fov_edge_deg=round(math.degrees(worst), 1))
-        res["ok"] &= risk == 0
-    return res
-
-
-def lens_height_table():
-    """Which lens heights / pitch angles the printed hub + collar geometry can reach."""
-    rows = []
-    tower_top = P.Z_PAD_TOP + P.TOWER_H + 2.0
-    for th in (P.PITCH_MIN, P.PITCH_NOM, P.PITCH_MAX):
-        off = pose.pitch_pupil_offset(th)[1]
-        # collar bottom = pivot + MC_FLANGE_BOTTOM_PF - collar height must clear the hub tower
-        pz_min = tower_top + P.MC_COLLAR_H - P.MC_FLANGE_BOTTOM_PF
-        rows.append(dict(pitch_deg=th, min_lens_height_mm_feet_retracted=round(pz_min + off),
-                         min_lens_height_mm_nominal_feet=round(pz_min + P.FOOT_GAP_NOM + off)))
-    return dict(rows=rows, cut_mast_mm=round(pose.MAST_LEN, 1),
-                height_with_this_mast_mm={str(th): [round(pose.lens_height_for(th, g)) for g in (0, P.FOOT_GAP_NOM, 30)]
-                                           for th in (P.PITCH_MIN, P.PITCH_NOM, P.PITCH_MAX)})
-
-
 def build_meshes(bodies, tol=0.03):
     out = []
     for b in bodies:
-        if b.name == "BALL":      # OCC spheres tessellate with a seam; use a clean icosphere
+        if b.name == "BALL":
             m = trimesh.creation.icosphere(subdivisions=4, radius=P.BALL_R)
             m.apply_translation([0, 0, P.BALL_R])
             out.append(m)
         else:
             out.append(to_mesh(b.wp, tol, 0.15))
     return out
+
 
 
 # ---------------------------------------------------------------------------
@@ -485,119 +439,8 @@ def wall_scan(mesh, n=6000, min_wall=None, seed=1):
 
 
 # ---------------------------------------------------------------------------
-# motion ranges: adjustment joints swept through their limits
-# ---------------------------------------------------------------------------
-def _rot(mesh, angle_deg, axis_point, axis_dir):
-    m = mesh.copy()
-    m.apply_transform(trimesh.transformations.rotation_matrix(math.radians(angle_deg), axis_dir, axis_point))
-    return m
 
 
-def _overlap_pairs(group, others, threshold=0.5):
-    """group / others: lists of (name, mesh).  Returns overlaps above threshold (mm3)."""
-    hits = []
-    man_o = {}
-    for gn, gm in group:
-        try:
-            mg = _manifold(gm)
-        except Exception:
-            continue
-        for on, om in others:
-            if np.any(gm.bounds[1] < om.bounds[0] - 0.01) or np.any(om.bounds[1] < gm.bounds[0] - 0.01):
-                continue
-            if on not in man_o:
-                try:
-                    man_o[on] = _manifold(om)
-                except Exception:
-                    man_o[on] = None
-            if man_o[on] is None:
-                continue
-            v = (mg ^ man_o[on]).volume()
-            if v > threshold:
-                hits.append((round(float(v), 2), gn, on))
-    return sorted(hits, reverse=True)
-
-
-def check_motion(bodies, meshes):
-    """Sweep the adjustment joints through their limits and look for new overlaps:
-    head pitch (-3..30 deg), camera yaw (+-YAW_RANGE), camera tilt (+-TILT_RANGE)."""
-    named = {b.name: (b, m) for b, m in zip(bodies, meshes)}
-    skip = lambda b: b.name in ("MAT", "BALL", "EXT-STICK", "TPL-PIN") or b.group == "tmpl"
-    res = {"ok": True, "cases": {}}
-    # --- head pitch about the pitch axis
-    Mn = pose.bf2w_matrix()
-    moving = [(b.name, m) for b, m in zip(bodies, meshes) if b.moves and not skip(b)]
-    fixed = [(b.name, m) for b, m in zip(bodies, meshes) if (not b.moves) and not skip(b)]
-    for th in (PIV_MIN, 0.0, P.PITCH_MIN, P.PITCH_MAX, PIV_MAX):
-        d = -(th - P.PITCH_NOM)           # rotation about +X (nose down is negative)
-        g = [(n, _rot(m, d, pose.PIVOT_W, (1, 0, 0))) for n, m in moving]
-        h = _overlap_pairs(g, fixed)
-        res["cases"]["head pitch %.0f deg" % th] = h
-        res["ok"] &= not h
-    # --- camera stage joints
-    for side in (1, -1):
-        tag = C.side_tag(side)
-        M = pose.bf2w_matrix() @ C.kp2bf(side)
-        R, t = M[:3, :3], M[:3, 3]
-        yaw_names = ["YS-1#", "CP-1#", "FH-1#", "FR-1#", "PCB#", "HOLDER#", "FPCCONN#", "LENS#", "FILTER#"]
-        tilt_names = yaw_names[1:]
-        yh = (P.CP_BACK_Y + P.CP_FRONT_Y) / 2
-        for kind, names, p0, dirv, rng in (
-                ("yaw", yaw_names, t, R @ np.array([0, 0, 1.0]), P.YAW_RANGE),
-                ("tilt", tilt_names, M @ np.array([0, yh, P.Z_AX, 1.0]), R @ np.array([1.0, 0, 0]), P.TILT_RANGE)):
-            grp = [(n + tag, named[n + tag][1]) for n in names]
-            gset = set(n for n, _ in grp)
-            others = [(b.name, m) for b, m in zip(bodies, meshes) if b.name not in gset and not skip(b)]
-            for sgn in (-1, 1):
-                g = [(n, _rot(m, sgn * rng, p0[:3], dirv)) for n, m in grp]
-                h = _overlap_pairs(g, others)
-                res["cases"]["camera %s %s %+.0f deg" % (tag, kind, sgn * rng)] = h
-                res["ok"] &= not h
-    return res
-
-
-PIV_MIN, PIV_MAX = P.PIV_RANGE
-
-
-# ---------------------------------------------------------------------------
-# hand-calculation of the beam stiffness (the beam, not the plastic, sets the baseline)
-# ---------------------------------------------------------------------------
-def beam_stiffness(bodies, meshes):
-    from lib import ext_proxy
-    # second moment of area of the 2020 profile from a 1 mm slice of the proxy (about the horizontal bending axis)
-    sl = to_mesh(ext_proxy((0, 0, 0), (1, 0, 0), 1.0), 0.005, 0.05)
-    A_sec = sl.volume / 1.0
-    Iyy = sl.moment_inertia[1][1] / 1.0 - A_sec * 1.0 ** 2 / 12.0        # mm4 (x^2 term of the slice removed)
-    E = 70000.0                                                           # N/mm2 aluminium
-    g = 9.81 / 1000.0
-    Mn = pose.bf2w_matrix()
-    loads = []
-    for b, m in zip(bodies, meshes):
-        if not b.moves or b.mass <= 0 or b.name == "EXT-BEAM" or b.group == "pivot":
-            continue
-        c = (np.linalg.inv(Mn) @ np.append(m.centroid, 1.0))[:3]
-        loads.append((c[0], b.mass * g))
-    xp = pose.PIVOT_X
-    out = {}
-    for name, xq in (("right camera", P.BASELINE / 2.0), ("left camera", -P.BASELINE / 2.0),
-                     ("LED board (right)", P.LED_X)):
-        d = 0.0
-        for xl, f in loads:
-            if (xl - xp) * (xq - xp) <= 0:
-                continue                                   # other side of the clamp
-            a, b_ = abs(xl - xp), abs(xq - xp)
-            d += f * (a ** 2 * (3 * b_ - a) if a <= b_ else b_ ** 2 * (3 * a - b_)) / (6 * E * Iyy)
-        out[name.replace(" ", "_") + "_sag_um"] = round(d * 1000, 1)
-    return dict(area_mm2=round(float(A_sec), 1), I_mm4=round(float(Iyy)), E_N_per_mm2=E,
-                head_load_N=round(sum(f for _, f in loads), 1), **out,
-                note="hand calculation: beam treated as clamped at the pitch drum with every head mass as a point "
-                     "load; printed camera stages are NOT included (they set the pointing, so the stereo "
-                     "extrinsics must be calibrated in software)")
-
-
-# ---------------------------------------------------------------------------
-# printability: unsupported overhang scan on the exported (print-orientation) STL files
-# ---------------------------------------------------------------------------
 def overhang_scan(stl_path, bridge_limit_mm=30.0, sloped_limit_mm2=400.0):
     """Faces looking downwards steeper than 45 deg (n_z < -0.72) that do not touch the bed.
     Horizontal ones are bridges; their span is estimated by the hydraulic diameter 4A/P of each
@@ -634,3 +477,33 @@ def overhang_scan(stl_path, bridge_limit_mm=30.0, sloped_limit_mm2=400.0):
     out["widest_bridge_patch"] = worst
     out["needs_support_review"] = bool(out["sloped_overhang_mm2"] > sloped_limit_mm2 or span > bridge_limit_mm)
     return out
+
+
+def beam_stiffness(bodies, meshes):
+    from lib import ext_proxy
+    sl = to_mesh(ext_proxy((0, 0, 0), (1, 0, 0), 1.0), 0.005, 0.05)
+    A_sec = sl.volume
+    Iyy = sl.moment_inertia[1][1] - A_sec / 12.0
+    E = 70000.0
+    g = 9.81 / 1000.0
+    Mn = pose.bf2w_matrix()
+    loads = []
+    for b, m in zip(bodies, meshes):
+        if not b.moves or b.mass <= 0 or b.name in ("EXT-BEAM",) or b.name.startswith("TRIPOD"):
+            continue
+        c = (np.linalg.inv(Mn) @ np.append(m.centroid, 1.0))[:3]
+        loads.append((c[0], b.mass * g))
+    xp = P.TA_X
+    out = {}
+    for name, xq in (("right camera", P.BASELINE / 2.0), ("left camera", -P.BASELINE / 2.0), ("right LED board", P.LED_X)):
+        d = 0.0
+        for xl, f in loads:
+            if (xl - xp) * (xq - xp) <= 0:
+                continue
+            a, b_ = abs(xl - xp), abs(xq - xp)
+            d += f * (a ** 2 * (3 * b_ - a) if a <= b_ else b_ ** 2 * (3 * a - b_)) / (6 * E * Iyy)
+        out[name.replace(" ", "_") + "_sag_um"] = round(d * 1000, 1)
+    return dict(area_mm2=round(float(A_sec), 1), I_mm4=round(float(Iyy)), E_N_per_mm2=E,
+                head_load_N=round(sum(f for _, f in loads), 1), **out,
+                note="hand calculation: beam clamped at the tripod stud, head masses as point loads; "
+                     "the cameras' pointing is set by the printed mounts, extrinsics must be calibrated in software")

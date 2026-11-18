@@ -1,123 +1,89 @@
-"""Nominal-pose mathematics: frames BF / PF / HF / WF (see params.py)."""
+"""Frames and the nominal pose: BF (beam), K (camera), WF (world)."""
 import math
 import numpy as np
 import params as P
 from lib import rot_x, rot_z, T4
 
 
-def toed_in_yaw(side):
-    """KP rotation (deg, CCW about +Z) of the camera stage on side +1 (x>0) / -1."""
+def yaw(side):
+    """Built-in camera yaw (deg, CCW about +Z): +X camera turns towards -X, -X camera towards +X."""
     return P.TOE_IN_R if side > 0 else -P.TOE_IN_L
 
 
+def cam_origin(side):
+    """BF position of the camera frame origin so that the lens pupil sits exactly at x = side * baseline / 2."""
+    psi = math.radians(yaw(side))
+    x0 = side * P.BASELINE / 2.0 + P.PUPIL_K * math.sin(psi)
+    return np.array([x0, P.CAM_Y0, P.CAM_AXIS_Z])
+
+
+def k2bf(side):
+    return T4(rot_z(yaw(side)), cam_origin(side))
+
+
 def pupil_bf(side):
-    """Entrance pupil of the camera on `side`, in BF (pitch 0)."""
-    kp = np.array([0.0, P.PUPIL_Y, P.Z_AX])
-    return rot_z(toed_in_yaw(side)) @ kp + np.array([side * P.BASELINE / 2.0, 0.0, P.Z_CB_TOP])
+    return (k2bf(side) @ np.array([0, P.PUPIL_K, 0, 1.0]))[:3]
 
 
 PUPIL_MEAN = (pupil_bf(1) + pupil_bf(-1)) / 2.0
-# BF origin sits at world x = X0 so that the mean pupil is AIM_U down-range of the ball
-X0 = P.AIM_U - PUPIL_MEAN[0]
-PIVOT_X = 0.0                                     # pitch axis (and mast) at the beam centre: head is balanced over the hub
-PIVOT_BF = np.array([PIVOT_X, 0.0, P.Z_PIVOT])
+X0 = P.AIM_U - PUPIL_MEAN[0]          # world x of the BF origin (PUPIL_MEAN[0] is 0)
+M0 = np.array([P.AIM_U, -P.BALL_DIST, P.LENS_HEIGHT])   # world position of the mean pupil
 
 
-def pitch_pupil_offset(theta_deg):
-    """(dy, dz) of the mean pupil relative to the pitch axis once pitched down by theta."""
-    d = PUPIL_MEAN - PIVOT_BF
-    t = math.radians(theta_deg)
-    return (d[1] * math.cos(t) + d[2] * math.sin(t), -d[1] * math.sin(t) + d[2] * math.cos(t))
-
-
-_off = pitch_pupil_offset(P.PITCH_NOM)
-PIVOT_W = np.array([X0 + PIVOT_X, -P.BALL_DIST - _off[0], P.LENS_HEIGHT - _off[1]])   # pitch axis in WF
-
-HUB_Z0 = P.Z_PAD_TOP + P.FOOT_GAP_NOM            # hub / bracket bottom (WF z), nominal
-MAST_TOP_W = PIVOT_W[2] + P.MC_FLANGE_BOTTOM_PF
-MAST_BOTTOM_W = HUB_Z0 + 8.0
-MAST_LEN = MAST_TOP_W - MAST_BOTTOM_W
-
-
-def lens_height_for(theta_deg, foot_gap):
-    """Lens height reached with the *cut* mast at another pitch / foot setting."""
-    hub_z0 = P.Z_PAD_TOP + foot_gap
-    pivot_z = hub_z0 + 8.0 + MAST_LEN - P.MC_FLANGE_BOTTOM_PF
-    return pivot_z + pitch_pupil_offset(theta_deg)[1]
-
-
-def bf2w_matrix(theta_deg=None):
-    """4x4 transform BF -> WF for a pitch angle (deg, nose down)."""
-    th = P.PITCH_NOM if theta_deg is None else theta_deg
+def bf2w_matrix(theta=None):
+    """BF -> WF: pitch nose-down by theta about the mean pupil (the tripod head tilts the whole beam)."""
+    th = P.PITCH_NOM if theta is None else theta
     R = rot_x(-th)
-    return T4(R, PIVOT_W - R @ PIVOT_BF)
-
-
-def pf2w_matrix():
-    """PF (pivot frame, origin on the pitch axis, never pitches) -> WF."""
-    return T4(np.eye(3), PIVOT_W)
-
-
-def hf2w_matrix(foot_gap=None):
-    gap = P.FOOT_GAP_NOM if foot_gap is None else foot_gap
-    return T4(np.eye(3), (PIVOT_W[0], PIVOT_W[1], P.Z_PAD_TOP + gap))
+    return T4(R, M0 - R @ PUPIL_MEAN)
 
 
 def ball_w():
     return np.array([0.0, 0.0, P.BALL_R])
 
 
-def ball_bf(theta_deg=None):
-    M = bf2w_matrix(theta_deg)
-    return (np.linalg.inv(M) @ np.append(ball_w(), 1.0))[:3]
+def hood_front_y():
+    """Largest BF y of any camera hood point (front face corners)."""
+    ymax = 0.0
+    for side in (1, -1):
+        M = k2bf(side)
+        for sx in (-1, 1):
+            p = M @ np.array([sx * P.HOOD_HALF, P.HOOD_FRONT_K, 0, 1.0])
+            ymax = max(ymax, p[1])
+    return ymax
 
 
 def shield_y0():
-    """BF y of the shield sheet back face (clear of the retaining rings at any yaw setting)."""
-    ymax = 0.0
-    for side in (1, -1):
-        for dyaw in (P.YAW_RANGE, -P.YAW_RANGE, 0.0):
-            psi = math.radians(toed_in_yaw(side) + dyaw)
-            for sx in (-1, 1):
-                x, y = sx * P.FH_DISC_R, P.FR_FRONT_Y
-                ymax = max(ymax, x * math.sin(psi) + y * math.cos(psi))
-    return math.ceil(ymax + P.SHIELD_CLEAR)
+    """BF y of the shield sheet back face."""
+    return math.ceil(hood_front_y() + P.SHIELD_CLEAR)
 
 
-def template_geometry():
-    """Lug pin position, unit vector pin -> ball, distance, and the rotation (deg, CCW about +Z) of the
-    template parts (their local +Y = direction of the stick, pin at their origin)."""
-    lug = np.array([PIVOT_W[0], PIVOT_W[1] + P.LUG_Y])
-    v = -lug
-    D = float(np.linalg.norm(v))
-    u = v / D
-    rot = -math.degrees(math.atan2(u[0], u[1]))
-    return lug, u, D, rot
-
-
-def stick_len():
-    return template_geometry()[2] - 66.0
-
-
-# ---- LED side boards: stack along +Y in BF ------------------------------------
-LED_FRAME_REAR_OFF = 11.0
-LED_FRAME_T = 20.0
-LED_PLATE_OFF = 5.0
-POST_H = LED_FRAME_REAR_OFF
-FLANGE_Y = 6.0                                    # printed backplate thickness
-
-
-def led_y0():
-    """BF y of the front face of the printed LED backplate (frame front stays behind the shield posts)."""
-    return shield_y0() - 5.0 - P.LED_FRAME_FRONT_CLEAR - (LED_FRAME_REAR_OFF + LED_FRAME_T)
-
-
+# ---- LED board stack along +Y (BF) -------------------------------------------------
 def led_tip_y():
-    """BF y of the top of the TIR lenses."""
-    return led_y0() + LED_PLATE_OFF + P.LED_PLATE[2] + P.LED_STAR_T + P.LED_LENS_H
+    """BF y of the top of the TIR lenses: just behind the hood front plane."""
+    return math.floor(hood_front_y() - 3.0)
+
+
+def led_geom():
+    """Key BF y values of one LED tray."""
+    tip = led_tip_y()
+    stars_y0 = tip - P.LED_LENS_H - P.LED_STAR_T         # front face of the plate
+    plate_y1 = stars_y0
+    plate_y0 = plate_y1 - P.LED_PLATE[2]                 # plate rear face
+    lip0 = plate_y0 - 8.0
+    parts_front = plate_y0 - 1.0
+    pcb_front = parts_front - P.MOD_PARTS_H
+    pcb_rear = pcb_front - P.MOD[2]
+    return dict(tip=tip, stars_y0=stars_y0, plate_y0=plate_y0, plate_y1=plate_y1, lip0=lip0,
+                parts_front=parts_front, pcb_front=pcb_front, pcb_rear=pcb_rear,
+                y_end=tip + 8.0, slit_y=tip + 2.0)
 
 
 def led_star_xz(i, j, side):
-    """Star centre (x, z) in BF of grid position (i, j) of the board on `side`."""
     gx, gz = P.LED_GRID
     return (side * P.LED_X + (i - (gx - 1) / 2.0) * P.LED_STAR_D, P.LED_ZC + (j - (gz - 1) / 2.0) * P.LED_STAR_D)
+
+
+def tripod_point_w(theta=None):
+    """World position of the top of the tripod stud (adapter underside) for the given pitch."""
+    S = np.array([P.TA_X, P.TA_Y, P.Z_BEAM_BOT - P.TA_T, 1.0])
+    return (bf2w_matrix(theta) @ S)[:3]
