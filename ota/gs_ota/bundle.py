@@ -1,0 +1,301 @@
+"""Build the self-contained sensor release bundle ``sensor-<ver>.tar.zst``.
+
+Bundle layout (paths relative to the slot directory it is unpacked into):
+
+    release.json        {"name", "version", "python", "built", "packages", "smoke_imports", ...}
+    release.env         KEY=VALUE lines for systemd EnvironmentFile= (GS_SW_VERSION ...)
+    bin/gs-python       launcher: system python3 + PYTHONPATH=<slot>/lib
+    bin/<launcher>      e.g. bin/gs-service -> gs-python -m gs_service
+    lib/                our packages + all third-party dependencies (vendored)
+    share/web/          phone PWA (from service/web)
+
+Self-contained by design: the device needs only the distro's python3 (3.12
+on Ubuntu 24.04); no venv creation and no PyPI access on the device. Venvs
+are not used because they are not relocatable between slot paths.
+
+Modes:
+  pip   build wheels of our projects, ``pip install --target lib`` them and
+        their third-party dependencies (optionally cross-platform with
+        --platform/--python-version and --only-binary, or offline from a
+        wheelhouse). Use this for real releases.
+  copy  copy the import packages' source dirs only (no third-party deps);
+        for development and tests.
+
+The config lists source dirs; missing sibling projects are skipped with a
+warning unless marked ``required`` (or ``--strict``).
+"""
+from __future__ import annotations
+
+import io
+import json
+import logging
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tarfile
+import tempfile
+import tomllib
+from dataclasses import dataclass, field
+from datetime import datetime, timezone
+from email.parser import Parser
+from pathlib import Path
+from typing import Any
+from zipfile import ZipFile
+
+import zstandard
+
+from .semver import Version
+
+log = logging.getLogger(__name__)
+
+_IGNORE = shutil.ignore_patterns("__pycache__", "*.pyc", "*.pyo", ".pytest_cache", "*.egg-info",
+                                 ".git", ".venv", "node_modules", ".DS_Store")
+
+
+class BuildError(Exception):
+    pass
+
+
+@dataclass
+class PackageSpec:
+    path: Path
+    import_name: str
+    required: bool = False
+
+
+@dataclass
+class DataSpec:
+    src: Path
+    dest: str
+    required: bool = False
+
+
+@dataclass
+class BundleConfig:
+    base: Path
+    name: str = "gs-sensor"
+    python: str = "3.12"
+    platform: str | None = None
+    mode: str = "pip"
+    packages: list[PackageSpec] = field(default_factory=list)
+    data: list[DataSpec] = field(default_factory=list)
+    launchers: dict[str, str] = field(default_factory=dict)
+    smoke_imports: list[str] = field(default_factory=list)
+    extra_requirements: list[str] = field(default_factory=list)
+    env: dict[str, str] = field(default_factory=dict)
+    device_python: str = "/usr/bin/python3"
+
+    @classmethod
+    def load(cls, path: str | Path) -> "BundleConfig":
+        path = Path(path).resolve()
+        with open(path, "rb") as f:
+            d = tomllib.load(f)
+        base = path.parent
+        cfg = cls(base=base)
+        for k in ("name", "python", "platform", "mode", "device_python"):
+            if k in d:
+                setattr(cfg, k, d[k])
+        cfg.packages = [PackageSpec((base / p["path"]).resolve(), p["import"], p.get("required", False))
+                        for p in d.get("package", [])]
+        cfg.data = [DataSpec((base / x["src"]).resolve(), x["dest"], x.get("required", False))
+                    for x in d.get("data", [])]
+        cfg.launchers = dict(d.get("launchers", {}))
+        cfg.smoke_imports = list(d.get("smoke_imports", []))
+        cfg.extra_requirements = list(d.get("extra_requirements", []))
+        cfg.env = {str(k): str(v) for k, v in d.get("env", {}).items()}
+        return cfg
+
+
+def _find_import_dir(spec: PackageSpec) -> Path | None:
+    for cand in (spec.path / spec.import_name, spec.path / "src" / spec.import_name):
+        if (cand / "__init__.py").is_file():
+            return cand
+    if (spec.path / "__init__.py").is_file() and spec.path.name == spec.import_name:
+        return spec.path
+    return None
+
+
+def _norm(name: str) -> str:
+    return re.sub(r"[-_.]+", "-", name).lower()
+
+
+def _pip(args: list[str]) -> None:
+    cmd = [sys.executable, "-m", "pip", "--disable-pip-version-check", *args]
+    log.info("+ %s", " ".join(cmd))
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        raise BuildError(f"pip failed: {' '.join(args[:3])}...\n{r.stdout[-3000:]}\n{r.stderr[-3000:]}")
+
+
+def _wheel_requirements(whl: Path) -> tuple[str, list[str]]:
+    with ZipFile(whl) as z:
+        meta_name = next(n for n in z.namelist() if n.endswith(".dist-info/METADATA"))
+        msg = Parser().parsestr(z.read(meta_name).decode())
+    return msg["Name"], msg.get_all("Requires-Dist") or []
+
+
+def _launcher(cfg: BundleConfig, version: str) -> str:
+    env_lines = "".join(
+        f'export {k}="{v.replace("{slot}", "$HERE")}"\n' for k, v in sorted(cfg.env.items()))
+    return f"""#!/bin/sh
+# Generated by gs_ota.bundle. Runs the system Python with this release's
+# vendored packages. Resolves symlinks so a running process stays tied to
+# its slot even after /opt/golfsim/current is switched.
+set -e
+HERE=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P)
+PY="${{GS_PYTHON:-{cfg.device_python}}}"
+export PYTHONPATH="$HERE/lib"
+export PYTHONNOUSERSITE=1
+export GS_SW_VERSION="{version}"
+export GS_RELEASE_DIR="$HERE"
+{env_lines}exec "$PY" -s "$@"
+"""
+
+
+def build_tree(cfg: BundleConfig, version: str, root: Path, strict: bool = False,
+               wheelhouse: Path | None = None, mode: str | None = None) -> dict[str, Any]:
+    """Assemble the bundle tree in ``root``. Returns release.json content."""
+    Version.parse(version)
+    mode = mode or cfg.mode
+    lib = root / "lib"
+    lib.mkdir(parents=True)
+    present: list[PackageSpec] = []
+    for spec in cfg.packages:
+        ok = (spec.path / "pyproject.toml").is_file() if mode == "pip" else bool(_find_import_dir(spec))
+        if mode == "pip" and ok and not _find_import_dir(spec):
+            ok = False
+        if not ok:
+            msg = f"package {spec.import_name} not found under {spec.path}"
+            if spec.required or strict:
+                raise BuildError(msg)
+            log.warning("%s; skipping", msg)
+            continue
+        present.append(spec)
+
+    if mode == "copy":
+        for spec in present:
+            src = _find_import_dir(spec)
+            assert src is not None
+            shutil.copytree(src, lib / spec.import_name, ignore=_IGNORE)
+        third_party: list[str] = []
+    elif mode == "pip":
+        with tempfile.TemporaryDirectory() as td:
+            wdir = Path(td)
+            for spec in present:
+                _pip(["wheel", "--no-deps", "--no-build-isolation", "-w", str(wdir), str(spec.path)])
+            wheels = sorted(wdir.glob("*.whl"))
+            local = set()
+            reqs: list[str] = []
+            for w in wheels:
+                name, rq = _wheel_requirements(w)
+                local.add(_norm(name))
+                reqs.extend(rq)
+            third_party = []
+            for r in reqs + cfg.extra_requirements:
+                m = re.match(r"\s*([A-Za-z0-9][A-Za-z0-9._-]*)", r)
+                if not m or _norm(m.group(1)) in local or "extra ==" in r:
+                    continue
+                if r not in third_party:
+                    third_party.append(r)
+            _pip(["install", "--no-deps", "--no-compile", "--target", str(lib), *map(str, wheels)])
+        if third_party:
+            args = ["install", "--no-compile", "--target", str(lib), "--upgrade"]
+            if cfg.platform:
+                args += ["--platform", cfg.platform, "--python-version", cfg.python,
+                         "--implementation", "cp", "--only-binary=:all:"]
+            if wheelhouse:
+                args += ["--no-index", "--find-links", str(wheelhouse)]
+            _pip(args + third_party)
+        # pip --target leaves console-script wrappers with build-host shebangs
+        shutil.rmtree(lib / "bin", ignore_errors=True)
+    else:
+        raise BuildError(f"unknown mode {mode!r}")
+
+    for d in cfg.data:
+        if not d.src.is_dir():
+            msg = f"data dir {d.src} missing"
+            if d.required or strict:
+                raise BuildError(msg)
+            log.warning("%s; skipping", msg)
+            continue
+        if d.dest.startswith("/") or ".." in Path(d.dest).parts:
+            raise BuildError(f"bad data dest {d.dest!r}")
+        shutil.copytree(d.src, root / d.dest, ignore=_IGNORE)
+
+    bindir = root / "bin"
+    bindir.mkdir()
+    (bindir / "gs-python").write_text(_launcher(cfg, version))
+    (bindir / "gs-python").chmod(0o755)
+    names = {p.import_name for p in present}
+    for lname, module in sorted(cfg.launchers.items()):
+        if module.split(".")[0] not in names:
+            continue
+        p = bindir / lname
+        p.write_text('#!/bin/sh\nexec "$(dirname -- "$0")/gs-python" -m ' + module + ' "$@"\n')
+        p.chmod(0o755)
+
+    smoke = [m for m in cfg.smoke_imports if m.split(".")[0] in names]
+    smoke += [p.import_name for p in present if p.import_name not in smoke]
+    epoch = int(os.environ.get("SOURCE_DATE_EPOCH", "0")) or None
+    built = datetime.fromtimestamp(epoch, timezone.utc) if epoch else datetime.now(timezone.utc)
+    release = {
+        "name": cfg.name, "version": version, "python": cfg.python, "platform": cfg.platform,
+        "mode": mode, "built": built.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "packages": sorted(names), "third_party": third_party,
+        "smoke_imports": smoke, "launchers": sorted(k for k in cfg.launchers
+                                                    if (bindir / k).exists()),
+    }
+    (root / "release.json").write_text(json.dumps(release, indent=2, sort_keys=True) + "\n")
+    env = {"GS_SW_VERSION": version, **{k: v.replace("{slot}", "/opt/golfsim/current")
+                                        for k, v in cfg.env.items()}}
+    (root / "release.env").write_text("".join(f"{k}={v}\n" for k, v in sorted(env.items())))
+    return release
+
+
+def write_tar_zst(src_root: Path, out: Path, level: int = 19) -> None:
+    """Deterministic tar (sorted, mtime from SOURCE_DATE_EPOCH or 0, root
+    owner, normalised modes) compressed with zstd."""
+    mtime = int(os.environ.get("SOURCE_DATE_EPOCH", "0"))
+    buf = io.BytesIO()
+    with tarfile.open(fileobj=buf, mode="w", format=tarfile.PAX_FORMAT) as tf:
+        entries = []
+        for dirpath, dirnames, filenames in os.walk(src_root):
+            dirnames.sort()
+            for n in dirnames + sorted(filenames):
+                entries.append(Path(dirpath) / n)
+        for p in sorted(entries, key=lambda x: x.relative_to(src_root).as_posix()):
+            rel = p.relative_to(src_root).as_posix()
+            ti = tf.gettarinfo(str(p), arcname=rel)
+            ti.uid = ti.gid = 0
+            ti.uname = ti.gname = ""
+            ti.mtime = mtime
+            if ti.isdir():
+                ti.mode = 0o755
+            elif ti.isreg():
+                ti.mode = 0o755 if ti.mode & 0o111 else 0o644
+            if ti.isreg():
+                with open(p, "rb") as f:
+                    tf.addfile(ti, f)
+            else:
+                tf.addfile(ti)
+    cctx = zstandard.ZstdCompressor(level=level, threads=-1)
+    tmp = out.with_name(out.name + ".tmp")
+    tmp.write_bytes(cctx.compress(buf.getvalue()))
+    os.replace(tmp, out)
+
+
+def build_sensor_bundle(config_path: str | Path, version: str, out_dir: str | Path,
+                        strict: bool = False, wheelhouse: str | Path | None = None,
+                        mode: str | None = None) -> Path:
+    cfg = BundleConfig.load(config_path)
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out = out_dir / f"sensor-{version}.tar.zst"
+    with tempfile.TemporaryDirectory() as td:
+        root = Path(td) / "bundle"
+        root.mkdir()
+        build_tree(cfg, version, root, strict, Path(wheelhouse) if wheelhouse else None, mode)
+        write_tar_zst(root, out)
+    return out

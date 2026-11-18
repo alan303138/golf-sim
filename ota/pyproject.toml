@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gs-ota"
+version = "0.1.0"
+description = "Signed OTA updates for the golf simulator (sensor software, MCU firmware, PC simulator)"
+requires-python = ">=3.11"
+dependencies = [
+    # gs_common is a path dependency: install with `pip install -e ../common` first
+    # (see README.md). A PEP 508 direct reference would pin an absolute path.
+    "gs-common",
+    "cryptography>=41",
+    "httpx>=0.25",
+    "zstandard>=0.21",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7", "pytest-asyncio>=0.21"]
+
+[project.scripts]
+gs-ota = "gs_ota.tools:main"
+gs-ota-agent = "gs_ota.agent:main"
+
+[tool.setuptools]
+packages = ["gs_ota"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

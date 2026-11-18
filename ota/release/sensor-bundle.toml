@@ -1,0 +1,49 @@
+# Sensor software bundle definition, used by
+#   python -m gs_ota.tools build-sensor --version X.Y.Z --out releases/stable
+# Paths are relative to this file. Projects that do not exist yet are skipped
+# with a warning (use --strict for real releases).
+
+name = "gs-sensor"
+python = "3.12"                       # device: Ubuntu 24.04 system python3
+platform = "manylinux2014_x86_64"     # pip --platform for third-party wheels
+mode = "pip"                          # "pip" (real releases) or "copy" (dev/tests)
+device_python = "/usr/bin/python3"
+
+# Modules imported by the agent's smoke test before switching slots.
+smoke_imports = ["gs_common", "gs_ota", "gs_core", "gs_mcu", "gs_service"]
+
+[[package]]
+path = "../../common"
+import = "gs_common"
+required = true
+
+[[package]]
+path = "../../sensor"
+import = "gs_core"
+
+[[package]]
+path = "../../service"
+import = "gs_service"
+
+[[package]]
+path = "../../firmware/host"
+import = "gs_mcu"
+
+[[package]]
+path = ".."
+import = "gs_ota"
+required = true
+
+[[data]]
+src = "../../service/web"
+dest = "share/web"
+
+# bin/<name> -> gs-python -m <module>
+[launchers]
+gs-service = "gs_service"
+gs-ota-agent = "gs_ota.agent"
+
+# Exported by bin/gs-python ({slot} = the slot directory) and written to
+# release.env (with {slot} = /opt/golfsim/current) for systemd EnvironmentFile=.
+[env]
+GS_WEB_DIR = "{slot}/share/web"

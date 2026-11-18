@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gs-service"
+version = "0.1.0"
+description = "Golf simulator device API server (REST + WebSocket), shot storage, mDNS, GSPro adapter"
+requires-python = ">=3.11"
+dependencies = [
+  "gs-common",
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
+  "zeroconf>=0.130",
+]
+
+[project.optional-dependencies]
+test = ["pytest", "httpx", "jsonschema", "pytest-asyncio"]
+
+[project.scripts]
+gs-service = "gs_service.__main__:main"
+
+[tool.setuptools]
+packages = ["gs_service"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]

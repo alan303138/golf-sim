@@ -1,0 +1,96 @@
+ref,qty,value,description,package,part_number,notes,unit_cost_usd,ext_cost_usd
+C1,1,470u 25V,"bulk electrolytic, low ESR",radial 8x12,generic,,0.30,0.30
+C2 C5 C7 C9 C11 C14 C19 C20 C21 C22 C23 C25 C27 C30 C31 C36 C38 C41 C107 C109 C207 C209,22,100n,capacitor 100n,radial MLCC / film 5 mm,generic,3V3 local decoupling near U4 / pull-ups; U10 decoupling; U2 decoupling; U5 decoupling; U6 decoupling; U7 decoupling; U8 decoupling; U9 decoupling,0.05,1.10
+C4 C6,2,100u 10V,capacitor 100u 10V,radial 5x11,generic,,0.10,0.20
+C8 C10 C15 C17 C24,5,10u 16V,capacitor 10u 16V,radial 5x11,generic,,0.10,0.50
+C12 C13 C18,3,1u X7R,capacitor 1u X7R,radial MLCC,generic,,0.10,0.30
+C16 C40,2,10n,capacitor 10n,radial MLCC / film 5 mm,generic,RC ~1 ms debounce,0.05,0.10
+C26,1,220p C0G,capacitor 220p C0G,radial,generic,,0.10,0.10
+C28,1,10n,capacitor 10n,radial MLCC / film 5 mm,generic,,0.06,0.06
+C29,1,470p C0G,capacitor 470p C0G,radial,generic,,0.10,0.10
+C32,1,4u7 16V,capacitor 4u7 16V,radial 5x11,generic,,0.10,0.10
+C33,1,4p7 C0G,capacitor 4p7 C0G,radial,generic,,0.10,0.10
+C34 C35 C39,3,1n C0G,capacitor 1n C0G,radial,generic,,0.10,0.30
+C37,1,2n2 C0G,capacitor 2n2 C0G,radial,generic,,0.10,0.10
+C101 C102 C201 C202,4,2200u 16V,"low-ESR bank electrolytic (ESR <= 30 mohm, verify)",radial 12.5x25,generic,,1.20,4.80
+C103 C104 C105 C106 C203 C204 C205 C206,8,10u 25V X7R,"HF bank, as close to MOSFET/ballast as possible",1210 SMD on adapter / radial,generic,,0.35,2.80
+C108 C208,2,10u 25V X7R,capacitor 10u 25V X7R,1210 / radial,generic,,0.30,0.60
+C110 C210,2,10n C0G/film 50V,gate AC-coupling: sets maximum on-time ~55 us,radial 5 mm,generic,,0.15,0.30
+D1 D101 D201,3,1N5822,Schottky 3 A 40 V,DO-201AD axial,1N5822,flyback / drain clamp to rail; reverse-polarity block,0.25,0.75
+D2,1,1.5KE15A,TVS 15 V (Vwm 12.8 V) 1500 W unidirectional,DO-201 axial,1.5KE15A,Vc ~21 V max,0.50,0.50
+D4 D9,2,BAT85,small-signal Schottky 30 V,DO-34 axial,BAT85,clamps ADC pin; envelope detector,0.10,0.20
+D5 D6,2,BAT54S,dual series Schottky 30 V,SOT-23 on adapter,BAT54S,clamps CAM1 line to -0.3 V .. VTRIG+0.3 V; clamps CAM2 line to -0.3 V .. VTRIG+0.3 V,0.15,0.30
+D7 D104 D204,3,LED red 5 mm,"red LED 5 mm, ~10 mA",5 mm,generic,"ARMED indicator: lit only when interlock closed AND 12 V present (hardware, not firmware); BANK CHARGED indicator (lit whenever bank > ~3 V)",0.10,0.30
+D8,1,LED green 3 mm,"green LED 3 mm, ~2 mA",3 mm,generic,Pico GP6 status,0.10,0.10
+D10,1,940 nm IR LED 5 mm,"5 mm 940 nm IR emitter, 100 mA, e.g. TSAL6100 class",5 mm,generic (TSAL6100 class - verify),on sensor head (wired via J11),0.40,0.40
+D11,1,IR photodiode,"5 mm photodiode with daylight/IR filter, 850-950 nm, Cj<=15 pF, e.g. SFH 213 FA class",5 mm T-1 3/4,generic (SFH 213 FA class - verify),on sensor head (wired via J11),0.80,0.80
+D102 D202,2,1N4744A,Zener 15 V 1 W,DO-41 axial,1N4744A,Protects gate driver supply,0.10,0.20
+D103 D203,2,1N5819,Schottky 1 A 40 V,DO-41 axial,1N5819,gate DC-restore clamp (AC-coupled gate),0.10,0.20
+F1,1,2 A time-lag,"fuse 5x20 mm, 2 A slow-blow, in PCB holder",5x20 mm,generic,Holder + fuse; 250 V AC rated is fine for 12 V DC,0.80,0.80
+J1 J2 J4 J102 J202,5,2P screw terminal 5.08,"PCB screw terminal block, 2 pos, 5.08 mm, >=8 A",5.08 mm pitch,generic,"12 V DC input, 2 A; from control board J2; from control board J4; to module A J102; to module B J202",0.50,2.50
+J3 J5 J103 J203 JP1 JP2 JP3 JP6,8,3P header 2.54,"pin header 1x3, 2.54 mm (jumper select)",2.54 mm,generic,"1-2 = 1.8 V trigger level (DEFAULT/SAFE); 2-3 = 3.3 V; NO jumper = buffer unpowered; 1-2 = acoustic, 2-3 = optical (no jumper: TRIG_IN idle); 1-2 senses module A bank (default), 2-3 module B; 1-2: TRIG_IN idle LOW, rising edge = shot (DEFAU",0.10,0.80
+J6 J7 J8 J9 J10 JP4 JP5,7,2P header 2.54,"pin header 1x2, 2.54 mm",2.54 mm,generic,STAR link: the only connection between strobe return (PGND) and logic ground (GND_L); install to enable the optical emitter (default open: emitter off); interlock loop: switch closed = strobe enabled; open wire = disabled; optional remote c,0.10,0.70
+J11,1,5P header 2.54,"pin header 1x5, 2.54 mm",2.54 mm,generic,"remote sensor head: 940 nm LED + IR photodiode, twisted/shielded cable <1 m",0.15,0.15
+J104 J105 J204 J205,4,6P screw terminal 5.08,"PCB screw terminal block, 6 pos, 5.08 mm (2x 3P stacked)",5.08 mm pitch,generic,"LED string anode feeds (string 1..6; build strings 1..4 first = 24 LEDs total, add 5..6 = 36 LEDs); LED string returns (all tied to MOSFET drain)",1.40,5.60
+LD101 LD102 LD103 LD104 LD105 LD106 LD107 LD108 LD109 LD110 LD111 LD112 LD113 LD114 LD115 LD116 LD117 LD118 LD201 LD202 LD203 LD204 LD205 LD206 LD207 LD208 LD209 LD210 LD211 LD212 LD213 LD214 LD215 LD216 LD217 LD218,36,850 nm IR LED on 20 mm star,"850 nm power IR LED, ~1 mm2 chip, 3535-class, 1 A rated, pulse capability >=3 A at tp=20 us D=2 % MUST be verified, on 20 mm aluminium star MCPCB",3535 SMD on 20 mm star,"generic (OSRAM Oslon-Black 850 nm family, e.g. SFH 4715AS - verify)",Verify datasheet pulse-handling graph at 20 us / 2 %; verify wavelength suffix,2.80,100.80
+M1,1,electret capsule,"electret microphone capsule 6 mm, 2-wire, >=-44 dBV/Pa, response to >=15 kHz",6 mm capsule,generic (verify bandwidth),Alternative: analogue MEMS mic on breakout (verify),0.80,0.80
+Q2 Q3,2,2N3904,NPN small-signal 200 mA,TO-92,2N3904,Pin order EBC for most makers - verify,0.08,0.16
+Q101 Q201,2,IRLB8721,"N-MOSFET 30 V 62 A logic-level, Qg~8-17 nC",TO-220,IRLB8721PBF,"Verify Qg, Vgs(th) on datasheet",1.20,2.40
+R1 R2 R3 R4,4,11R 5W,charge-limit resistor (half of 5.5 R),cement 5 W,generic,,0.50,2.00
+R5,1,22R,resistor 22R,axial 1/4 W,generic,analogue 5 V filter,0.03,0.03
+R6,1,4R7,resistor 4R7,axial 1/4 W,generic,emitter 5 V filter,0.03,0.03
+R7 R48,2,33k 1%,resistor 33k 1%,axial 1/4 W,generic,,0.03,0.06
+R8 R30 R31 R37 R39 R40,6,10k 1%,resistor 10k 1%,axial 1/4 W,generic,,0.03,0.18
+R10 R14 R16 R47 R61 R102 R106 R202 R206,9,100R,resistor 100R,axial 1/4 W,generic,input damping; rail sense feed to control board divider; series damping from Pico GP2; series damping from Pico GP3; series damping to Pico GP5,0.03,0.27
+R11 R15 R44 R45 R52 R103 R203,7,10k,resistor 10k,axial 1/4 W,generic,idle-high pull-up (camera trigger is active low); keeps gate LOW while Pico is in reset/boot; pull-down: unplugged cable = off,0.03,0.21
+R12 R13,2,47R,resistor 47R,axial 1/4 W,generic,series protection / edge damping,0.03,0.06
+R17 R34 R43 R57 R60 R62,6,100k,resistor 100k,axial 1/4 W,generic,hysteresis feedback (min); idle-high when no jumper; open loop = LOW = disabled,0.03,0.18
+R18 R20 R33 R55,4,1k,resistor 1k,axial 1/4 W,generic,series protection to Pico GP4; ~9 mA through ARMED LED,0.03,0.12
+R19 R32,2,4k7,resistor 4k7,axial 1/4 W,generic,electret bias,0.03,0.06
+R21,1,470R,resistor 470R,axial 1/4 W,generic,,0.03,0.03
+R22 R23 R59,3,33R,resistor 33R,axial 1/4 W,generic,line damping to module A; line damping to module B; ~95 mA emitter current,0.03,0.09
+R35,1,47k 1%,resistor 47k 1%,axial 1/4 W,generic,,0.03,0.03
+R36,1,1k 1%,resistor 1k 1%,axial 1/4 W,generic,,0.03,0.03
+R38,1,20k 1%,resistor 20k 1%,axial 1/4 W,generic,,0.03,0.03
+R41 R53,2,16k 1%,resistor 16k 1%,axial 1/4 W,generic,,0.03,0.06
+R42 R54,2,27k 1%,resistor 27k 1%,axial 1/4 W,generic,,0.03,0.06
+R46,1,680k,resistor 680k,axial 1/4 W,generic,comparator hysteresis,0.03,0.03
+R49,1,1k58 1%,resistor 1k58 1%,axial 1/4 W,generic,,0.03,0.03
+R50,1,332R 1%,resistor 332R 1%,axial 1/4 W,generic,,0.03,0.03
+R51,1,9k53 1%,resistor 9k53 1%,axial 1/4 W,generic,,0.03,0.03
+R56,1,6k8,resistor 6k8,axial 1/4 W,generic,,0.03,0.03
+R58,1,270R,resistor 270R,axial 1/4 W,generic,,0.03,0.03
+R101 R201,2,10R,resistor 10R,axial 1/4 W,generic,driver supply filter,0.03,0.06
+R104 R204,2,2R2,resistor 2R2,axial 1/4 W,generic,gate resistor,0.03,0.06
+R105 R205,2,3k3,resistor 3k3,axial 1/4 W,generic,gate bias: discharges AC-coupling capacitor (tau ~ 40 us),0.03,0.06
+R107 R207,2,2k2,resistor 2k2,axial 1/4 W,generic,charged-LED resistor (~4.5 mA),0.03,0.06
+R108 R208,2,1k 0.5W,bleeder: tau = 4.4 s with 4.4 mF,axial 1/2 W,generic,,0.05,0.10
+RB101 RB102 RB103 RB104 RB105 RB106 RB201 RB202 RB203 RB204 RB205 RB206,12,1R8 3W,ballast / current-set; 3 A pulse -> 16 W for 20 us (verify pulse rating),metal-oxide 3 W axial,generic,,0.35,4.20
+RS101 RS201,2,10m 1W,"current sense, 12-18 A pulses (Kelvin: scope across TP)",2512 SMD metal strip / axial 3 W,generic,,0.60,1.20
+RV1 RV3,2,pot 10k,"trimmer potentiometer 10 kOhm, multi-turn",3296W style,generic,acoustic threshold: ~2.55..3.49 V (Vref+0.05..+0.99 V); optical threshold: ~2.55..3.49 V,0.80,1.60
+RV2,1,trimmer 500k,trimmer potentiometer 500 kOhm,3296W style,generic,"hysteresis trim, used as rheostat (wiper tied to pin 3)",0.80,0.80
+TP1 TP2 TP3 TP4 TP5 TP6 TP7 TP8 TP9 TP10 TP11 TP12 TP13 TP14 TP15 TP16 TP17 TP18 TP19 TP20 TP21 TP22 TP23 TP24 TP101 TP102 TP103 TP104 TP105 TP106 TP201 TP202 TP203 TP204 TP205 TP206,36,test point,test point loop / pin,1 pin,generic,,0.05,1.80
+U1,1,Raspberry Pi Pico,"RP2040 timing MCU board, 3.3 V logic",2x20 DIP module on 2x 1x20 sockets,SC0915 (verify),Use female sockets so the Pico can be removed; USB powered,4.00,4.00
+U2,1,74HC08,"quad 2-input AND, 3.3 V",DIP-14,SN74HC08N,,0.50,0.50
+U3,1,SN74LVC2G17,"dual Schmitt buffer, 1.65-5.5 V, 5 V tolerant inputs",SOT-23-6 on adapter,SN74LVC2G17DBVR,Verify pin-out vs adapter,0.50,0.50
+U4,1,MCP1700-1802,"1.8 V LDO 250 mA, 1 uF caps",TO-92,MCP1700-1802E/TO,TO-92 pin order GND/VIN/VOUT - verify,0.40,0.40
+U5 U6 U7,3,MCP6022,"dual rail-to-rail op-amp 10 MHz, 2.5-5.5 V",DIP-8,MCP6022-I/P,,0.90,2.70
+U8,1,LM339,"quad comparator, open-collector",DIP-14,LM339N,,0.50,0.50
+U9,1,TLC555,CMOS 555 timer,DIP-8,TLC555CP,"Any CMOS 555 (LMC555, TLC555) works",0.90,0.90
+U10,1,74HC86,"quad XOR, 3.3 V",DIP-14,SN74HC86N,,0.50,0.50
+U101 U201,2,TC4427A,"dual 1.5 A MOSFET driver (paralleled), 4.5-18 V, TTL/CMOS input",DIP-8,TC4427AEPA (verify suffix),Verify Vih <= 2.4 V for 3.3 V drive,1.60,3.20
+-,36,TIR lens ~60 deg FWHM for 3535,"generic: 20 mm round TIR lens, 3535 holder for 20 mm star",20 mm lens + holder,generic (verify fit),NOT IN NETLIST (mechanical/hardware). Start without lenses (Lambertian) for the first test; add lenses to gain ~3x on-axis,0.90,32.40
+-,2,Al plate 110x90x3 mm,"LED side board heatsink; 18 stars (5x4 grid at 20 mm pitch, 2 free) + thermal pad/paste",plate,generic,NOT IN NETLIST (mechanical/hardware). or 2x 100x80 finned extrusion; average heat only ~1.5 W per side,3.00,6.00
+-,1,perfboard 100x160 mm,"control board, 2.54 mm, plated through holes",perfboard,generic,NOT IN NETLIST (mechanical/hardware). ,3.00,3.00
+-,2,perfboard 90x70 mm,"strobe module board, 2.54 mm, plated through holes",perfboard,generic,NOT IN NETLIST (mechanical/hardware). ,2.00,4.00
+-,6,DIP-8 socket,"U5-U7 (3x MCP6022), U9, U101, U201",DIP-8,generic,NOT IN NETLIST (mechanical/hardware). ,0.10,0.60
+-,4,DIP-14 socket,"U2, U8, U10",DIP-14,generic,NOT IN NETLIST (mechanical/hardware). ,0.12,0.48
+-,2,1x20 female header,Pico socket,2.54 mm,generic,NOT IN NETLIST (mechanical/hardware). ,0.50,1.00
+-,4,SOT-23 breakout board,"for D5, D6 (BAT54S) and U3 (SOT-23-6)",adapter,generic,NOT IN NETLIST (mechanical/hardware). ,0.30,1.20
+-,8,2.54 mm jumper,shunts for JP1-JP6,2.54 mm,generic,NOT IN NETLIST (mechanical/hardware). ,0.05,0.40
+-,1,18 AWG silicone wire 2 m,"module power pairs, LED chains",wire,generic,NOT IN NETLIST (mechanical/hardware). keep each LED string wire <= 15 cm,3.00,3.00
+-,1,26 AWG wire 2 m + shielded pair 1 m,gate/sense/trigger/sensor cables,wire,generic,NOT IN NETLIST (mechanical/hardware). ,2.00,2.00
+-,1,interlock switch (lid reed or key),normally open when lid removed -> closes when closed,switch,generic,NOT IN NETLIST (mechanical/hardware). wired to J8,2.00,2.00
+-,1,IR-transmitting window / diffuser,"acrylic or PC, 2 mm, matte-sanded; keeps >= 5 cm eye distance",plate,generic (verify IR transmission),NOT IN NETLIST (mechanical/hardware). optional but strongly recommended,4.00,4.00
+-,1,"screws, standoffs, solder, heat shrink",,-,generic,NOT IN NETLIST (mechanical/hardware). ,6.00,6.00
+TOTAL,,,"approximate USD, hobby quantities, no shipping/tax; FULL build = 36 LEDs + 36 lenses (first 24-LED build is ~45 USD less); verify prices",,,,,223.25

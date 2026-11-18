@@ -1,0 +1,42 @@
+; PIO programs of the strobe/camera timing generator. See ../PROTOCOL.md and ../README.md.
+;
+; SM0 "gs_wave" plays a stream of 32-bit words from the TX FIFO (fed by DMA):
+;   bit0 CAM_TRIG active, bit1 STROBE on, bit2 last word of a burst, bits3..31 = x
+;   Each word holds the pins for exactly x + 6 clock cycles (6 = instruction overhead).
+;   Burst mode starts at entry_wait (waits for the trigger token = PIO IRQ flag 4);
+;   free_run mode starts at entry_play and never waits.
+;   After a word with bit2 set the SM raises IRQ 1 (burst done) and waits again.
+;
+; SM1 "gs_trig" watches TRIG_IN (already polarity-normalised by the GPIO input
+; override so that 1 = asserted), detects the edge, raises IRQ 4 (start token for SM0)
+; and IRQ 0 (CPU timestamp interrupt), then ignores TRIG_IN for the lockout time
+; (y = lockout cycles - 1, preloaded by the CPU).
+
+.program gs_wave
+public entry_wait:
+    wait 1 irq 4
+.wrap_target
+public entry_play:
+    pull block
+    out pins, 2
+    out y, 1
+    out x, 29
+loop:
+    jmp x-- loop
+    jmp y-- done
+.wrap
+done:
+    irq nowait 1
+    irq clear 4
+    jmp entry_wait
+
+.program gs_trig
+.wrap_target
+    wait 0 pin 0
+    wait 1 pin 0
+    irq nowait 4
+    irq nowait 0
+    mov x, y
+lock:
+    jmp x-- lock
+.wrap

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gs-core"
+version = "0.2.0"
+description = "Golf launch monitor measurement core: side-on stereo pair, multi-exposure strobe, ball data"
+requires-python = ">=3.11"
+# gs-common is a path dependency: install with `pip install -e ../common -e .`
+dependencies = [
+  "gs-common",
+  "numpy>=1.26",
+  "opencv-python-headless>=4.8",
+  "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+# picamera2 comes from apt on Raspberry Pi OS (python3-picamera2); it is imported lazily.
+test = ["pytest>=7", "pytest-asyncio>=0.23"]
+
+[project.scripts]
+gs-calib = "gs_core.calib_cli:main"
+gs-core-demo = "gs_core.demo:main"
+
+[tool.uv.sources]
+gs-common = { path = "../common", editable = true }
+
+[tool.setuptools.packages.find]
+include = ["gs_core*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = ["slow: end-to-end tests that render full frames"]

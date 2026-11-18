@@ -1,0 +1,6 @@
+{
+  "format": 1,
+  "id": "jade_ridge",
+  "name": {"zh_TW": "翠嶺球場", "en": "Jade Ridge Links"},
+  "holes": ["jade_ridge_01.json", "jade_ridge_02.json", "jade_ridge_03.json"]
+}

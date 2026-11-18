@@ -1,0 +1,155 @@
+== printed part files (build volume [220.0, 220.0, 250.0], watertight, on bed) ==
+  CB-1R  [104.0, 32.6, 11.6]    fits=True watertight=True winding=True bodies=1 vol=32976 mm3 -> OK
+  CB-1L  [104.0, 32.6, 11.6]    fits=True watertight=True winding=True bodies=1 vol=32974 mm3 -> OK
+  YS-1   [66.8, 66.0, 70.0]     fits=True watertight=True winding=True bodies=1 vol=51815 mm3 -> OK
+  CP-1   [54.0, 54.6, 12.1]     fits=True watertight=True winding=True bodies=1 vol=18777 mm3 -> OK
+  FH-1   [57.0, 57.0, 51.0]     fits=True watertight=True winding=True bodies=1 vol=37019 mm3 -> OK
+  FR-1   [57.0, 57.0, 4.6]      fits=True watertight=True winding=True bodies=1 vol=8278 mm3 -> OK
+  LE-1R  [29.0, 40.0, 50.0]     fits=True watertight=True winding=True bodies=1 vol=23058 mm3 -> OK
+  LD-2R  [149.0, 97.0, 31.6]    fits=True watertight=True winding=True bodies=1 vol=92352 mm3 -> OK
+  LE-1L  [29.0, 40.0, 50.0]     fits=True watertight=True winding=True bodies=1 vol=23057 mm3 -> OK
+  LD-2L  [149.0, 97.0, 31.6]    fits=True watertight=True winding=True bodies=1 vol=92351 mm3 -> OK
+  LP-2   [134.0, 94.0, 11.0]    fits=True watertight=True winding=True bodies=1 vol=74016 mm3 -> OK
+  SM-1   [96.0, 76.0, 10.0]     fits=True watertight=True winding=True bodies=1 vol=30339 mm3 -> OK
+  AL-1   [34.0, 23.0, 22.6]     fits=True watertight=True winding=True bodies=1 vol=15350 mm3 -> OK
+  DR-1   [80.8, 64.0, 50.0]     fits=True watertight=True winding=True bodies=1 vol=161049 mm3 -> OK
+  PV-1   [68.4, 61.5, 66.0]     fits=True watertight=True winding=True bodies=1 vol=63244 mm3 -> OK
+  MC-1   [48.0, 60.6, 34.0]     fits=True watertight=True winding=True bodies=1 vol=33724 mm3 -> OK
+  HB-1   [141.3, 154.0, 44.0]   fits=True watertight=True winding=True bodies=1 vol=150567 mm3 -> OK
+  FB-1   [56.0, 34.0, 30.6]     fits=True watertight=True winding=True bodies=1 vol=44722 mm3 -> OK
+  FP-1   [36.0, 36.0, 10.6]     fits=True watertight=True winding=True bodies=1 vol=8919 mm3 -> OK
+  KN-1   [33.0, 33.0, 14.6]     fits=True watertight=True winding=True bodies=1 vol=9281 mm3 -> OK
+  BA-1   [30.0, 20.6, 30.0]     fits=True watertight=True winding=True bodies=1 vol=15500 mm3 -> OK
+  PI-1   [140.0, 68.0, 12.0]    fits=True watertight=True winding=True bodies=1 vol=39096 mm3 -> OK
+  PB-2   [170.0, 108.0, 12.0]   fits=True watertight=True winding=True bodies=1 vol=74611 mm3 -> OK
+  RJ-1   [76.0, 44.0, 78.0]     fits=True watertight=True winding=True bodies=1 vol=50444 mm3 -> OK
+  SA-1R  [116.0, 128.0, 34.0]   fits=True watertight=True winding=True bodies=1 vol=45857 mm3 -> OK
+  SA-1L  [116.0, 128.0, 34.0]   fits=True watertight=True winding=True bodies=1 vol=45856 mm3 -> OK
+  SG-1F  [34.0, 28.0, 42.0]     fits=True watertight=True winding=True bodies=1 vol=8695 mm3 -> OK
+  SG-1R  [34.0, 28.0, 42.0]     fits=True watertight=True winding=True bodies=1 vol=8758 mm3 -> OK
+  CC-1   [32.0, 20.5, 20.0]     fits=True watertight=True winding=True bodies=1 vol=5650 mm3 -> OK
+  BT-1   [97.0, 105.0, 27.4]    fits=True watertight=True winding=True bodies=1 vol=73278 mm3 -> OK
+  BT-2   [28.5, 88.0, 28.0]     fits=True watertight=True winding=True bodies=1 vol=30799 mm3 -> OK
+  CT-1   [130.0, 90.0, 34.0]    fits=True watertight=True winding=True bodies=1 vol=112675 mm3 -> OK
+  OS-1   [26.5, 28.0, 22.9]     fits=True watertight=True winding=True bodies=1 vol=11834 mm3 -> OK
+  MM-1   [32.0, 64.0, 8.6]      fits=True watertight=True winding=True bodies=1 vol=14255 mm3 -> OK
+== interference (boolean intersection volume, threshold 0.5 mm3) ==
+  bodies 99, overlapping pairs tested 253, overlaps: [] -> OK
+== field of view (half angles [17.42, 13.19] deg, margin 1.0 deg) ==
+  cam R: ball distance 562 mm, ball margin 1.45 deg, visible=True, rays clipped 0/221 [], shield edge margin 35.1 mm
+         down-range coverage (mm) by launch angle: {'0': 262.0, '15': 258.0, '30': 254.0, '45': 172.0}
+  cam L: ball distance 532 mm, ball margin 1.01 deg, visible=True, rays clipped 0/221 [], shield edge margin 34.7 mm
+         down-range coverage (mm) by launch angle: {'0': 270.0, '15': 260.0, '30': 250.0, '45': 174.0}
+  both cameras: {'0': 262.0, '15': 258.0, '30': 250.0, '45': 172.0} (target 250 mm met for launch angles [0, 15, 30]) -> OK
+== LED -> lens direct lines ==
+  as built, cam R: 612 segments to the filter aperture, direct 0, blocked 612 (by {'LD-2R': 306, 'LD-2L': 306}), nearest 90.3 deg off LED axis
+  as built, cam L: 612 segments to the filter aperture, direct 0, blocked 612 (by {'LD-2R': 306, 'LD-2L': 306}), nearest 90.3 deg off LED axis
+  baffle alone (bare lens, no hood/arms), cam R: direct 0, blocked 612 (by {'LD-2R': 306, 'LD-2L': 306})
+  baffle alone (bare lens, no hood/arms), cam L: direct 0, blocked 612 (by {'LD-2R': 306, 'LD-2L': 306})
+  control without baffle (bare lens), cam R: direct lines 612 of 612
+  control without baffle (bare lens), cam L: direct lines 612 of 612
+  emitters with a clear path to the ball: 36/36 -> OK
+== stability (COM inside the foot triangle, required margin 60 mm) ==
+  case 0.0                   : COM [108.8, -540.2, 182.6], mass 2987 g, margin 88.2 mm
+  case 17.0                  : COM [108.8, -531.7, 173.4], mass 2987 g, margin 79.6 mm
+  case 25.0                  : COM [108.8, -528.7, 168.3], mass 2987 g, margin 76.7 mm
+  case lens 300 mm, pitch 25 : COM [108.9, -529.0, 202.8], mass 3010 g, margin 76.9 mm
+  tip-over angle at max pitch ~ 24.5 deg (lens height 300 mm: 20.8 deg) -> OK
+== extras ==
+  FPC reach: {'CSI0->R': 165, 'CSI0->L': 165, 'CSI1->R': 176, 'CSI1->L': 154} -> OK
+  shield glare: {'R': {'reflections_inside_fov_on_sheet': 0, 'closest_to_fov_edge_deg': 30.3}, 'L': {'reflections_inside_fov_on_sheet': 0, 'closest_to_fov_edge_deg': 31.2}} -> OK
+  lens height table: {'rows': [{'pitch_deg': 15.0, 'min_lens_height_mm_feet_retracted': 208, 'min_lens_height_mm_nominal_feet': 222}, {'pitch_deg': 17.0, 'min_lens_height_mm_feet_retracted': 205, 'min_lens_height_mm_nominal_feet': 219}, {'pitch_deg': 25.0, 'min_lens_height_mm_feet_retracted': 191, 'min_lens_height_mm_nominal_feet': 205}], 'cut_mast_mm': np.float64(100.3), 'height_with_this_mast_mm': {'15.0': [244, 258, 274], '17.0': [241, 255, 271], '25.0': [228, 242, 258]}}
+== adjustment ranges swept through their limits (overlaps > 0.5 mm3) ==
+  head pitch -3 deg          no overlap
+  head pitch 0 deg           no overlap
+  head pitch 15 deg          no overlap
+  head pitch 25 deg          no overlap
+  head pitch 30 deg          no overlap
+  camera R yaw -5 deg        no overlap
+  camera R yaw +5 deg        no overlap
+  camera R tilt -4 deg       no overlap
+  camera R tilt +4 deg       no overlap
+  camera L yaw -5 deg        no overlap
+  camera L yaw +5 deg        no overlap
+  camera L tilt -4 deg       no overlap
+  camera L tilt +4 deg       no overlap
+  -> OK
+== printability (unsupported overhangs steeper than 45 deg on the bed-oriented STL files) ==
+  CB-1R  sloped overhang    3.2 mm2, widest bridge   5.6 mm -> no supports needed
+  CB-1L  sloped overhang    2.5 mm2, widest bridge   5.6 mm -> no supports needed
+  YS-1   sloped overhang   67.1 mm2, widest bridge  10.7 mm -> no supports needed
+  CP-1   sloped overhang   81.2 mm2, widest bridge   4.2 mm -> no supports needed
+  FH-1   sloped overhang    0.2 mm2, widest bridge  16.4 mm -> no supports needed
+  FR-1   sloped overhang    0.0 mm2, widest bridge   0.0 mm -> no supports needed
+  LE-1R  sloped overhang    0.0 mm2, widest bridge   8.7 mm -> no supports needed
+  LD-2R  sloped overhang    0.0 mm2, widest bridge  20.5 mm -> no supports needed
+  LE-1L  sloped overhang    0.0 mm2, widest bridge   8.7 mm -> no supports needed
+  LD-2L  sloped overhang    0.0 mm2, widest bridge  20.6 mm -> no supports needed
+  LP-2   sloped overhang    0.0 mm2, widest bridge   2.6 mm -> no supports needed
+  SM-1   sloped overhang    0.0 mm2, widest bridge   0.0 mm -> no supports needed
+  AL-1   sloped overhang    0.0 mm2, widest bridge   0.0 mm -> no supports needed
+  DR-1   sloped overhang   68.8 mm2, widest bridge   9.1 mm -> no supports needed
+  PV-1   sloped overhang  275.3 mm2, widest bridge   5.8 mm -> no supports needed
+  MC-1   sloped overhang   36.0 mm2, widest bridge   5.6 mm -> no supports needed
+  HB-1   sloped overhang   34.4 mm2, widest bridge  23.9 mm -> no supports needed
+  FB-1   sloped overhang    0.0 mm2, widest bridge  18.3 mm -> no supports needed
+  FP-1   sloped overhang    0.0 mm2, widest bridge  13.8 mm -> no supports needed
+  KN-1   sloped overhang    0.0 mm2, widest bridge  10.5 mm -> no supports needed
+  BA-1   sloped overhang    1.0 mm2, widest bridge   4.9 mm -> no supports needed
+  PI-1   sloped overhang    0.0 mm2, widest bridge   0.0 mm -> no supports needed
+  PB-2   sloped overhang    0.0 mm2, widest bridge   0.0 mm -> no supports needed
+  RJ-1   sloped overhang    0.0 mm2, widest bridge   4.9 mm -> no supports needed
+  SA-1R  sloped overhang    5.2 mm2, widest bridge   1.0 mm -> no supports needed
+  SA-1L  sloped overhang    4.8 mm2, widest bridge   1.0 mm -> no supports needed
+  SG-1F  sloped overhang    0.0 mm2, widest bridge   1.7 mm -> no supports needed
+  SG-1R  sloped overhang    3.3 mm2, widest bridge   0.7 mm -> no supports needed
+  CC-1   sloped overhang    2.1 mm2, widest bridge   3.4 mm -> no supports needed
+  BT-1   sloped overhang    0.0 mm2, widest bridge  22.1 mm -> no supports needed
+  BT-2   sloped overhang    0.0 mm2, widest bridge  23.2 mm -> no supports needed
+  CT-1   sloped overhang    0.0 mm2, widest bridge  22.1 mm -> no supports needed
+  OS-1   sloped overhang    0.0 mm2, widest bridge  17.1 mm -> no supports needed
+  MM-1   sloped overhang    0.0 mm2, widest bridge   0.0 mm -> no supports needed
+== beam stiffness (hand calculation) ==
+  {'area_mm2': 191.9, 'I_mm4': 7862, 'E_N_per_mm2': 70000.0, 'head_load_N': 18.7, 'right_camera_sag_um': np.float64(4.2), 'left_camera_sag_um': np.float64(5.2), 'LED_board_(right)_sag_um': np.float64(10.3), 'note': 'hand calculation: beam treated as clamped at the pitch drum with every head mass as a point load; printed camera stages are NOT included (they set the pointing, so the stereo extrinsics must be calibrated in software)'}
+== wall thickness scan (rays inward, rule >= 2.4 mm; raised text, tongue, ticks and sharp edges show up as thin) ==
+  CB-1R  thin area  136.8 mm2 (1.3 %)  worst cells [([120, 0, 0], 0.07), ([30, -10, 0], 0.05)]
+  CB-1L  thin area  138.4 mm2 (1.3 %)  worst cells [([-40, 0, 0], 0.06), ([-130, 0, 0], 0.09)]
+  YS-1   thin area   35.9 mm2 (0.2 %)  worst cells [([-10, -20, 0], 0.39), ([0, -20, 0], 0.36)]
+  CP-1   thin area   31.5 mm2 (0.4 %)  worst cells [([0, 30, 60], 0.36), ([-10, 30, 60], 0.41)]
+  FH-1   thin area   20.7 mm2 (0.1 %)  worst cells [([20, 40, 30], 0.33), ([20, 30, 30], 0.37)]
+  FR-1   thin area   25.4 mm2 (0.5 %)  worst cells [([-10, 90, 10], 0.33), ([0, 90, 10], 0.26)]
+  LE-1R  thin area  119.4 mm2 (1.6 %)  worst cells [([190, 10, 0], 0.26), ([190, 50, -10], 2.0)]
+  LD-2R  thin area   37.1 mm2 (0.1 %)  worst cells [([140, 90, -80], 0.33), ([140, 90, -70], 0.31)]
+  LE-1L  thin area  114.3 mm2 (1.5 %)  worst cells [([-200, 50, -10], 2.0), ([-200, 10, 0], 0.29)]
+  LD-2L  thin area   26.5 mm2 (0.1 %)  worst cells [([-150, 90, -80], 0.33), ([-150, 90, -70], 0.37)]
+  LP-2   thin area   19.9 mm2 (0.1 %)  worst cells [([-10, 60, 10], 0.47), ([0, 60, 10], 0.44)]
+  SM-1   thin area   25.8 mm2 (0.1 %)  worst cells [([-10, 50, -70], 0.29), ([0, 50, -70], 0.31)]
+  AL-1   thin area  109.3 mm2 (2.1 %)  worst cells [([80, 30, -10], 1.11), ([50, 20, 0], 1.11)]
+  DR-1   thin area  130.8 mm2 (0.6 %)  worst cells [([20, -10, -10], 0.41), ([20, 0, -10], 0.35)]
+  PV-1   thin area  529.8 mm2 (2.2 %)  worst cells [([-40, 0, 10], 0.24), ([30, -10, 10], 0.12)]
+  MC-1   thin area   69.3 mm2 (0.5 %)  worst cells [([-10, 30, -50], 0.38), ([0, 30, -50], 0.06)]
+  HB-1   thin area   23.5 mm2 (0.1 %)  worst cells [([0, -50, 30], 0.4), ([-10, -50, 30], 0.41)]
+  FB-1   thin area   20.1 mm2 (0.2 %)  worst cells [([30, -10, 30], 0.33), ([30, 0, 30], 0.29)]
+  FP-1   thin area   18.5 mm2 (0.5 %)  worst cells [([0, 10, 10], 0.25), ([-10, 10, 10], 0.29)]
+  KN-1   thin area  120.6 mm2 (3.4 %)  worst cells [([-10, 0, 10], 0.37), ([-20, -10, 0], 0.19)]
+  BA-1   thin area   51.7 mm2 (1.0 %)  worst cells [([60, -30, 10], 0.36), ([70, -40, 0], 2.16)]
+  PI-1   thin area   25.5 mm2 (0.1 %)  worst cells [([0, -50, -20], 0.4), ([10, -50, -20], 0.32)]
+  PB-2   thin area   13.4 mm2 (0.0 %)  worst cells [([-150, -50, 0], 0.56), ([-150, -50, -10], 0.48)]
+  RJ-1   thin area   14.5 mm2 (0.1 %)  worst cells [([150, -90, -20], 0.33)]
+  SA-1R  thin area   46.3 mm2 (0.3 %)  worst cells [([150, -10, 20], 0.28), ([130, -10, 20], 1.87)]
+  SA-1L  thin area   40.5 mm2 (0.2 %)  worst cells [([-160, -10, 20], 0.09), ([-150, -10, 20], 0.29)]
+  SG-1F  thin area   31.7 mm2 (0.6 %)  worst cells [([210, 0, 10], 0.29), ([220, 0, 10], 0.33)]
+  SG-1R  thin area   37.2 mm2 (0.7 %)  worst cells [([-220, 0, 10], 0.29), ([-230, 0, 10], 0.34)]
+  CC-1   thin area  235.9 mm2 (5.9 %)  worst cells [([-70, 0, -30], 0.06), ([-70, -10, -30], 0.05)]
+  BT-1   thin area  353.9 mm2 (1.5 %)  worst cells [([-10, 0, 0], 0.11), ([-10, -10, 0], 0.23)]
+  BT-2   thin area   26.0 mm2 (0.2 %)  worst cells [([-10, 20, 20], 0.37), ([0, 20, 20], 0.36)]
+  CT-1   thin area   17.9 mm2 (0.1 %)  worst cells [([0, -20, 0], 0.41), ([-10, -20, 0], 0.41)]
+  OS-1   thin area  197.4 mm2 (3.6 %)  worst cells [([-50, -10, 20], 1.5), ([-50, 0, 20], 1.5)]
+  MM-1   thin area   33.1 mm2 (0.5 %)  worst cells [([-20, 0, 20], 0.23), ([-20, -10, 20], 0.26)]
+== sweeps (each variant: full assembly, interference, field of view, LED lines, stability, FPC) ==
+  LED board centre +-100 mm: ok=False overlaps=[[4194.09, 'MODPARTS#R', 'AL-1'], [222.45, 'MODPARTS#R', 'ARMED-LED'], [3.19, 'LE-1R', 'CC-1#3'], [3.19, 'LE-1L', 'CC-1#2']] clipped_rays=0 LED=True coverage={'0': 262.0, '15': 258.0, '30': 250.0, '45': 172.0}
+  LED board centre +-140 mm: ok=True overlaps=[] clipped_rays=0 LED=True coverage={'0': 262.0, '15': 258.0, '30': 250.0, '45': 172.0}
+  LED board centre +-180 mm: ok=True overlaps=[] clipped_rays=0 LED=True coverage={'0': 262.0, '15': 258.0, '30': 250.0, '45': 172.0}
+  LED board centre +-250 mm: ok=True overlaps=[] clipped_rays=0 LED=True coverage={'0': 262.0, '15': 258.0, '30': 250.0, '45': 172.0}
+  baseline 120 mm (toe-in [4.0, 7.0]): ok=True overlaps=[] clipped_rays=0 margin=77.5 FPC=152 coverage={'0': 264.0, '15': 258.0, '30': 248.0, '45': 172.0}
+  baseline 220 mm (toe-in [9.0, 11.0]): ok=True overlaps=[] clipped_rays=0 margin=75.9 FPC=187 coverage={'0': 262.0, '15': 256.0, '30': 244.0, '45': 172.0}

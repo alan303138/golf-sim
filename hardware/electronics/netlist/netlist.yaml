@@ -1,0 +1,4118 @@
+meta:
+  project: golf-sim phase-1 electronics
+  generated_by: tools/generate.py
+  note: 'cables are modelled as ideal wires: connectors on both ends share one net name'
+parts:
+  C1:
+    value: 470u 25V
+    package: radial 8x12
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V12
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C2:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V12
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C4:
+    value: 100u 10V
+    package: radial 5x11
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V5A
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C5:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V5A
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C6:
+    value: 100u 10V
+    package: radial 5x11
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V5E
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C7:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V5E
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C8:
+    value: 10u 16V
+    package: radial 5x11
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: 3V3
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C9:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: 3V3
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C10:
+    value: 10u 16V
+    package: radial 5x11
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V5
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C11:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: RAIL_SENSE
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  D1:
+    value: 1N5822
+    package: DO-201AD axial
+    sheet: power
+    pins:
+      A:
+        name: ''
+        net: VIN_F
+        type: passive
+      K:
+        name: K
+        net: V12
+        type: pwr_out
+  D2:
+    value: 1.5KE15A
+    package: DO-201 axial
+    sheet: power
+    pins:
+      A:
+        name: ''
+        net: PGND
+        type: passive
+      K:
+        name: ''
+        net: V12
+        type: passive
+  D4:
+    value: BAT85
+    package: DO-34 axial
+    sheet: power
+    pins:
+      A:
+        name: ''
+        net: RAIL_SENSE
+        type: passive
+      K:
+        name: ''
+        net: 3V3
+        type: passive
+  F1:
+    value: 2 A time-lag
+    package: 5x20 mm
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: VIN_RAW
+        type: passive
+      '2':
+        name: ''
+        net: VIN_F
+        type: passive
+  J1:
+    value: 2P screw terminal 5.08
+    package: 5.08 mm pitch
+    sheet: power
+    pins:
+      '1':
+        name: +
+        net: VIN_RAW
+        type: pwr_out
+      '2':
+        name: '-'
+        net: PGND
+        type: passive
+  JP5:
+    value: 2P header 2.54
+    package: 2.54 mm
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: PGND
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  JP6:
+    value: 3P header 2.54
+    package: 2.54 mm
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: SENSE_A
+        type: passive
+      '2':
+        name: ''
+        net: RAIL_SEL
+        type: passive
+      '3':
+        name: ''
+        net: SENSE_B
+        type: passive
+  R1:
+    value: 11R 5W
+    package: cement 5 W
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V12
+        type: passive
+      '2':
+        name: ''
+        net: V12_A
+        type: passive
+  R2:
+    value: 11R 5W
+    package: cement 5 W
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V12
+        type: passive
+      '2':
+        name: ''
+        net: V12_A
+        type: passive
+  R3:
+    value: 11R 5W
+    package: cement 5 W
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V12
+        type: passive
+      '2':
+        name: ''
+        net: V12_B
+        type: passive
+  R4:
+    value: 11R 5W
+    package: cement 5 W
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V12
+        type: passive
+      '2':
+        name: ''
+        net: V12_B
+        type: passive
+  R5:
+    value: 22R
+    package: axial 1/4 W
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V5
+        type: passive
+      '2':
+        name: ''
+        net: V5A
+        type: passive
+  R6:
+    value: 4R7
+    package: axial 1/4 W
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V5
+        type: passive
+      '2':
+        name: ''
+        net: V5E
+        type: passive
+  R7:
+    value: 33k 1%
+    package: axial 1/4 W
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: RAIL_SEL
+        type: passive
+      '2':
+        name: ''
+        net: RAIL_SENSE
+        type: passive
+  R8:
+    value: 10k 1%
+    package: axial 1/4 W
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: RAIL_SENSE
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  TP1:
+    value: test point
+    package: 1 pin
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V12
+        type: passive
+  TP2:
+    value: test point
+    package: 1 pin
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: PGND
+        type: passive
+  TP3:
+    value: test point
+    package: 1 pin
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: 3V3
+        type: passive
+  TP4:
+    value: test point
+    package: 1 pin
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: V5
+        type: passive
+  TP5:
+    value: test point
+    package: 1 pin
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: GND_L
+        type: passive
+  TP6:
+    value: test point
+    package: 1 pin
+    sheet: power
+    pins:
+      '1':
+        name: ''
+        net: RAIL_SENSE
+        type: passive
+  U1:
+    value: Raspberry Pi Pico
+    package: 2x20 DIP module on 2x 1x20 sockets
+    sheet: pico
+    pins:
+      '1':
+        name: GP0
+        net: NC
+        type: nc
+      '2':
+        name: GP1
+        net: NC
+        type: nc
+      '3':
+        name: GND
+        net: GND_L
+        type: passive
+      '4':
+        name: GP2
+        net: CAM_TRIG
+        type: out
+      '5':
+        name: GP3
+        net: STROBE_GATE
+        type: out
+      '6':
+        name: GP4
+        net: STROBE_EN
+        type: in
+      '7':
+        name: GP5
+        net: TRIG_IN
+        type: in
+      '8':
+        name: GND
+        net: GND_L
+        type: passive
+      '9':
+        name: GP6
+        net: STATUS
+        type: out
+      '10':
+        name: GP7
+        net: NC
+        type: nc
+      '11':
+        name: GP8
+        net: NC
+        type: nc
+      '12':
+        name: GP9
+        net: NC
+        type: nc
+      '13':
+        name: GND
+        net: GND_L
+        type: passive
+      '14':
+        name: GP10
+        net: NC
+        type: nc
+      '15':
+        name: GP11
+        net: NC
+        type: nc
+      '16':
+        name: GP12
+        net: NC
+        type: nc
+      '17':
+        name: GP13
+        net: NC
+        type: nc
+      '18':
+        name: GND
+        net: GND_L
+        type: passive
+      '19':
+        name: GP14
+        net: NC
+        type: nc
+      '20':
+        name: GP15
+        net: NC
+        type: nc
+      '21':
+        name: GP16
+        net: NC
+        type: nc
+      '22':
+        name: GP17
+        net: NC
+        type: nc
+      '23':
+        name: GND
+        net: GND_L
+        type: passive
+      '24':
+        name: GP18
+        net: NC
+        type: nc
+      '25':
+        name: GP19
+        net: NC
+        type: nc
+      '26':
+        name: GP20
+        net: NC
+        type: nc
+      '27':
+        name: GP21
+        net: NC
+        type: nc
+      '28':
+        name: GND
+        net: GND_L
+        type: passive
+      '29':
+        name: GP22
+        net: NC
+        type: nc
+      '30':
+        name: RUN
+        net: NC
+        type: nc
+      '31':
+        name: GP26/ADC0
+        net: NC
+        type: nc
+      '32':
+        name: GP27/ADC1
+        net: NC
+        type: nc
+      '33':
+        name: AGND
+        net: GND_L
+        type: passive
+      '34':
+        name: GP28/ADC2
+        net: RAIL_SENSE
+        type: in
+      '35':
+        name: ADC_VREF
+        net: NC
+        type: nc
+      '36':
+        name: 3V3(OUT)
+        net: 3V3
+        type: pwr_out
+      '37':
+        name: 3V3_EN
+        net: NC
+        type: nc
+      '38':
+        name: GND
+        net: GND_L
+        type: passive
+      '39':
+        name: VSYS
+        net: NC
+        type: nc
+      '40':
+        name: VBUS
+        net: V5
+        type: pwr_out
+  C12:
+    value: 1u X7R
+    package: radial MLCC
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: 3V3
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C13:
+    value: 1u X7R
+    package: radial MLCC
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: V1P8
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C14:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: VTRIG
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C15:
+    value: 10u 16V
+    package: radial 5x11
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: VTRIG
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  D5:
+    value: BAT54S
+    package: SOT-23 on adapter
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: GND_L
+        type: passive
+      '2':
+        name: ''
+        net: VTRIG
+        type: passive
+      '3':
+        name: ''
+        net: CAM1_OUT
+        type: passive
+  D6:
+    value: BAT54S
+    package: SOT-23 on adapter
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: GND_L
+        type: passive
+      '2':
+        name: ''
+        net: VTRIG
+        type: passive
+      '3':
+        name: ''
+        net: CAM2_OUT
+        type: passive
+  J6:
+    value: 2P header 2.54
+    package: 2.54 mm
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: CAM1_OUT
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  J7:
+    value: 2P header 2.54
+    package: 2.54 mm
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: CAM2_OUT
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  JP1:
+    value: 3P header 2.54
+    package: 2.54 mm
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: V1P8
+        type: passive
+      '2':
+        name: ''
+        net: VTRIG
+        type: passive
+      '3':
+        name: ''
+        net: 3V3
+        type: passive
+  R10:
+    value: 100R
+    package: axial 1/4 W
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: CAM_TRIG
+        type: passive
+      '2':
+        name: ''
+        net: CAMTRIG_IN
+        type: passive
+  R11:
+    value: 10k
+    package: axial 1/4 W
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: CAMTRIG_IN
+        type: passive
+      '2':
+        name: ''
+        net: 3V3
+        type: passive
+  R12:
+    value: 47R
+    package: axial 1/4 W
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: CAM1_DRV
+        type: passive
+      '2':
+        name: ''
+        net: CAM1_OUT
+        type: passive
+  R13:
+    value: 47R
+    package: axial 1/4 W
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: CAM2_DRV
+        type: passive
+      '2':
+        name: ''
+        net: CAM2_OUT
+        type: passive
+  TP7:
+    value: test point
+    package: 1 pin
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: CAMTRIG_IN
+        type: passive
+  TP8:
+    value: test point
+    package: 1 pin
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: CAM1_OUT
+        type: passive
+  TP9:
+    value: test point
+    package: 1 pin
+    sheet: camtrig
+    pins:
+      '1':
+        name: ''
+        net: VTRIG
+        type: passive
+  U3:
+    value: SN74LVC2G17
+    package: SOT-23-6 on adapter
+    sheet: camtrig
+    pins:
+      '1':
+        name: 1A
+        net: CAMTRIG_IN
+        type: in
+      '2':
+        name: GND
+        net: GND_L
+        type: passive
+      '3':
+        name: 2A
+        net: CAMTRIG_IN
+        type: in
+      '4':
+        name: 2Y
+        net: CAM2_DRV
+        type: out
+      '5':
+        name: VCC
+        net: VTRIG
+        type: pwr_in
+      '6':
+        name: 1Y
+        net: CAM1_DRV
+        type: out
+  U4:
+    value: MCP1700-1802
+    package: TO-92
+    sheet: camtrig
+    pins:
+      '1':
+        name: GND
+        net: GND_L
+        type: passive
+      '2':
+        name: VIN
+        net: 3V3
+        type: pwr_in
+      '3':
+        name: VOUT
+        net: V1P8
+        type: pwr_out
+  C16:
+    value: 10n
+    package: radial MLCC / film 5 mm
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: EN_SW
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  D7:
+    value: LED red 5 mm
+    package: 5 mm
+    sheet: gating
+    pins:
+      A:
+        name: ''
+        net: ARM_A
+        type: passive
+      K:
+        name: ''
+        net: ARM_K
+        type: passive
+  D8:
+    value: LED green 3 mm
+    package: 3 mm
+    sheet: gating
+    pins:
+      A:
+        name: ''
+        net: STATUS_LED_A
+        type: passive
+      K:
+        name: ''
+        net: GND_L
+        type: passive
+  J2:
+    value: 2P screw terminal 5.08
+    package: 5.08 mm pitch
+    sheet: gating
+    pins:
+      '1':
+        name: V12_A
+        net: V12_A
+        type: passive
+      '2':
+        name: PGND
+        net: PGND
+        type: passive
+  J3:
+    value: 3P header 2.54
+    package: 2.54 mm
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: GATE_A
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+      '3':
+        name: ''
+        net: SENSE_A
+        type: passive
+  J4:
+    value: 2P screw terminal 5.08
+    package: 5.08 mm pitch
+    sheet: gating
+    pins:
+      '1':
+        name: V12_B
+        net: V12_B
+        type: passive
+      '2':
+        name: PGND
+        net: PGND
+        type: passive
+  J5:
+    value: 3P header 2.54
+    package: 2.54 mm
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: GATE_B
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+      '3':
+        name: ''
+        net: SENSE_B
+        type: passive
+  J8:
+    value: 2P header 2.54
+    package: 2.54 mm
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: ILK_SRC
+        type: passive
+      '2':
+        name: ''
+        net: EN_SW
+        type: passive
+  J9:
+    value: 2P header 2.54
+    package: 2.54 mm
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: ARM_A
+        type: passive
+      '2':
+        name: ''
+        net: ARM_K
+        type: passive
+  Q2:
+    value: 2N3904
+    package: TO-92
+    sheet: gating
+    pins:
+      '1':
+        name: E
+        net: GND_L
+        type: passive
+      '2':
+        name: B
+        net: ARM_B
+        type: in
+      '3':
+        name: C
+        net: ARM_K
+        type: passive
+  R14:
+    value: 100R
+    package: axial 1/4 W
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: STROBE_GATE
+        type: passive
+      '2':
+        name: ''
+        net: GATE_RAW
+        type: passive
+  R15:
+    value: 10k
+    package: axial 1/4 W
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: GATE_RAW
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  R16:
+    value: 100R
+    package: axial 1/4 W
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: 3V3
+        type: passive
+      '2':
+        name: ''
+        net: ILK_SRC
+        type: passive
+  R17:
+    value: 100k
+    package: axial 1/4 W
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: EN_SW
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  R18:
+    value: 1k
+    package: axial 1/4 W
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: EN_SW
+        type: passive
+      '2':
+        name: ''
+        net: STROBE_EN
+        type: passive
+  R19:
+    value: 4k7
+    package: axial 1/4 W
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: EN_SW
+        type: passive
+      '2':
+        name: ''
+        net: ARM_B
+        type: passive
+  R20:
+    value: 1k
+    package: axial 1/4 W
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: V12
+        type: passive
+      '2':
+        name: ''
+        net: ARM_A
+        type: passive
+  R21:
+    value: 470R
+    package: axial 1/4 W
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: STATUS
+        type: passive
+      '2':
+        name: ''
+        net: STATUS_LED_A
+        type: passive
+  R22:
+    value: 33R
+    package: axial 1/4 W
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: GATE_BUS
+        type: passive
+      '2':
+        name: ''
+        net: GATE_A
+        type: passive
+  R23:
+    value: 33R
+    package: axial 1/4 W
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: GATE_BUS
+        type: passive
+      '2':
+        name: ''
+        net: GATE_B
+        type: passive
+  TP10:
+    value: test point
+    package: 1 pin
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: GATE_BUS
+        type: passive
+  TP11:
+    value: test point
+    package: 1 pin
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: EN_SW
+        type: passive
+  TP12:
+    value: test point
+    package: 1 pin
+    sheet: gating
+    pins:
+      '1':
+        name: ''
+        net: STROBE_GATE
+        type: passive
+  U2:
+    value: 74HC08
+    package: DIP-14
+    sheet: gating
+    pins:
+      '1':
+        name: 1A
+        net: GATE_RAW
+        type: in
+      '2':
+        name: 1B
+        net: EN_SW
+        type: in
+      '3':
+        name: 1Y
+        net: GATE_BUS
+        type: out
+      '4':
+        name: 2A
+        net: GND_L
+        type: in
+      '5':
+        name: 2B
+        net: GND_L
+        type: in
+      '6':
+        name: 2Y
+        net: NC
+        type: nc
+      '7':
+        name: GND
+        net: GND_L
+        type: passive
+      '8':
+        name: 3Y
+        net: NC
+        type: nc
+      '9':
+        name: 3A
+        net: GND_L
+        type: in
+      '10':
+        name: 3B
+        net: GND_L
+        type: in
+      '11':
+        name: 4Y
+        net: NC
+        type: nc
+      '12':
+        name: 4A
+        net: GND_L
+        type: in
+      '13':
+        name: 4B
+        net: GND_L
+        type: in
+      '14':
+        name: VCC
+        net: 3V3
+        type: pwr_in
+  C17:
+    value: 10u 16V
+    package: radial 5x11
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: VREF_RAW
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C18:
+    value: 1u X7R
+    package: radial MLCC
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: VREF
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C19:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: V5A
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C20:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: V5A
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C21:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: 3V3
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C22:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: 3V3
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C23:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: 3V3
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  JP2:
+    value: 3P header 2.54
+    package: 2.54 mm
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: ACOU_N
+        type: passive
+      '2':
+        name: ''
+        net: TRIG_RAW
+        type: passive
+      '3':
+        name: ''
+        net: OPT_N
+        type: passive
+  JP3:
+    value: 3P header 2.54
+    package: 2.54 mm
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: 3V3
+        type: passive
+      '2':
+        name: ''
+        net: POL
+        type: passive
+      '3':
+        name: ''
+        net: GND_L
+        type: passive
+  R30:
+    value: 10k 1%
+    package: axial 1/4 W
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: V5A
+        type: passive
+      '2':
+        name: ''
+        net: VREF_RAW
+        type: passive
+  R31:
+    value: 10k 1%
+    package: axial 1/4 W
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: VREF_RAW
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  R44:
+    value: 10k
+    package: axial 1/4 W
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: 3V3
+        type: passive
+      '2':
+        name: ''
+        net: ACOU_N
+        type: passive
+  R45:
+    value: 10k
+    package: axial 1/4 W
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: 3V3
+        type: passive
+      '2':
+        name: ''
+        net: OPT_N
+        type: passive
+  R60:
+    value: 100k
+    package: axial 1/4 W
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: TRIG_RAW
+        type: passive
+      '2':
+        name: ''
+        net: 3V3
+        type: passive
+  R61:
+    value: 100R
+    package: axial 1/4 W
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: TRIG_X
+        type: passive
+      '2':
+        name: ''
+        net: TRIG_IN
+        type: passive
+  R62:
+    value: 100k
+    package: axial 1/4 W
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: TRIG_IN
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  TP13:
+    value: test point
+    package: 1 pin
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: VREF
+        type: passive
+  TP14:
+    value: test point
+    package: 1 pin
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: TRIG_IN
+        type: passive
+  TP15:
+    value: test point
+    package: 1 pin
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: ACOU_N
+        type: passive
+  TP16:
+    value: test point
+    package: 1 pin
+    sheet: trigsel
+    pins:
+      '1':
+        name: ''
+        net: OPT_N
+        type: passive
+  U7:
+    value: MCP6022
+    package: DIP-8
+    sheet: trigsel
+    pins:
+      '1':
+        name: OUTA
+        net: VREF
+        type: out
+      '2':
+        name: INA-
+        net: VREF
+        type: in
+      '3':
+        name: INA+
+        net: VREF_RAW
+        type: in
+      '4':
+        name: VSS
+        net: GND_L
+        type: passive
+      '5':
+        name: INB+
+        net: VREF
+        type: in
+      '6':
+        name: INB-
+        net: INV_FB
+        type: in
+      '7':
+        name: OUTB
+        net: ACOU_INV
+        type: out
+      '8':
+        name: VDD
+        net: V5A
+        type: pwr_in
+  U8:
+    value: LM339
+    package: DIP-14
+    sheet: trigsel
+    pins:
+      '1':
+        name: OUT2
+        net: ACOU_N
+        type: oc
+      '2':
+        name: OUT1
+        net: ACOU_N
+        type: oc
+      '3':
+        name: VCC
+        net: V5A
+        type: pwr_in
+      '4':
+        name: IN1-
+        net: ACOU_SIG
+        type: in
+      '5':
+        name: IN1+
+        net: THR_P
+        type: in
+      '6':
+        name: IN2-
+        net: ACOU_INV
+        type: in
+      '7':
+        name: IN2+
+        net: THR_P
+        type: in
+      '8':
+        name: IN3-
+        net: THO
+        type: in
+      '9':
+        name: IN3+
+        net: ENV
+        type: in
+      '10':
+        name: IN4-
+        net: VREF
+        type: in
+      '11':
+        name: IN4+
+        net: GND_L
+        type: in
+      '12':
+        name: GND
+        net: GND_L
+        type: passive
+      '13':
+        name: OUT4
+        net: NC
+        type: nc
+      '14':
+        name: OUT3
+        net: OPT_N
+        type: oc
+  U10:
+    value: 74HC86
+    package: DIP-14
+    sheet: trigsel
+    pins:
+      '1':
+        name: 1A
+        net: TRIG_RAW
+        type: in
+      '2':
+        name: 1B
+        net: POL
+        type: in
+      '3':
+        name: 1Y
+        net: TRIG_X
+        type: out
+      '4':
+        name: 2A
+        net: GND_L
+        type: in
+      '5':
+        name: 2B
+        net: GND_L
+        type: in
+      '6':
+        name: 2Y
+        net: NC
+        type: nc
+      '7':
+        name: GND
+        net: GND_L
+        type: passive
+      '8':
+        name: 3Y
+        net: NC
+        type: nc
+      '9':
+        name: 3A
+        net: GND_L
+        type: in
+      '10':
+        name: 3B
+        net: GND_L
+        type: in
+      '11':
+        name: 4Y
+        net: NC
+        type: nc
+      '12':
+        name: 4A
+        net: GND_L
+        type: in
+      '13':
+        name: 4B
+        net: GND_L
+        type: in
+      '14':
+        name: VCC
+        net: 3V3
+        type: pwr_in
+  C24:
+    value: 10u 16V
+    package: radial 5x11
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: MIC_B
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C25:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: MIC_P
+        type: passive
+      '2':
+        name: ''
+        net: MIC_AC
+        type: passive
+  C26:
+    value: 220p C0G
+    package: radial
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: AMP1
+        type: passive
+      '2':
+        name: ''
+        net: FB1
+        type: passive
+  C27:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: FB1G
+        type: passive
+      '2':
+        name: ''
+        net: VREF
+        type: passive
+  C28:
+    value: 10n
+    package: radial MLCC / film 5 mm
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: AMP1
+        type: passive
+      '2':
+        name: ''
+        net: S2IN
+        type: passive
+  C29:
+    value: 470p C0G
+    package: radial
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: FB2
+        type: passive
+      '2':
+        name: ''
+        net: ACOU_SIG
+        type: passive
+  C30:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: V5A
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C31:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: THR_P
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  J10:
+    value: 2P header 2.54
+    package: 2.54 mm
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: MIC_P
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  M1:
+    value: electret capsule
+    package: 6 mm capsule
+    sheet: acoustic
+    pins:
+      '1':
+        name: OUT+
+        net: MIC_P
+        type: passive
+      '2':
+        name: '-'
+        net: GND_L
+        type: passive
+  R32:
+    value: 4k7
+    package: axial 1/4 W
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: MIC_B
+        type: passive
+      '2':
+        name: ''
+        net: MIC_P
+        type: passive
+  R33:
+    value: 1k
+    package: axial 1/4 W
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: V5A
+        type: passive
+      '2':
+        name: ''
+        net: MIC_B
+        type: passive
+  R34:
+    value: 100k
+    package: axial 1/4 W
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: MIC_AC
+        type: passive
+      '2':
+        name: ''
+        net: VREF
+        type: passive
+  R35:
+    value: 47k 1%
+    package: axial 1/4 W
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: AMP1
+        type: passive
+      '2':
+        name: ''
+        net: FB1
+        type: passive
+  R36:
+    value: 1k 1%
+    package: axial 1/4 W
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: FB1
+        type: passive
+      '2':
+        name: ''
+        net: FB1G
+        type: passive
+  R37:
+    value: 10k 1%
+    package: axial 1/4 W
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: S2IN
+        type: passive
+      '2':
+        name: ''
+        net: FB2
+        type: passive
+  R38:
+    value: 20k 1%
+    package: axial 1/4 W
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: FB2
+        type: passive
+      '2':
+        name: ''
+        net: ACOU_SIG
+        type: passive
+  R39:
+    value: 10k 1%
+    package: axial 1/4 W
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: ACOU_SIG
+        type: passive
+      '2':
+        name: ''
+        net: INV_FB
+        type: passive
+  R40:
+    value: 10k 1%
+    package: axial 1/4 W
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: INV_FB
+        type: passive
+      '2':
+        name: ''
+        net: ACOU_INV
+        type: passive
+  R41:
+    value: 16k 1%
+    package: axial 1/4 W
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: V5A
+        type: passive
+      '2':
+        name: ''
+        net: THR_TOP
+        type: passive
+  R42:
+    value: 27k 1%
+    package: axial 1/4 W
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: THR_BOT
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  R43:
+    value: 100k
+    package: axial 1/4 W
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: ACOU_N
+        type: passive
+      '2':
+        name: ''
+        net: HYS_M
+        type: passive
+  RV1:
+    value: pot 10k
+    package: 3296W style
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: THR_TOP
+        type: passive
+      '2':
+        name: ''
+        net: THR_P
+        type: passive
+      '3':
+        name: ''
+        net: THR_BOT
+        type: passive
+  RV2:
+    value: trimmer 500k
+    package: 3296W style
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: HYS_M
+        type: passive
+      '2':
+        name: ''
+        net: THR_P
+        type: passive
+      '3':
+        name: ''
+        net: THR_P
+        type: passive
+  TP17:
+    value: test point
+    package: 1 pin
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: ACOU_SIG
+        type: passive
+  TP18:
+    value: test point
+    package: 1 pin
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: THR_P
+        type: passive
+  TP19:
+    value: test point
+    package: 1 pin
+    sheet: acoustic
+    pins:
+      '1':
+        name: ''
+        net: MIC_P
+        type: passive
+  U5:
+    value: MCP6022
+    package: DIP-8
+    sheet: acoustic
+    pins:
+      '1':
+        name: OUTA
+        net: AMP1
+        type: out
+      '2':
+        name: INA-
+        net: FB1
+        type: in
+      '3':
+        name: INA+
+        net: MIC_AC
+        type: in
+      '4':
+        name: VSS
+        net: GND_L
+        type: passive
+      '5':
+        name: INB+
+        net: VREF
+        type: in
+      '6':
+        name: INB-
+        net: FB2
+        type: in
+      '7':
+        name: OUTB
+        net: ACOU_SIG
+        type: out
+      '8':
+        name: VDD
+        net: V5A
+        type: pwr_in
+  C32:
+    value: 4u7 16V
+    package: radial 5x11
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: PD_K
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C33:
+    value: 4p7 C0G
+    package: radial
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: TIA_IN
+        type: passive
+      '2':
+        name: ''
+        net: TIA_OUT
+        type: passive
+  C34:
+    value: 1n C0G
+    package: radial
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: MFB_A
+        type: passive
+      '2':
+        name: ''
+        net: MFB_INV
+        type: passive
+  C35:
+    value: 1n C0G
+    package: radial
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: MFB_A
+        type: passive
+      '2':
+        name: ''
+        net: OPT_BP
+        type: passive
+  C36:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: V5A
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C37:
+    value: 2n2 C0G
+    package: radial
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: ENV
+        type: passive
+      '2':
+        name: ''
+        net: VREF
+        type: passive
+  C38:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: THO
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C39:
+    value: 1n C0G
+    package: radial
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: OSC_C
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C40:
+    value: 10n
+    package: radial MLCC / film 5 mm
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: OSC_CT
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  C41:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: V5E
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  D9:
+    value: BAT85
+    package: DO-34 axial
+    sheet: optical
+    pins:
+      A:
+        name: ''
+        net: OPT_BP
+        type: passive
+      K:
+        name: ''
+        net: ENV
+        type: passive
+  D10:
+    value: 940 nm IR LED 5 mm
+    package: 5 mm
+    sheet: optical
+    pins:
+      A:
+        name: ''
+        net: EMIT_A
+        type: passive
+      K:
+        name: ''
+        net: EMIT_K
+        type: passive
+  D11:
+    value: IR photodiode
+    package: 5 mm T-1 3/4
+    sheet: optical
+    pins:
+      A:
+        name: ''
+        net: TIA_IN
+        type: passive
+      K:
+        name: ''
+        net: PD_K
+        type: passive
+  J11:
+    value: 5P header 2.54
+    package: 2.54 mm
+    sheet: optical
+    pins:
+      '1':
+        name: LED_A
+        net: EMIT_A
+        type: passive
+      '2':
+        name: LED_K
+        net: EMIT_K
+        type: passive
+      '3':
+        name: PD_K
+        net: PD_K
+        type: passive
+      '4':
+        name: PD_A
+        net: TIA_IN
+        type: passive
+      '5':
+        name: SHIELD
+        net: GND_L
+        type: passive
+  JP4:
+    value: 2P header 2.54
+    package: 2.54 mm
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: OSC_EN
+        type: passive
+      '2':
+        name: ''
+        net: V5E
+        type: passive
+  Q3:
+    value: 2N3904
+    package: TO-92
+    sheet: optical
+    pins:
+      '1':
+        name: E
+        net: GND_L
+        type: passive
+      '2':
+        name: B
+        net: EMIT_B
+        type: in
+      '3':
+        name: C
+        net: EMIT_K
+        type: passive
+  R46:
+    value: 680k
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: OPT_N
+        type: passive
+      '2':
+        name: ''
+        net: ENV
+        type: passive
+  R47:
+    value: 100R
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: V5A
+        type: passive
+      '2':
+        name: ''
+        net: PD_K
+        type: passive
+  R48:
+    value: 33k 1%
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: TIA_IN
+        type: passive
+      '2':
+        name: ''
+        net: TIA_OUT
+        type: passive
+  R49:
+    value: 1k58 1%
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: TIA_OUT
+        type: passive
+      '2':
+        name: ''
+        net: MFB_A
+        type: passive
+  R50:
+    value: 332R 1%
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: MFB_A
+        type: passive
+      '2':
+        name: ''
+        net: VREF
+        type: passive
+  R51:
+    value: 9k53 1%
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: MFB_INV
+        type: passive
+      '2':
+        name: ''
+        net: OPT_BP
+        type: passive
+  R52:
+    value: 10k
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: ENV
+        type: passive
+      '2':
+        name: ''
+        net: VREF
+        type: passive
+  R53:
+    value: 16k 1%
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: V5A
+        type: passive
+      '2':
+        name: ''
+        net: THO_TOP
+        type: passive
+  R54:
+    value: 27k 1%
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: THO_BOT
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  R55:
+    value: 1k
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: V5E
+        type: passive
+      '2':
+        name: ''
+        net: OSC_D
+        type: passive
+  R56:
+    value: 6k8
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: OSC_D
+        type: passive
+      '2':
+        name: ''
+        net: OSC_C
+        type: passive
+  R57:
+    value: 100k
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: OSC_EN
+        type: passive
+      '2':
+        name: ''
+        net: GND_L
+        type: passive
+  R58:
+    value: 270R
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: OSC_OUT
+        type: passive
+      '2':
+        name: ''
+        net: EMIT_B
+        type: passive
+  R59:
+    value: 33R
+    package: axial 1/4 W
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: V5E
+        type: passive
+      '2':
+        name: ''
+        net: EMIT_A
+        type: passive
+  RV3:
+    value: pot 10k
+    package: 3296W style
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: THO_TOP
+        type: passive
+      '2':
+        name: ''
+        net: THO
+        type: passive
+      '3':
+        name: ''
+        net: THO_BOT
+        type: passive
+  TP20:
+    value: test point
+    package: 1 pin
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: TIA_OUT
+        type: passive
+  TP21:
+    value: test point
+    package: 1 pin
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: OPT_BP
+        type: passive
+  TP22:
+    value: test point
+    package: 1 pin
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: ENV
+        type: passive
+  TP23:
+    value: test point
+    package: 1 pin
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: THO
+        type: passive
+  TP24:
+    value: test point
+    package: 1 pin
+    sheet: optical
+    pins:
+      '1':
+        name: ''
+        net: OSC_OUT
+        type: passive
+  U6:
+    value: MCP6022
+    package: DIP-8
+    sheet: optical
+    pins:
+      '1':
+        name: OUTA
+        net: TIA_OUT
+        type: out
+      '2':
+        name: INA-
+        net: TIA_IN
+        type: in
+      '3':
+        name: INA+
+        net: VREF
+        type: in
+      '4':
+        name: VSS
+        net: GND_L
+        type: passive
+      '5':
+        name: INB+
+        net: VREF
+        type: in
+      '6':
+        name: INB-
+        net: MFB_INV
+        type: in
+      '7':
+        name: OUTB
+        net: OPT_BP
+        type: out
+      '8':
+        name: VDD
+        net: V5A
+        type: pwr_in
+  U9:
+    value: TLC555
+    package: DIP-8
+    sheet: optical
+    pins:
+      '1':
+        name: GND
+        net: GND_L
+        type: passive
+      '2':
+        name: TRIG
+        net: OSC_C
+        type: in
+      '3':
+        name: OUT
+        net: OSC_OUT
+        type: out
+      '4':
+        name: RESET
+        net: OSC_EN
+        type: in
+      '5':
+        name: CTRL
+        net: OSC_CT
+        type: passive
+      '6':
+        name: THR
+        net: OSC_C
+        type: in
+      '7':
+        name: DIS
+        net: OSC_D
+        type: passive
+      '8':
+        name: VCC
+        net: V5E
+        type: pwr_in
+  C101:
+    value: 2200u 16V
+    package: radial 12.5x25
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C102:
+    value: 2200u 16V
+    package: radial 12.5x25
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C103:
+    value: 10u 25V X7R
+    package: 1210 SMD on adapter / radial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C104:
+    value: 10u 25V X7R
+    package: 1210 SMD on adapter / radial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C105:
+    value: 10u 25V X7R
+    package: 1210 SMD on adapter / radial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C106:
+    value: 10u 25V X7R
+    package: 1210 SMD on adapter / radial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C107:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C108:
+    value: 10u 25V X7R
+    package: 1210 / radial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: VDRV_A
+        type: passive
+      '2':
+        name: ''
+        net: SRC_A
+        type: passive
+  C109:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: VDRV_A
+        type: passive
+      '2':
+        name: ''
+        net: SRC_A
+        type: passive
+  C110:
+    value: 10n C0G/film 50V
+    package: radial 5 mm
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: GACI_A
+        type: passive
+      '2':
+        name: ''
+        net: GFET_A
+        type: passive
+  C201:
+    value: 2200u 16V
+    package: radial 12.5x25
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C202:
+    value: 2200u 16V
+    package: radial 12.5x25
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C203:
+    value: 10u 25V X7R
+    package: 1210 SMD on adapter / radial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C204:
+    value: 10u 25V X7R
+    package: 1210 SMD on adapter / radial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C205:
+    value: 10u 25V X7R
+    package: 1210 SMD on adapter / radial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C206:
+    value: 10u 25V X7R
+    package: 1210 SMD on adapter / radial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C207:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  C208:
+    value: 10u 25V X7R
+    package: 1210 / radial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: VDRV_B
+        type: passive
+      '2':
+        name: ''
+        net: SRC_B
+        type: passive
+  C209:
+    value: 100n
+    package: radial MLCC / film 5 mm
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: VDRV_B
+        type: passive
+      '2':
+        name: ''
+        net: SRC_B
+        type: passive
+  C210:
+    value: 10n C0G/film 50V
+    package: radial 5 mm
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: GACI_B
+        type: passive
+      '2':
+        name: ''
+        net: GFET_B
+        type: passive
+  D101:
+    value: 1N5822
+    package: DO-201AD axial
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: DRN_A
+        type: passive
+      K:
+        name: ''
+        net: V12_A
+        type: passive
+  D102:
+    value: 1N4744A
+    package: DO-41 axial
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: SRC_A
+        type: passive
+      K:
+        name: ''
+        net: VDRV_A
+        type: passive
+  D103:
+    value: 1N5819
+    package: DO-41 axial
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: SRC_A
+        type: passive
+      K:
+        name: ''
+        net: GFET_A
+        type: passive
+  D104:
+    value: LED red 5 mm
+    package: 5 mm
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: CHGLED_A
+        type: passive
+      K:
+        name: ''
+        net: PGND
+        type: passive
+  D201:
+    value: 1N5822
+    package: DO-201AD axial
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: DRN_B
+        type: passive
+      K:
+        name: ''
+        net: V12_B
+        type: passive
+  D202:
+    value: 1N4744A
+    package: DO-41 axial
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: SRC_B
+        type: passive
+      K:
+        name: ''
+        net: VDRV_B
+        type: passive
+  D203:
+    value: 1N5819
+    package: DO-41 axial
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: SRC_B
+        type: passive
+      K:
+        name: ''
+        net: GFET_B
+        type: passive
+  D204:
+    value: LED red 5 mm
+    package: 5 mm
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: CHGLED_B
+        type: passive
+      K:
+        name: ''
+        net: PGND
+        type: passive
+  J102:
+    value: 2P screw terminal 5.08
+    package: 5.08 mm pitch
+    sheet: strobe
+    pins:
+      '1':
+        name: V12_A
+        net: V12_A
+        type: pwr_in
+      '2':
+        name: PGND
+        net: PGND
+        type: passive
+  J103:
+    value: 3P header 2.54
+    package: 2.54 mm
+    sheet: strobe
+    pins:
+      '1':
+        name: GATE_A
+        net: GATE_A
+        type: in
+      '2':
+        name: PGND
+        net: PGND
+        type: passive
+      '3':
+        name: SENSE_A
+        net: SENSE_A
+        type: passive
+  J104:
+    value: 6P screw terminal 5.08
+    package: 5.08 mm pitch
+    sheet: strobe
+    pins:
+      '1':
+        name: STR_A1
+        net: STR_A1
+        type: passive
+      '2':
+        name: STR_A2
+        net: STR_A2
+        type: passive
+      '3':
+        name: STR_A3
+        net: STR_A3
+        type: passive
+      '4':
+        name: STR_A4
+        net: STR_A4
+        type: passive
+      '5':
+        name: STR_A5
+        net: STR_A5
+        type: passive
+      '6':
+        name: STR_A6
+        net: STR_A6
+        type: passive
+  J105:
+    value: 6P screw terminal 5.08
+    package: 5.08 mm pitch
+    sheet: strobe
+    pins:
+      '1':
+        name: DRN_A
+        net: DRN_A
+        type: passive
+      '2':
+        name: DRN_A
+        net: DRN_A
+        type: passive
+      '3':
+        name: DRN_A
+        net: DRN_A
+        type: passive
+      '4':
+        name: DRN_A
+        net: DRN_A
+        type: passive
+      '5':
+        name: DRN_A
+        net: DRN_A
+        type: passive
+      '6':
+        name: DRN_A
+        net: DRN_A
+        type: passive
+  J202:
+    value: 2P screw terminal 5.08
+    package: 5.08 mm pitch
+    sheet: strobe
+    pins:
+      '1':
+        name: V12_B
+        net: V12_B
+        type: pwr_in
+      '2':
+        name: PGND
+        net: PGND
+        type: passive
+  J203:
+    value: 3P header 2.54
+    package: 2.54 mm
+    sheet: strobe
+    pins:
+      '1':
+        name: GATE_B
+        net: GATE_B
+        type: in
+      '2':
+        name: PGND
+        net: PGND
+        type: passive
+      '3':
+        name: SENSE_B
+        net: SENSE_B
+        type: passive
+  J204:
+    value: 6P screw terminal 5.08
+    package: 5.08 mm pitch
+    sheet: strobe
+    pins:
+      '1':
+        name: STR_B1
+        net: STR_B1
+        type: passive
+      '2':
+        name: STR_B2
+        net: STR_B2
+        type: passive
+      '3':
+        name: STR_B3
+        net: STR_B3
+        type: passive
+      '4':
+        name: STR_B4
+        net: STR_B4
+        type: passive
+      '5':
+        name: STR_B5
+        net: STR_B5
+        type: passive
+      '6':
+        name: STR_B6
+        net: STR_B6
+        type: passive
+  J205:
+    value: 6P screw terminal 5.08
+    package: 5.08 mm pitch
+    sheet: strobe
+    pins:
+      '1':
+        name: DRN_B
+        net: DRN_B
+        type: passive
+      '2':
+        name: DRN_B
+        net: DRN_B
+        type: passive
+      '3':
+        name: DRN_B
+        net: DRN_B
+        type: passive
+      '4':
+        name: DRN_B
+        net: DRN_B
+        type: passive
+      '5':
+        name: DRN_B
+        net: DRN_B
+        type: passive
+      '6':
+        name: DRN_B
+        net: DRN_B
+        type: passive
+  LD101:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: STR_A1
+        type: passive
+      K:
+        name: ''
+        net: LA1_1
+        type: passive
+  LD102:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LA1_1
+        type: passive
+      K:
+        name: ''
+        net: LA1_2
+        type: passive
+  LD103:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LA1_2
+        type: passive
+      K:
+        name: ''
+        net: DRN_A
+        type: passive
+  LD104:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: STR_A2
+        type: passive
+      K:
+        name: ''
+        net: LA2_1
+        type: passive
+  LD105:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LA2_1
+        type: passive
+      K:
+        name: ''
+        net: LA2_2
+        type: passive
+  LD106:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LA2_2
+        type: passive
+      K:
+        name: ''
+        net: DRN_A
+        type: passive
+  LD107:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: STR_A3
+        type: passive
+      K:
+        name: ''
+        net: LA3_1
+        type: passive
+  LD108:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LA3_1
+        type: passive
+      K:
+        name: ''
+        net: LA3_2
+        type: passive
+  LD109:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LA3_2
+        type: passive
+      K:
+        name: ''
+        net: DRN_A
+        type: passive
+  LD110:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: STR_A4
+        type: passive
+      K:
+        name: ''
+        net: LA4_1
+        type: passive
+  LD111:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LA4_1
+        type: passive
+      K:
+        name: ''
+        net: LA4_2
+        type: passive
+  LD112:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LA4_2
+        type: passive
+      K:
+        name: ''
+        net: DRN_A
+        type: passive
+  LD113:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: STR_A5
+        type: passive
+      K:
+        name: ''
+        net: LA5_1
+        type: passive
+  LD114:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LA5_1
+        type: passive
+      K:
+        name: ''
+        net: LA5_2
+        type: passive
+  LD115:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LA5_2
+        type: passive
+      K:
+        name: ''
+        net: DRN_A
+        type: passive
+  LD116:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: STR_A6
+        type: passive
+      K:
+        name: ''
+        net: LA6_1
+        type: passive
+  LD117:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LA6_1
+        type: passive
+      K:
+        name: ''
+        net: LA6_2
+        type: passive
+  LD118:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LA6_2
+        type: passive
+      K:
+        name: ''
+        net: DRN_A
+        type: passive
+  LD201:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: STR_B1
+        type: passive
+      K:
+        name: ''
+        net: LB1_1
+        type: passive
+  LD202:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LB1_1
+        type: passive
+      K:
+        name: ''
+        net: LB1_2
+        type: passive
+  LD203:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LB1_2
+        type: passive
+      K:
+        name: ''
+        net: DRN_B
+        type: passive
+  LD204:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: STR_B2
+        type: passive
+      K:
+        name: ''
+        net: LB2_1
+        type: passive
+  LD205:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LB2_1
+        type: passive
+      K:
+        name: ''
+        net: LB2_2
+        type: passive
+  LD206:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LB2_2
+        type: passive
+      K:
+        name: ''
+        net: DRN_B
+        type: passive
+  LD207:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: STR_B3
+        type: passive
+      K:
+        name: ''
+        net: LB3_1
+        type: passive
+  LD208:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LB3_1
+        type: passive
+      K:
+        name: ''
+        net: LB3_2
+        type: passive
+  LD209:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LB3_2
+        type: passive
+      K:
+        name: ''
+        net: DRN_B
+        type: passive
+  LD210:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: STR_B4
+        type: passive
+      K:
+        name: ''
+        net: LB4_1
+        type: passive
+  LD211:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LB4_1
+        type: passive
+      K:
+        name: ''
+        net: LB4_2
+        type: passive
+  LD212:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LB4_2
+        type: passive
+      K:
+        name: ''
+        net: DRN_B
+        type: passive
+  LD213:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: STR_B5
+        type: passive
+      K:
+        name: ''
+        net: LB5_1
+        type: passive
+  LD214:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LB5_1
+        type: passive
+      K:
+        name: ''
+        net: LB5_2
+        type: passive
+  LD215:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LB5_2
+        type: passive
+      K:
+        name: ''
+        net: DRN_B
+        type: passive
+  LD216:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: STR_B6
+        type: passive
+      K:
+        name: ''
+        net: LB6_1
+        type: passive
+  LD217:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LB6_1
+        type: passive
+      K:
+        name: ''
+        net: LB6_2
+        type: passive
+  LD218:
+    value: 850 nm IR LED on 20 mm star
+    package: 3535 SMD on 20 mm star
+    sheet: strobe
+    pins:
+      A:
+        name: ''
+        net: LB6_2
+        type: passive
+      K:
+        name: ''
+        net: DRN_B
+        type: passive
+  Q101:
+    value: IRLB8721
+    package: TO-220
+    sheet: strobe
+    pins:
+      '1':
+        name: G
+        net: GFET_A
+        type: in
+      '2':
+        name: D
+        net: DRN_A
+        type: passive
+      '3':
+        name: S
+        net: SRC_A
+        type: passive
+  Q201:
+    value: IRLB8721
+    package: TO-220
+    sheet: strobe
+    pins:
+      '1':
+        name: G
+        net: GFET_B
+        type: in
+      '2':
+        name: D
+        net: DRN_B
+        type: passive
+      '3':
+        name: S
+        net: SRC_B
+        type: passive
+  R101:
+    value: 10R
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: VDRV_A
+        type: passive
+  R102:
+    value: 100R
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: GATE_A
+        type: passive
+      '2':
+        name: ''
+        net: DRV_IN_A
+        type: passive
+  R103:
+    value: 10k
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: DRV_IN_A
+        type: passive
+      '2':
+        name: ''
+        net: SRC_A
+        type: passive
+  R104:
+    value: 2R2
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: GOUT_A
+        type: passive
+      '2':
+        name: ''
+        net: GACI_A
+        type: passive
+  R105:
+    value: 3k3
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: GFET_A
+        type: passive
+      '2':
+        name: ''
+        net: SRC_A
+        type: passive
+  R106:
+    value: 100R
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: SENSE_A
+        type: passive
+  R107:
+    value: 2k2
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: CHGLED_A
+        type: passive
+  R108:
+    value: 1k 0.5W
+    package: axial 1/2 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  R201:
+    value: 10R
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: VDRV_B
+        type: passive
+  R202:
+    value: 100R
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: GATE_B
+        type: passive
+      '2':
+        name: ''
+        net: DRV_IN_B
+        type: passive
+  R203:
+    value: 10k
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: DRV_IN_B
+        type: passive
+      '2':
+        name: ''
+        net: SRC_B
+        type: passive
+  R204:
+    value: 2R2
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: GOUT_B
+        type: passive
+      '2':
+        name: ''
+        net: GACI_B
+        type: passive
+  R205:
+    value: 3k3
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: GFET_B
+        type: passive
+      '2':
+        name: ''
+        net: SRC_B
+        type: passive
+  R206:
+    value: 100R
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: SENSE_B
+        type: passive
+  R207:
+    value: 2k2
+    package: axial 1/4 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: CHGLED_B
+        type: passive
+  R208:
+    value: 1k 0.5W
+    package: axial 1/2 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  RB101:
+    value: 1R8 3W
+    package: metal-oxide 3 W axial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: STR_A1
+        type: passive
+  RB102:
+    value: 1R8 3W
+    package: metal-oxide 3 W axial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: STR_A2
+        type: passive
+  RB103:
+    value: 1R8 3W
+    package: metal-oxide 3 W axial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: STR_A3
+        type: passive
+  RB104:
+    value: 1R8 3W
+    package: metal-oxide 3 W axial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: STR_A4
+        type: passive
+  RB105:
+    value: 1R8 3W
+    package: metal-oxide 3 W axial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: STR_A5
+        type: passive
+  RB106:
+    value: 1R8 3W
+    package: metal-oxide 3 W axial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+      '2':
+        name: ''
+        net: STR_A6
+        type: passive
+  RB201:
+    value: 1R8 3W
+    package: metal-oxide 3 W axial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: STR_B1
+        type: passive
+  RB202:
+    value: 1R8 3W
+    package: metal-oxide 3 W axial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: STR_B2
+        type: passive
+  RB203:
+    value: 1R8 3W
+    package: metal-oxide 3 W axial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: STR_B3
+        type: passive
+  RB204:
+    value: 1R8 3W
+    package: metal-oxide 3 W axial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: STR_B4
+        type: passive
+  RB205:
+    value: 1R8 3W
+    package: metal-oxide 3 W axial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: STR_B5
+        type: passive
+  RB206:
+    value: 1R8 3W
+    package: metal-oxide 3 W axial
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+      '2':
+        name: ''
+        net: STR_B6
+        type: passive
+  RS101:
+    value: 10m 1W
+    package: 2512 SMD metal strip / axial 3 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: SRC_A
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  RS201:
+    value: 10m 1W
+    package: 2512 SMD metal strip / axial 3 W
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: SRC_B
+        type: passive
+      '2':
+        name: ''
+        net: PGND
+        type: passive
+  TP101:
+    value: test point
+    package: 1 pin
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_A
+        type: passive
+  TP102:
+    value: test point
+    package: 1 pin
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: DRN_A
+        type: passive
+  TP103:
+    value: test point
+    package: 1 pin
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: SRC_A
+        type: passive
+  TP104:
+    value: test point
+    package: 1 pin
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: GFET_A
+        type: passive
+  TP105:
+    value: test point
+    package: 1 pin
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: PGND
+        type: passive
+  TP106:
+    value: test point
+    package: 1 pin
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: DRV_IN_A
+        type: passive
+  TP201:
+    value: test point
+    package: 1 pin
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: V12_B
+        type: passive
+  TP202:
+    value: test point
+    package: 1 pin
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: DRN_B
+        type: passive
+  TP203:
+    value: test point
+    package: 1 pin
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: SRC_B
+        type: passive
+  TP204:
+    value: test point
+    package: 1 pin
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: GFET_B
+        type: passive
+  TP205:
+    value: test point
+    package: 1 pin
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: PGND
+        type: passive
+  TP206:
+    value: test point
+    package: 1 pin
+    sheet: strobe
+    pins:
+      '1':
+        name: ''
+        net: DRV_IN_B
+        type: passive
+  U101:
+    value: TC4427A
+    package: DIP-8
+    sheet: strobe
+    pins:
+      '1':
+        name: NC
+        net: NC
+        type: nc
+      '2':
+        name: INA
+        net: DRV_IN_A
+        type: in
+      '3':
+        name: GND
+        net: SRC_A
+        type: passive
+      '4':
+        name: INB
+        net: DRV_IN_A
+        type: in
+      '5':
+        name: OUTB
+        net: GOUT_A
+        type: out
+      '6':
+        name: VDD
+        net: VDRV_A
+        type: pwr_in
+      '7':
+        name: OUTA
+        net: GOUT_A
+        type: out
+      '8':
+        name: NC
+        net: NC
+        type: nc
+  U201:
+    value: TC4427A
+    package: DIP-8
+    sheet: strobe
+    pins:
+      '1':
+        name: NC
+        net: NC
+        type: nc
+      '2':
+        name: INA
+        net: DRV_IN_B
+        type: in
+      '3':
+        name: GND
+        net: SRC_B
+        type: passive
+      '4':
+        name: INB
+        net: DRV_IN_B
+        type: in
+      '5':
+        name: OUTB
+        net: GOUT_B
+        type: out
+      '6':
+        name: VDD
+        net: VDRV_B
+        type: pwr_in
+      '7':
+        name: OUTA
+        net: GOUT_B
+        type: out
+      '8':
+        name: NC
+        net: NC
+        type: nc

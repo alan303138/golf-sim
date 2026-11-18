@@ -1,0 +1,59 @@
+{
+ "sheet": "04_camera_trigger",
+ "title": "04  Camera trigger interface (Pico GP2 -> two IMX296 module trigger inputs)",
+ "covers": [
+  "camtrig"
+ ],
+ "refs": [
+  "C12",
+  "C13",
+  "C14",
+  "C15",
+  "D5",
+  "D6",
+  "J6",
+  "J7",
+  "JP1",
+  "R10",
+  "R11",
+  "R12",
+  "R13",
+  "TP7",
+  "TP8",
+  "TP9",
+  "U3",
+  "U4"
+ ],
+ "nets": [
+  "3V3",
+  "CAM1_DRV",
+  "CAM1_OUT",
+  "CAM2_DRV",
+  "CAM2_OUT",
+  "CAMTRIG_IN",
+  "CAM_TRIG  (Pico GP2, U1.4)",
+  "GND_L",
+  "V1P8",
+  "VTRIG"
+ ],
+ "values": {
+  "R10": "100R",
+  "R11": "10k",
+  "TP7": "test point",
+  "U3": "SN74LVC2G17",
+  "C14": "100n",
+  "C15": "10u 16V",
+  "R12": "47R",
+  "D5": "BAT54S",
+  "J6": "2P header 2.54",
+  "R13": "47R",
+  "D6": "BAT54S",
+  "J7": "2P header 2.54",
+  "TP8": "test point",
+  "TP9": "test point",
+  "U4": "MCP1700-1802",
+  "C12": "1u X7R",
+  "C13": "1u X7R",
+  "JP1": "3P header 2.54"
+ }
+}

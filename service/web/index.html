@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a7d33">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="高爾夫模擬器">
+<title>高爾夫模擬器</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <h1>高爾夫模擬器</h1>
+  <div class="pills">
+    <span id="connPill" class="pill off"><i></i><span id="connText">連線中…</span></span>
+  </div>
+</header>
+
+<main>
+  <!-- ============ 即時 ============ -->
+  <section id="screen-live" class="screen active" aria-label="即時擊球">
+    <div class="card statusbar">
+      <div class="statusline">
+        <span id="stateBadge" class="badge idle">待機</span>
+        <span id="ballPill" class="pill off"><i></i><span id="ballText">未偵測到球</span></span>
+      </div>
+      <p id="stateMsg" class="muted small"></p>
+      <div class="btnrow">
+        <button id="armBtn" class="btn primary big" type="button">啟動（就緒）</button>
+        <button id="testBtn" class="btn big" type="button">測試擊球</button>
+      </div>
+    </div>
+
+    <div id="shotCard" class="card shot empty">
+      <div class="shothead"><span class="muted small" id="shotTime">尚無擊球資料</span><span id="shotConf" class="muted small"></span></div>
+      <div class="hero">
+        <div class="label">球速</div>
+        <div class="num xl"><span id="v-ball">--</span><small id="u-ball">mph</small></div>
+      </div>
+      <div class="grid2">
+        <div class="tile"><div class="label">預估飛行距離</div><div class="num"><span id="v-carry">--</span><small class="u-dist">碼</small></div></div>
+        <div class="tile"><div class="label">發射角</div><div class="num"><span id="v-vla">--</span><small>°</small></div></div>
+        <div class="tile"><div class="label">方向</div><div class="num"><span id="v-hla">--</span><small>°</small></div><div class="sub" id="s-hla"></div></div>
+        <div class="tile"><div class="label">桿頭速度</div><div class="num"><span id="v-club">--</span><small class="u-speed">mph</small></div><div class="sub" id="s-smash"></div></div>
+        <div class="tile"><div class="label">後旋</div><div class="num"><span id="v-back">--</span><small>rpm</small></div></div>
+        <div class="tile"><div class="label">側旋</div><div class="num"><span id="v-side">--</span><small>rpm</small></div><div class="sub" id="s-side"></div></div>
+      </div>
+      <p class="muted small" id="shotExtra"></p>
+    </div>
+  </section>
+
+  <!-- ============ 紀錄 ============ -->
+  <section id="screen-history" class="screen" aria-label="擊球紀錄">
+    <div class="card">
+      <div class="seg" role="tablist" aria-label="範圍">
+        <button type="button" id="scopeSession" class="on">本次練習</button>
+        <button type="button" id="scopeAll">全部紀錄</button>
+      </div>
+      <div class="btnrow"><button id="newSessionBtn" class="btn" type="button">開始新的練習</button></div>
+    </div>
+    <div class="card" id="statsCard">
+      <h2>統計</h2>
+      <div id="stats" class="stats"></div>
+    </div>
+    <div class="card">
+      <h2>落點分佈（俯視）</h2>
+      <div id="plotWrap"></div>
+      <p class="muted small" id="plotNote"></p>
+    </div>
+    <div class="card">
+      <h2>擊球列表 <span id="histCount" class="muted small"></span></h2>
+      <ul id="histList" class="hist"></ul>
+      <p id="histEmpty" class="muted">沒有紀錄。按「測試擊球」試試看。</p>
+    </div>
+  </section>
+
+  <!-- ============ 設定 ============ -->
+  <section id="screen-settings" class="screen" aria-label="設定">
+    <div class="card form">
+      <h2>單位</h2>
+      <div class="field"><span class="flabel">快速切換</span>
+        <div class="seg" id="seg-preset"><button type="button" data-v="metric">公制</button><button type="button" data-v="imperial">英制</button></div></div>
+      <div class="field"><span class="flabel">距離</span>
+        <div class="seg" id="seg-distance_unit"><button type="button" data-v="yd">碼</button><button type="button" data-v="m">公尺</button></div></div>
+      <div class="field"><span class="flabel">速度</span>
+        <div class="seg" id="seg-speed_unit"><button type="button" data-v="mph">mph</button><button type="button" data-v="kmh">km/h</button><button type="button" data-v="ms">m/s</button></div></div>
+    </div>
+    <div class="card form">
+      <h2>球手與環境</h2>
+      <div class="field"><span class="flabel">慣用手</span>
+        <div class="seg" id="seg-handedness"><button type="button" data-v="right">右手</button><button type="button" data-v="left">左手</button></div></div>
+      <label class="field"><span class="flabel">海拔（公尺）</span><input id="in-altitude_m" type="number" inputmode="decimal" step="10" min="-500" max="5000"></label>
+      <label class="field"><span class="flabel">感測器放置距離（公尺）</span><input id="in-placement_distance_m" type="number" inputmode="decimal" step="0.1" min="0.5" max="6"></label>
+      <p class="muted small">放置距離為感測器到球的距離，通常 1.5 到 2.5 公尺。</p>
+    </div>
+    <div class="card form">
+      <h2>GSPro 連線</h2>
+      <div class="field"><span class="flabel">啟用 GSPro Open Connect</span>
+        <div class="seg" id="seg-gspro_enabled"><button type="button" data-v="false">關</button><button type="button" data-v="true">開</button></div></div>
+      <label class="field"><span class="flabel">GSPro 電腦位址</span><input id="in-gspro_host" type="text" inputmode="url" autocapitalize="off" autocomplete="off"></label>
+      <label class="field"><span class="flabel">連接埠</span><input id="in-gspro_port" type="number" inputmode="numeric" min="1" max="65535"></label>
+      <p class="muted small" id="gsproState"></p>
+    </div>
+    <div class="card form">
+      <h2>外觀</h2>
+      <div class="field"><span class="flabel">主題</span>
+        <div class="seg" id="seg-theme"><button type="button" data-v="auto">自動</button><button type="button" data-v="light">淺色</button><button type="button" data-v="dark">深色</button></div></div>
+    </div>
+  </section>
+
+  <!-- ============ 裝置 ============ -->
+  <section id="screen-device" class="screen" aria-label="裝置">
+    <div class="card">
+      <h2>裝置資訊</h2>
+      <dl class="kv" id="devInfo"></dl>
+    </div>
+    <div class="card">
+      <h2>感測器狀態</h2>
+      <ul class="health" id="health"></ul>
+    </div>
+    <div class="card">
+      <h2>軟體更新</h2>
+      <dl class="kv" id="updInfo"></dl>
+      <div class="progress" id="updProgressWrap" hidden><div id="updBar"></div></div>
+      <p id="updMsg" class="muted"></p>
+      <div class="btnrow">
+        <button id="updCheck" class="btn big" type="button">檢查更新</button>
+        <button id="updApply" class="btn primary big" type="button" disabled>安裝更新</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<nav class="tabs" aria-label="主選單">
+  <button type="button" data-screen="live" class="on"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg><span>即時</span></button>
+  <button type="button" data-screen="history"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>紀錄</span></button>
+  <button type="button" data-screen="settings"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg><span>設定</span></button>
+  <button type="button" data-screen="device"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M8 18v2M16 18v2M9 10h6"/></svg><span>裝置</span></button>
+</nav>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="flight.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

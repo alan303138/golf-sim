@@ -1,0 +1,678 @@
+ref,value,package,pin,pin_name,net
+C1,470u 25V,radial 8x12,1,,V12
+C1,470u 25V,radial 8x12,2,,PGND
+C2,100n,radial MLCC / film 5 mm,1,,V12
+C2,100n,radial MLCC / film 5 mm,2,,PGND
+C4,100u 10V,radial 5x11,1,,V5A
+C4,100u 10V,radial 5x11,2,,GND_L
+C5,100n,radial MLCC / film 5 mm,1,,V5A
+C5,100n,radial MLCC / film 5 mm,2,,GND_L
+C6,100u 10V,radial 5x11,1,,V5E
+C6,100u 10V,radial 5x11,2,,GND_L
+C7,100n,radial MLCC / film 5 mm,1,,V5E
+C7,100n,radial MLCC / film 5 mm,2,,GND_L
+C8,10u 16V,radial 5x11,1,,3V3
+C8,10u 16V,radial 5x11,2,,GND_L
+C9,100n,radial MLCC / film 5 mm,1,,3V3
+C9,100n,radial MLCC / film 5 mm,2,,GND_L
+C10,10u 16V,radial 5x11,1,,V5
+C10,10u 16V,radial 5x11,2,,GND_L
+C11,100n,radial MLCC / film 5 mm,1,,RAIL_SENSE
+C11,100n,radial MLCC / film 5 mm,2,,GND_L
+D1,1N5822,DO-201AD axial,A,,VIN_F
+D1,1N5822,DO-201AD axial,K,K,V12
+D2,1.5KE15A,DO-201 axial,A,,PGND
+D2,1.5KE15A,DO-201 axial,K,,V12
+D4,BAT85,DO-34 axial,A,,RAIL_SENSE
+D4,BAT85,DO-34 axial,K,,3V3
+F1,2 A time-lag,5x20 mm,1,,VIN_RAW
+F1,2 A time-lag,5x20 mm,2,,VIN_F
+J1,2P screw terminal 5.08,5.08 mm pitch,1,+,VIN_RAW
+J1,2P screw terminal 5.08,5.08 mm pitch,2,-,PGND
+JP5,2P header 2.54,2.54 mm,1,,PGND
+JP5,2P header 2.54,2.54 mm,2,,GND_L
+JP6,3P header 2.54,2.54 mm,1,,SENSE_A
+JP6,3P header 2.54,2.54 mm,2,,RAIL_SEL
+JP6,3P header 2.54,2.54 mm,3,,SENSE_B
+R1,11R 5W,cement 5 W,1,,V12
+R1,11R 5W,cement 5 W,2,,V12_A
+R2,11R 5W,cement 5 W,1,,V12
+R2,11R 5W,cement 5 W,2,,V12_A
+R3,11R 5W,cement 5 W,1,,V12
+R3,11R 5W,cement 5 W,2,,V12_B
+R4,11R 5W,cement 5 W,1,,V12
+R4,11R 5W,cement 5 W,2,,V12_B
+R5,22R,axial 1/4 W,1,,V5
+R5,22R,axial 1/4 W,2,,V5A
+R6,4R7,axial 1/4 W,1,,V5
+R6,4R7,axial 1/4 W,2,,V5E
+R7,33k 1%,axial 1/4 W,1,,RAIL_SEL
+R7,33k 1%,axial 1/4 W,2,,RAIL_SENSE
+R8,10k 1%,axial 1/4 W,1,,RAIL_SENSE
+R8,10k 1%,axial 1/4 W,2,,GND_L
+TP1,test point,1 pin,1,,V12
+TP2,test point,1 pin,1,,PGND
+TP3,test point,1 pin,1,,3V3
+TP4,test point,1 pin,1,,V5
+TP5,test point,1 pin,1,,GND_L
+TP6,test point,1 pin,1,,RAIL_SENSE
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,1,GP0,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,2,GP1,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,3,GND,GND_L
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,4,GP2,CAM_TRIG
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,5,GP3,STROBE_GATE
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,6,GP4,STROBE_EN
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,7,GP5,TRIG_IN
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,8,GND,GND_L
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,9,GP6,STATUS
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,10,GP7,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,11,GP8,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,12,GP9,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,13,GND,GND_L
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,14,GP10,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,15,GP11,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,16,GP12,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,17,GP13,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,18,GND,GND_L
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,19,GP14,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,20,GP15,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,21,GP16,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,22,GP17,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,23,GND,GND_L
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,24,GP18,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,25,GP19,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,26,GP20,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,27,GP21,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,28,GND,GND_L
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,29,GP22,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,30,RUN,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,31,GP26/ADC0,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,32,GP27/ADC1,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,33,AGND,GND_L
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,34,GP28/ADC2,RAIL_SENSE
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,35,ADC_VREF,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,36,3V3(OUT),3V3
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,37,3V3_EN,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,38,GND,GND_L
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,39,VSYS,NC
+U1,Raspberry Pi Pico,2x20 DIP module on 2x 1x20 sockets,40,VBUS,V5
+C12,1u X7R,radial MLCC,1,,3V3
+C12,1u X7R,radial MLCC,2,,GND_L
+C13,1u X7R,radial MLCC,1,,V1P8
+C13,1u X7R,radial MLCC,2,,GND_L
+C14,100n,radial MLCC / film 5 mm,1,,VTRIG
+C14,100n,radial MLCC / film 5 mm,2,,GND_L
+C15,10u 16V,radial 5x11,1,,VTRIG
+C15,10u 16V,radial 5x11,2,,GND_L
+D5,BAT54S,SOT-23 on adapter,1,,GND_L
+D5,BAT54S,SOT-23 on adapter,2,,VTRIG
+D5,BAT54S,SOT-23 on adapter,3,,CAM1_OUT
+D6,BAT54S,SOT-23 on adapter,1,,GND_L
+D6,BAT54S,SOT-23 on adapter,2,,VTRIG
+D6,BAT54S,SOT-23 on adapter,3,,CAM2_OUT
+J6,2P header 2.54,2.54 mm,1,,CAM1_OUT
+J6,2P header 2.54,2.54 mm,2,,GND_L
+J7,2P header 2.54,2.54 mm,1,,CAM2_OUT
+J7,2P header 2.54,2.54 mm,2,,GND_L
+JP1,3P header 2.54,2.54 mm,1,,V1P8
+JP1,3P header 2.54,2.54 mm,2,,VTRIG
+JP1,3P header 2.54,2.54 mm,3,,3V3
+R10,100R,axial 1/4 W,1,,CAM_TRIG
+R10,100R,axial 1/4 W,2,,CAMTRIG_IN
+R11,10k,axial 1/4 W,1,,CAMTRIG_IN
+R11,10k,axial 1/4 W,2,,3V3
+R12,47R,axial 1/4 W,1,,CAM1_DRV
+R12,47R,axial 1/4 W,2,,CAM1_OUT
+R13,47R,axial 1/4 W,1,,CAM2_DRV
+R13,47R,axial 1/4 W,2,,CAM2_OUT
+TP7,test point,1 pin,1,,CAMTRIG_IN
+TP8,test point,1 pin,1,,CAM1_OUT
+TP9,test point,1 pin,1,,VTRIG
+U3,SN74LVC2G17,SOT-23-6 on adapter,1,1A,CAMTRIG_IN
+U3,SN74LVC2G17,SOT-23-6 on adapter,2,GND,GND_L
+U3,SN74LVC2G17,SOT-23-6 on adapter,3,2A,CAMTRIG_IN
+U3,SN74LVC2G17,SOT-23-6 on adapter,4,2Y,CAM2_DRV
+U3,SN74LVC2G17,SOT-23-6 on adapter,5,VCC,VTRIG
+U3,SN74LVC2G17,SOT-23-6 on adapter,6,1Y,CAM1_DRV
+U4,MCP1700-1802,TO-92,1,GND,GND_L
+U4,MCP1700-1802,TO-92,2,VIN,3V3
+U4,MCP1700-1802,TO-92,3,VOUT,V1P8
+C16,10n,radial MLCC / film 5 mm,1,,EN_SW
+C16,10n,radial MLCC / film 5 mm,2,,GND_L
+D7,LED red 5 mm,5 mm,A,,ARM_A
+D7,LED red 5 mm,5 mm,K,,ARM_K
+D8,LED green 3 mm,3 mm,A,,STATUS_LED_A
+D8,LED green 3 mm,3 mm,K,,GND_L
+J2,2P screw terminal 5.08,5.08 mm pitch,1,V12_A,V12_A
+J2,2P screw terminal 5.08,5.08 mm pitch,2,PGND,PGND
+J3,3P header 2.54,2.54 mm,1,,GATE_A
+J3,3P header 2.54,2.54 mm,2,,PGND
+J3,3P header 2.54,2.54 mm,3,,SENSE_A
+J4,2P screw terminal 5.08,5.08 mm pitch,1,V12_B,V12_B
+J4,2P screw terminal 5.08,5.08 mm pitch,2,PGND,PGND
+J5,3P header 2.54,2.54 mm,1,,GATE_B
+J5,3P header 2.54,2.54 mm,2,,PGND
+J5,3P header 2.54,2.54 mm,3,,SENSE_B
+J8,2P header 2.54,2.54 mm,1,,ILK_SRC
+J8,2P header 2.54,2.54 mm,2,,EN_SW
+J9,2P header 2.54,2.54 mm,1,,ARM_A
+J9,2P header 2.54,2.54 mm,2,,ARM_K
+Q2,2N3904,TO-92,1,E,GND_L
+Q2,2N3904,TO-92,2,B,ARM_B
+Q2,2N3904,TO-92,3,C,ARM_K
+R14,100R,axial 1/4 W,1,,STROBE_GATE
+R14,100R,axial 1/4 W,2,,GATE_RAW
+R15,10k,axial 1/4 W,1,,GATE_RAW
+R15,10k,axial 1/4 W,2,,GND_L
+R16,100R,axial 1/4 W,1,,3V3
+R16,100R,axial 1/4 W,2,,ILK_SRC
+R17,100k,axial 1/4 W,1,,EN_SW
+R17,100k,axial 1/4 W,2,,GND_L
+R18,1k,axial 1/4 W,1,,EN_SW
+R18,1k,axial 1/4 W,2,,STROBE_EN
+R19,4k7,axial 1/4 W,1,,EN_SW
+R19,4k7,axial 1/4 W,2,,ARM_B
+R20,1k,axial 1/4 W,1,,V12
+R20,1k,axial 1/4 W,2,,ARM_A
+R21,470R,axial 1/4 W,1,,STATUS
+R21,470R,axial 1/4 W,2,,STATUS_LED_A
+R22,33R,axial 1/4 W,1,,GATE_BUS
+R22,33R,axial 1/4 W,2,,GATE_A
+R23,33R,axial 1/4 W,1,,GATE_BUS
+R23,33R,axial 1/4 W,2,,GATE_B
+TP10,test point,1 pin,1,,GATE_BUS
+TP11,test point,1 pin,1,,EN_SW
+TP12,test point,1 pin,1,,STROBE_GATE
+U2,74HC08,DIP-14,1,1A,GATE_RAW
+U2,74HC08,DIP-14,2,1B,EN_SW
+U2,74HC08,DIP-14,3,1Y,GATE_BUS
+U2,74HC08,DIP-14,4,2A,GND_L
+U2,74HC08,DIP-14,5,2B,GND_L
+U2,74HC08,DIP-14,6,2Y,NC
+U2,74HC08,DIP-14,7,GND,GND_L
+U2,74HC08,DIP-14,8,3Y,NC
+U2,74HC08,DIP-14,9,3A,GND_L
+U2,74HC08,DIP-14,10,3B,GND_L
+U2,74HC08,DIP-14,11,4Y,NC
+U2,74HC08,DIP-14,12,4A,GND_L
+U2,74HC08,DIP-14,13,4B,GND_L
+U2,74HC08,DIP-14,14,VCC,3V3
+C17,10u 16V,radial 5x11,1,,VREF_RAW
+C17,10u 16V,radial 5x11,2,,GND_L
+C18,1u X7R,radial MLCC,1,,VREF
+C18,1u X7R,radial MLCC,2,,GND_L
+C19,100n,radial MLCC / film 5 mm,1,,V5A
+C19,100n,radial MLCC / film 5 mm,2,,GND_L
+C20,100n,radial MLCC / film 5 mm,1,,V5A
+C20,100n,radial MLCC / film 5 mm,2,,GND_L
+C21,100n,radial MLCC / film 5 mm,1,,3V3
+C21,100n,radial MLCC / film 5 mm,2,,GND_L
+C22,100n,radial MLCC / film 5 mm,1,,3V3
+C22,100n,radial MLCC / film 5 mm,2,,GND_L
+C23,100n,radial MLCC / film 5 mm,1,,3V3
+C23,100n,radial MLCC / film 5 mm,2,,GND_L
+JP2,3P header 2.54,2.54 mm,1,,ACOU_N
+JP2,3P header 2.54,2.54 mm,2,,TRIG_RAW
+JP2,3P header 2.54,2.54 mm,3,,OPT_N
+JP3,3P header 2.54,2.54 mm,1,,3V3
+JP3,3P header 2.54,2.54 mm,2,,POL
+JP3,3P header 2.54,2.54 mm,3,,GND_L
+R30,10k 1%,axial 1/4 W,1,,V5A
+R30,10k 1%,axial 1/4 W,2,,VREF_RAW
+R31,10k 1%,axial 1/4 W,1,,VREF_RAW
+R31,10k 1%,axial 1/4 W,2,,GND_L
+R44,10k,axial 1/4 W,1,,3V3
+R44,10k,axial 1/4 W,2,,ACOU_N
+R45,10k,axial 1/4 W,1,,3V3
+R45,10k,axial 1/4 W,2,,OPT_N
+R60,100k,axial 1/4 W,1,,TRIG_RAW
+R60,100k,axial 1/4 W,2,,3V3
+R61,100R,axial 1/4 W,1,,TRIG_X
+R61,100R,axial 1/4 W,2,,TRIG_IN
+R62,100k,axial 1/4 W,1,,TRIG_IN
+R62,100k,axial 1/4 W,2,,GND_L
+TP13,test point,1 pin,1,,VREF
+TP14,test point,1 pin,1,,TRIG_IN
+TP15,test point,1 pin,1,,ACOU_N
+TP16,test point,1 pin,1,,OPT_N
+U7,MCP6022,DIP-8,1,OUTA,VREF
+U7,MCP6022,DIP-8,2,INA-,VREF
+U7,MCP6022,DIP-8,3,INA+,VREF_RAW
+U7,MCP6022,DIP-8,4,VSS,GND_L
+U7,MCP6022,DIP-8,5,INB+,VREF
+U7,MCP6022,DIP-8,6,INB-,INV_FB
+U7,MCP6022,DIP-8,7,OUTB,ACOU_INV
+U7,MCP6022,DIP-8,8,VDD,V5A
+U8,LM339,DIP-14,1,OUT2,ACOU_N
+U8,LM339,DIP-14,2,OUT1,ACOU_N
+U8,LM339,DIP-14,3,VCC,V5A
+U8,LM339,DIP-14,4,IN1-,ACOU_SIG
+U8,LM339,DIP-14,5,IN1+,THR_P
+U8,LM339,DIP-14,6,IN2-,ACOU_INV
+U8,LM339,DIP-14,7,IN2+,THR_P
+U8,LM339,DIP-14,8,IN3-,THO
+U8,LM339,DIP-14,9,IN3+,ENV
+U8,LM339,DIP-14,10,IN4-,VREF
+U8,LM339,DIP-14,11,IN4+,GND_L
+U8,LM339,DIP-14,12,GND,GND_L
+U8,LM339,DIP-14,13,OUT4,NC
+U8,LM339,DIP-14,14,OUT3,OPT_N
+U10,74HC86,DIP-14,1,1A,TRIG_RAW
+U10,74HC86,DIP-14,2,1B,POL
+U10,74HC86,DIP-14,3,1Y,TRIG_X
+U10,74HC86,DIP-14,4,2A,GND_L
+U10,74HC86,DIP-14,5,2B,GND_L
+U10,74HC86,DIP-14,6,2Y,NC
+U10,74HC86,DIP-14,7,GND,GND_L
+U10,74HC86,DIP-14,8,3Y,NC
+U10,74HC86,DIP-14,9,3A,GND_L
+U10,74HC86,DIP-14,10,3B,GND_L
+U10,74HC86,DIP-14,11,4Y,NC
+U10,74HC86,DIP-14,12,4A,GND_L
+U10,74HC86,DIP-14,13,4B,GND_L
+U10,74HC86,DIP-14,14,VCC,3V3
+C24,10u 16V,radial 5x11,1,,MIC_B
+C24,10u 16V,radial 5x11,2,,GND_L
+C25,100n,radial MLCC / film 5 mm,1,,MIC_P
+C25,100n,radial MLCC / film 5 mm,2,,MIC_AC
+C26,220p C0G,radial,1,,AMP1
+C26,220p C0G,radial,2,,FB1
+C27,100n,radial MLCC / film 5 mm,1,,FB1G
+C27,100n,radial MLCC / film 5 mm,2,,VREF
+C28,10n,radial MLCC / film 5 mm,1,,AMP1
+C28,10n,radial MLCC / film 5 mm,2,,S2IN
+C29,470p C0G,radial,1,,FB2
+C29,470p C0G,radial,2,,ACOU_SIG
+C30,100n,radial MLCC / film 5 mm,1,,V5A
+C30,100n,radial MLCC / film 5 mm,2,,GND_L
+C31,100n,radial MLCC / film 5 mm,1,,THR_P
+C31,100n,radial MLCC / film 5 mm,2,,GND_L
+J10,2P header 2.54,2.54 mm,1,,MIC_P
+J10,2P header 2.54,2.54 mm,2,,GND_L
+M1,electret capsule,6 mm capsule,1,OUT+,MIC_P
+M1,electret capsule,6 mm capsule,2,-,GND_L
+R32,4k7,axial 1/4 W,1,,MIC_B
+R32,4k7,axial 1/4 W,2,,MIC_P
+R33,1k,axial 1/4 W,1,,V5A
+R33,1k,axial 1/4 W,2,,MIC_B
+R34,100k,axial 1/4 W,1,,MIC_AC
+R34,100k,axial 1/4 W,2,,VREF
+R35,47k 1%,axial 1/4 W,1,,AMP1
+R35,47k 1%,axial 1/4 W,2,,FB1
+R36,1k 1%,axial 1/4 W,1,,FB1
+R36,1k 1%,axial 1/4 W,2,,FB1G
+R37,10k 1%,axial 1/4 W,1,,S2IN
+R37,10k 1%,axial 1/4 W,2,,FB2
+R38,20k 1%,axial 1/4 W,1,,FB2
+R38,20k 1%,axial 1/4 W,2,,ACOU_SIG
+R39,10k 1%,axial 1/4 W,1,,ACOU_SIG
+R39,10k 1%,axial 1/4 W,2,,INV_FB
+R40,10k 1%,axial 1/4 W,1,,INV_FB
+R40,10k 1%,axial 1/4 W,2,,ACOU_INV
+R41,16k 1%,axial 1/4 W,1,,V5A
+R41,16k 1%,axial 1/4 W,2,,THR_TOP
+R42,27k 1%,axial 1/4 W,1,,THR_BOT
+R42,27k 1%,axial 1/4 W,2,,GND_L
+R43,100k,axial 1/4 W,1,,ACOU_N
+R43,100k,axial 1/4 W,2,,HYS_M
+RV1,pot 10k,3296W style,1,,THR_TOP
+RV1,pot 10k,3296W style,2,,THR_P
+RV1,pot 10k,3296W style,3,,THR_BOT
+RV2,trimmer 500k,3296W style,1,,HYS_M
+RV2,trimmer 500k,3296W style,2,,THR_P
+RV2,trimmer 500k,3296W style,3,,THR_P
+TP17,test point,1 pin,1,,ACOU_SIG
+TP18,test point,1 pin,1,,THR_P
+TP19,test point,1 pin,1,,MIC_P
+U5,MCP6022,DIP-8,1,OUTA,AMP1
+U5,MCP6022,DIP-8,2,INA-,FB1
+U5,MCP6022,DIP-8,3,INA+,MIC_AC
+U5,MCP6022,DIP-8,4,VSS,GND_L
+U5,MCP6022,DIP-8,5,INB+,VREF
+U5,MCP6022,DIP-8,6,INB-,FB2
+U5,MCP6022,DIP-8,7,OUTB,ACOU_SIG
+U5,MCP6022,DIP-8,8,VDD,V5A
+C32,4u7 16V,radial 5x11,1,,PD_K
+C32,4u7 16V,radial 5x11,2,,GND_L
+C33,4p7 C0G,radial,1,,TIA_IN
+C33,4p7 C0G,radial,2,,TIA_OUT
+C34,1n C0G,radial,1,,MFB_A
+C34,1n C0G,radial,2,,MFB_INV
+C35,1n C0G,radial,1,,MFB_A
+C35,1n C0G,radial,2,,OPT_BP
+C36,100n,radial MLCC / film 5 mm,1,,V5A
+C36,100n,radial MLCC / film 5 mm,2,,GND_L
+C37,2n2 C0G,radial,1,,ENV
+C37,2n2 C0G,radial,2,,VREF
+C38,100n,radial MLCC / film 5 mm,1,,THO
+C38,100n,radial MLCC / film 5 mm,2,,GND_L
+C39,1n C0G,radial,1,,OSC_C
+C39,1n C0G,radial,2,,GND_L
+C40,10n,radial MLCC / film 5 mm,1,,OSC_CT
+C40,10n,radial MLCC / film 5 mm,2,,GND_L
+C41,100n,radial MLCC / film 5 mm,1,,V5E
+C41,100n,radial MLCC / film 5 mm,2,,GND_L
+D9,BAT85,DO-34 axial,A,,OPT_BP
+D9,BAT85,DO-34 axial,K,,ENV
+D10,940 nm IR LED 5 mm,5 mm,A,,EMIT_A
+D10,940 nm IR LED 5 mm,5 mm,K,,EMIT_K
+D11,IR photodiode,5 mm T-1 3/4,A,,TIA_IN
+D11,IR photodiode,5 mm T-1 3/4,K,,PD_K
+J11,5P header 2.54,2.54 mm,1,LED_A,EMIT_A
+J11,5P header 2.54,2.54 mm,2,LED_K,EMIT_K
+J11,5P header 2.54,2.54 mm,3,PD_K,PD_K
+J11,5P header 2.54,2.54 mm,4,PD_A,TIA_IN
+J11,5P header 2.54,2.54 mm,5,SHIELD,GND_L
+JP4,2P header 2.54,2.54 mm,1,,OSC_EN
+JP4,2P header 2.54,2.54 mm,2,,V5E
+Q3,2N3904,TO-92,1,E,GND_L
+Q3,2N3904,TO-92,2,B,EMIT_B
+Q3,2N3904,TO-92,3,C,EMIT_K
+R46,680k,axial 1/4 W,1,,OPT_N
+R46,680k,axial 1/4 W,2,,ENV
+R47,100R,axial 1/4 W,1,,V5A
+R47,100R,axial 1/4 W,2,,PD_K
+R48,33k 1%,axial 1/4 W,1,,TIA_IN
+R48,33k 1%,axial 1/4 W,2,,TIA_OUT
+R49,1k58 1%,axial 1/4 W,1,,TIA_OUT
+R49,1k58 1%,axial 1/4 W,2,,MFB_A
+R50,332R 1%,axial 1/4 W,1,,MFB_A
+R50,332R 1%,axial 1/4 W,2,,VREF
+R51,9k53 1%,axial 1/4 W,1,,MFB_INV
+R51,9k53 1%,axial 1/4 W,2,,OPT_BP
+R52,10k,axial 1/4 W,1,,ENV
+R52,10k,axial 1/4 W,2,,VREF
+R53,16k 1%,axial 1/4 W,1,,V5A
+R53,16k 1%,axial 1/4 W,2,,THO_TOP
+R54,27k 1%,axial 1/4 W,1,,THO_BOT
+R54,27k 1%,axial 1/4 W,2,,GND_L
+R55,1k,axial 1/4 W,1,,V5E
+R55,1k,axial 1/4 W,2,,OSC_D
+R56,6k8,axial 1/4 W,1,,OSC_D
+R56,6k8,axial 1/4 W,2,,OSC_C
+R57,100k,axial 1/4 W,1,,OSC_EN
+R57,100k,axial 1/4 W,2,,GND_L
+R58,270R,axial 1/4 W,1,,OSC_OUT
+R58,270R,axial 1/4 W,2,,EMIT_B
+R59,33R,axial 1/4 W,1,,V5E
+R59,33R,axial 1/4 W,2,,EMIT_A
+RV3,pot 10k,3296W style,1,,THO_TOP
+RV3,pot 10k,3296W style,2,,THO
+RV3,pot 10k,3296W style,3,,THO_BOT
+TP20,test point,1 pin,1,,TIA_OUT
+TP21,test point,1 pin,1,,OPT_BP
+TP22,test point,1 pin,1,,ENV
+TP23,test point,1 pin,1,,THO
+TP24,test point,1 pin,1,,OSC_OUT
+U6,MCP6022,DIP-8,1,OUTA,TIA_OUT
+U6,MCP6022,DIP-8,2,INA-,TIA_IN
+U6,MCP6022,DIP-8,3,INA+,VREF
+U6,MCP6022,DIP-8,4,VSS,GND_L
+U6,MCP6022,DIP-8,5,INB+,VREF
+U6,MCP6022,DIP-8,6,INB-,MFB_INV
+U6,MCP6022,DIP-8,7,OUTB,OPT_BP
+U6,MCP6022,DIP-8,8,VDD,V5A
+U9,TLC555,DIP-8,1,GND,GND_L
+U9,TLC555,DIP-8,2,TRIG,OSC_C
+U9,TLC555,DIP-8,3,OUT,OSC_OUT
+U9,TLC555,DIP-8,4,RESET,OSC_EN
+U9,TLC555,DIP-8,5,CTRL,OSC_CT
+U9,TLC555,DIP-8,6,THR,OSC_C
+U9,TLC555,DIP-8,7,DIS,OSC_D
+U9,TLC555,DIP-8,8,VCC,V5E
+C101,2200u 16V,radial 12.5x25,1,,V12_A
+C101,2200u 16V,radial 12.5x25,2,,PGND
+C102,2200u 16V,radial 12.5x25,1,,V12_A
+C102,2200u 16V,radial 12.5x25,2,,PGND
+C103,10u 25V X7R,1210 SMD on adapter / radial,1,,V12_A
+C103,10u 25V X7R,1210 SMD on adapter / radial,2,,PGND
+C104,10u 25V X7R,1210 SMD on adapter / radial,1,,V12_A
+C104,10u 25V X7R,1210 SMD on adapter / radial,2,,PGND
+C105,10u 25V X7R,1210 SMD on adapter / radial,1,,V12_A
+C105,10u 25V X7R,1210 SMD on adapter / radial,2,,PGND
+C106,10u 25V X7R,1210 SMD on adapter / radial,1,,V12_A
+C106,10u 25V X7R,1210 SMD on adapter / radial,2,,PGND
+C107,100n,radial MLCC / film 5 mm,1,,V12_A
+C107,100n,radial MLCC / film 5 mm,2,,PGND
+C108,10u 25V X7R,1210 / radial,1,,VDRV_A
+C108,10u 25V X7R,1210 / radial,2,,SRC_A
+C109,100n,radial MLCC / film 5 mm,1,,VDRV_A
+C109,100n,radial MLCC / film 5 mm,2,,SRC_A
+C110,10n C0G/film 50V,radial 5 mm,1,,GACI_A
+C110,10n C0G/film 50V,radial 5 mm,2,,GFET_A
+C201,2200u 16V,radial 12.5x25,1,,V12_B
+C201,2200u 16V,radial 12.5x25,2,,PGND
+C202,2200u 16V,radial 12.5x25,1,,V12_B
+C202,2200u 16V,radial 12.5x25,2,,PGND
+C203,10u 25V X7R,1210 SMD on adapter / radial,1,,V12_B
+C203,10u 25V X7R,1210 SMD on adapter / radial,2,,PGND
+C204,10u 25V X7R,1210 SMD on adapter / radial,1,,V12_B
+C204,10u 25V X7R,1210 SMD on adapter / radial,2,,PGND
+C205,10u 25V X7R,1210 SMD on adapter / radial,1,,V12_B
+C205,10u 25V X7R,1210 SMD on adapter / radial,2,,PGND
+C206,10u 25V X7R,1210 SMD on adapter / radial,1,,V12_B
+C206,10u 25V X7R,1210 SMD on adapter / radial,2,,PGND
+C207,100n,radial MLCC / film 5 mm,1,,V12_B
+C207,100n,radial MLCC / film 5 mm,2,,PGND
+C208,10u 25V X7R,1210 / radial,1,,VDRV_B
+C208,10u 25V X7R,1210 / radial,2,,SRC_B
+C209,100n,radial MLCC / film 5 mm,1,,VDRV_B
+C209,100n,radial MLCC / film 5 mm,2,,SRC_B
+C210,10n C0G/film 50V,radial 5 mm,1,,GACI_B
+C210,10n C0G/film 50V,radial 5 mm,2,,GFET_B
+D101,1N5822,DO-201AD axial,A,,DRN_A
+D101,1N5822,DO-201AD axial,K,,V12_A
+D102,1N4744A,DO-41 axial,A,,SRC_A
+D102,1N4744A,DO-41 axial,K,,VDRV_A
+D103,1N5819,DO-41 axial,A,,SRC_A
+D103,1N5819,DO-41 axial,K,,GFET_A
+D104,LED red 5 mm,5 mm,A,,CHGLED_A
+D104,LED red 5 mm,5 mm,K,,PGND
+D201,1N5822,DO-201AD axial,A,,DRN_B
+D201,1N5822,DO-201AD axial,K,,V12_B
+D202,1N4744A,DO-41 axial,A,,SRC_B
+D202,1N4744A,DO-41 axial,K,,VDRV_B
+D203,1N5819,DO-41 axial,A,,SRC_B
+D203,1N5819,DO-41 axial,K,,GFET_B
+D204,LED red 5 mm,5 mm,A,,CHGLED_B
+D204,LED red 5 mm,5 mm,K,,PGND
+J102,2P screw terminal 5.08,5.08 mm pitch,1,V12_A,V12_A
+J102,2P screw terminal 5.08,5.08 mm pitch,2,PGND,PGND
+J103,3P header 2.54,2.54 mm,1,GATE_A,GATE_A
+J103,3P header 2.54,2.54 mm,2,PGND,PGND
+J103,3P header 2.54,2.54 mm,3,SENSE_A,SENSE_A
+J104,6P screw terminal 5.08,5.08 mm pitch,1,STR_A1,STR_A1
+J104,6P screw terminal 5.08,5.08 mm pitch,2,STR_A2,STR_A2
+J104,6P screw terminal 5.08,5.08 mm pitch,3,STR_A3,STR_A3
+J104,6P screw terminal 5.08,5.08 mm pitch,4,STR_A4,STR_A4
+J104,6P screw terminal 5.08,5.08 mm pitch,5,STR_A5,STR_A5
+J104,6P screw terminal 5.08,5.08 mm pitch,6,STR_A6,STR_A6
+J105,6P screw terminal 5.08,5.08 mm pitch,1,DRN_A,DRN_A
+J105,6P screw terminal 5.08,5.08 mm pitch,2,DRN_A,DRN_A
+J105,6P screw terminal 5.08,5.08 mm pitch,3,DRN_A,DRN_A
+J105,6P screw terminal 5.08,5.08 mm pitch,4,DRN_A,DRN_A
+J105,6P screw terminal 5.08,5.08 mm pitch,5,DRN_A,DRN_A
+J105,6P screw terminal 5.08,5.08 mm pitch,6,DRN_A,DRN_A
+J202,2P screw terminal 5.08,5.08 mm pitch,1,V12_B,V12_B
+J202,2P screw terminal 5.08,5.08 mm pitch,2,PGND,PGND
+J203,3P header 2.54,2.54 mm,1,GATE_B,GATE_B
+J203,3P header 2.54,2.54 mm,2,PGND,PGND
+J203,3P header 2.54,2.54 mm,3,SENSE_B,SENSE_B
+J204,6P screw terminal 5.08,5.08 mm pitch,1,STR_B1,STR_B1
+J204,6P screw terminal 5.08,5.08 mm pitch,2,STR_B2,STR_B2
+J204,6P screw terminal 5.08,5.08 mm pitch,3,STR_B3,STR_B3
+J204,6P screw terminal 5.08,5.08 mm pitch,4,STR_B4,STR_B4
+J204,6P screw terminal 5.08,5.08 mm pitch,5,STR_B5,STR_B5
+J204,6P screw terminal 5.08,5.08 mm pitch,6,STR_B6,STR_B6
+J205,6P screw terminal 5.08,5.08 mm pitch,1,DRN_B,DRN_B
+J205,6P screw terminal 5.08,5.08 mm pitch,2,DRN_B,DRN_B
+J205,6P screw terminal 5.08,5.08 mm pitch,3,DRN_B,DRN_B
+J205,6P screw terminal 5.08,5.08 mm pitch,4,DRN_B,DRN_B
+J205,6P screw terminal 5.08,5.08 mm pitch,5,DRN_B,DRN_B
+J205,6P screw terminal 5.08,5.08 mm pitch,6,DRN_B,DRN_B
+LD101,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,STR_A1
+LD101,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LA1_1
+LD102,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LA1_1
+LD102,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LA1_2
+LD103,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LA1_2
+LD103,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,DRN_A
+LD104,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,STR_A2
+LD104,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LA2_1
+LD105,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LA2_1
+LD105,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LA2_2
+LD106,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LA2_2
+LD106,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,DRN_A
+LD107,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,STR_A3
+LD107,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LA3_1
+LD108,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LA3_1
+LD108,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LA3_2
+LD109,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LA3_2
+LD109,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,DRN_A
+LD110,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,STR_A4
+LD110,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LA4_1
+LD111,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LA4_1
+LD111,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LA4_2
+LD112,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LA4_2
+LD112,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,DRN_A
+LD113,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,STR_A5
+LD113,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LA5_1
+LD114,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LA5_1
+LD114,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LA5_2
+LD115,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LA5_2
+LD115,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,DRN_A
+LD116,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,STR_A6
+LD116,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LA6_1
+LD117,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LA6_1
+LD117,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LA6_2
+LD118,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LA6_2
+LD118,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,DRN_A
+LD201,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,STR_B1
+LD201,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LB1_1
+LD202,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LB1_1
+LD202,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LB1_2
+LD203,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LB1_2
+LD203,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,DRN_B
+LD204,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,STR_B2
+LD204,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LB2_1
+LD205,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LB2_1
+LD205,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LB2_2
+LD206,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LB2_2
+LD206,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,DRN_B
+LD207,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,STR_B3
+LD207,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LB3_1
+LD208,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LB3_1
+LD208,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LB3_2
+LD209,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LB3_2
+LD209,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,DRN_B
+LD210,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,STR_B4
+LD210,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LB4_1
+LD211,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LB4_1
+LD211,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LB4_2
+LD212,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LB4_2
+LD212,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,DRN_B
+LD213,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,STR_B5
+LD213,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LB5_1
+LD214,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LB5_1
+LD214,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LB5_2
+LD215,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LB5_2
+LD215,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,DRN_B
+LD216,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,STR_B6
+LD216,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LB6_1
+LD217,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LB6_1
+LD217,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,LB6_2
+LD218,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,A,,LB6_2
+LD218,850 nm IR LED on 20 mm star,3535 SMD on 20 mm star,K,,DRN_B
+Q101,IRLB8721,TO-220,1,G,GFET_A
+Q101,IRLB8721,TO-220,2,D,DRN_A
+Q101,IRLB8721,TO-220,3,S,SRC_A
+Q201,IRLB8721,TO-220,1,G,GFET_B
+Q201,IRLB8721,TO-220,2,D,DRN_B
+Q201,IRLB8721,TO-220,3,S,SRC_B
+R101,10R,axial 1/4 W,1,,V12_A
+R101,10R,axial 1/4 W,2,,VDRV_A
+R102,100R,axial 1/4 W,1,,GATE_A
+R102,100R,axial 1/4 W,2,,DRV_IN_A
+R103,10k,axial 1/4 W,1,,DRV_IN_A
+R103,10k,axial 1/4 W,2,,SRC_A
+R104,2R2,axial 1/4 W,1,,GOUT_A
+R104,2R2,axial 1/4 W,2,,GACI_A
+R105,3k3,axial 1/4 W,1,,GFET_A
+R105,3k3,axial 1/4 W,2,,SRC_A
+R106,100R,axial 1/4 W,1,,V12_A
+R106,100R,axial 1/4 W,2,,SENSE_A
+R107,2k2,axial 1/4 W,1,,V12_A
+R107,2k2,axial 1/4 W,2,,CHGLED_A
+R108,1k 0.5W,axial 1/2 W,1,,V12_A
+R108,1k 0.5W,axial 1/2 W,2,,PGND
+R201,10R,axial 1/4 W,1,,V12_B
+R201,10R,axial 1/4 W,2,,VDRV_B
+R202,100R,axial 1/4 W,1,,GATE_B
+R202,100R,axial 1/4 W,2,,DRV_IN_B
+R203,10k,axial 1/4 W,1,,DRV_IN_B
+R203,10k,axial 1/4 W,2,,SRC_B
+R204,2R2,axial 1/4 W,1,,GOUT_B
+R204,2R2,axial 1/4 W,2,,GACI_B
+R205,3k3,axial 1/4 W,1,,GFET_B
+R205,3k3,axial 1/4 W,2,,SRC_B
+R206,100R,axial 1/4 W,1,,V12_B
+R206,100R,axial 1/4 W,2,,SENSE_B
+R207,2k2,axial 1/4 W,1,,V12_B
+R207,2k2,axial 1/4 W,2,,CHGLED_B
+R208,1k 0.5W,axial 1/2 W,1,,V12_B
+R208,1k 0.5W,axial 1/2 W,2,,PGND
+RB101,1R8 3W,metal-oxide 3 W axial,1,,V12_A
+RB101,1R8 3W,metal-oxide 3 W axial,2,,STR_A1
+RB102,1R8 3W,metal-oxide 3 W axial,1,,V12_A
+RB102,1R8 3W,metal-oxide 3 W axial,2,,STR_A2
+RB103,1R8 3W,metal-oxide 3 W axial,1,,V12_A
+RB103,1R8 3W,metal-oxide 3 W axial,2,,STR_A3
+RB104,1R8 3W,metal-oxide 3 W axial,1,,V12_A
+RB104,1R8 3W,metal-oxide 3 W axial,2,,STR_A4
+RB105,1R8 3W,metal-oxide 3 W axial,1,,V12_A
+RB105,1R8 3W,metal-oxide 3 W axial,2,,STR_A5
+RB106,1R8 3W,metal-oxide 3 W axial,1,,V12_A
+RB106,1R8 3W,metal-oxide 3 W axial,2,,STR_A6
+RB201,1R8 3W,metal-oxide 3 W axial,1,,V12_B
+RB201,1R8 3W,metal-oxide 3 W axial,2,,STR_B1
+RB202,1R8 3W,metal-oxide 3 W axial,1,,V12_B
+RB202,1R8 3W,metal-oxide 3 W axial,2,,STR_B2
+RB203,1R8 3W,metal-oxide 3 W axial,1,,V12_B
+RB203,1R8 3W,metal-oxide 3 W axial,2,,STR_B3
+RB204,1R8 3W,metal-oxide 3 W axial,1,,V12_B
+RB204,1R8 3W,metal-oxide 3 W axial,2,,STR_B4
+RB205,1R8 3W,metal-oxide 3 W axial,1,,V12_B
+RB205,1R8 3W,metal-oxide 3 W axial,2,,STR_B5
+RB206,1R8 3W,metal-oxide 3 W axial,1,,V12_B
+RB206,1R8 3W,metal-oxide 3 W axial,2,,STR_B6
+RS101,10m 1W,2512 SMD metal strip / axial 3 W,1,,SRC_A
+RS101,10m 1W,2512 SMD metal strip / axial 3 W,2,,PGND
+RS201,10m 1W,2512 SMD metal strip / axial 3 W,1,,SRC_B
+RS201,10m 1W,2512 SMD metal strip / axial 3 W,2,,PGND
+TP101,test point,1 pin,1,,V12_A
+TP102,test point,1 pin,1,,DRN_A
+TP103,test point,1 pin,1,,SRC_A
+TP104,test point,1 pin,1,,GFET_A
+TP105,test point,1 pin,1,,PGND
+TP106,test point,1 pin,1,,DRV_IN_A
+TP201,test point,1 pin,1,,V12_B
+TP202,test point,1 pin,1,,DRN_B
+TP203,test point,1 pin,1,,SRC_B
+TP204,test point,1 pin,1,,GFET_B
+TP205,test point,1 pin,1,,PGND
+TP206,test point,1 pin,1,,DRV_IN_B
+U101,TC4427A,DIP-8,1,NC,NC
+U101,TC4427A,DIP-8,2,INA,DRV_IN_A
+U101,TC4427A,DIP-8,3,GND,SRC_A
+U101,TC4427A,DIP-8,4,INB,DRV_IN_A
+U101,TC4427A,DIP-8,5,OUTB,GOUT_A
+U101,TC4427A,DIP-8,6,VDD,VDRV_A
+U101,TC4427A,DIP-8,7,OUTA,GOUT_A
+U101,TC4427A,DIP-8,8,NC,NC
+U201,TC4427A,DIP-8,1,NC,NC
+U201,TC4427A,DIP-8,2,INA,DRV_IN_B
+U201,TC4427A,DIP-8,3,GND,SRC_B
+U201,TC4427A,DIP-8,4,INB,DRV_IN_B
+U201,TC4427A,DIP-8,5,OUTB,GOUT_B
+U201,TC4427A,DIP-8,6,VDD,VDRV_B
+U201,TC4427A,DIP-8,7,OUTA,GOUT_B
+U201,TC4427A,DIP-8,8,NC,NC

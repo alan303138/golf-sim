@@ -1,0 +1,50 @@
+{
+ "sheet": "03_strobe_gate",
+ "title": "03  Strobe module - gate driver and hardware max-on-time cut-off (module A; B identical)",
+ "covers": [
+  "strobe"
+ ],
+ "refs": [
+  "C108",
+  "C109",
+  "C110",
+  "D102",
+  "D103",
+  "Q101",
+  "R101",
+  "R102",
+  "R103",
+  "R104",
+  "R105",
+  "TP104",
+  "TP106",
+  "U101"
+ ],
+ "nets": [
+  "DRN_A  (sheet 02)",
+  "DRV_IN_A",
+  "GACI_A",
+  "GATE_A  (J103.1, from control board)",
+  "GFET_A",
+  "GOUT_A",
+  "SRC_A",
+  "V12_A",
+  "VDRV_A"
+ ],
+ "values": {
+  "R102": "100R",
+  "R103": "10k",
+  "TP106": "test point",
+  "U101": "TC4427A",
+  "R101": "10R",
+  "C108": "10u 25V X7R",
+  "C109": "100n",
+  "D102": "1N4744A",
+  "R104": "2R2",
+  "C110": "10n C0G/film 50V",
+  "R105": "3k3",
+  "D103": "1N5819",
+  "TP104": "test point",
+  "Q101": "IRLB8721"
+ }
+}

@@ -1,0 +1,26 @@
+[Unit]
+Description=Golf simulator device API (gs_service)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=golfsim
+# OTA switches /opt/golfsim/current atomically between A/B slots.
+WorkingDirectory=/opt/golfsim/current
+Environment=PYTHONUNBUFFERED=1
+Environment=GS_DATA_DIR=/var/lib/golfsim
+# Entry points are placeholders: set them to the real gs_core source / ota updater classes.
+# Remove the two lines to run with the built-in mocks.
+Environment=GS_SOURCE=gs_core.source:RealShotSource
+Environment=GS_UPDATER=ota.agent:DeviceUpdater
+ExecStart=/opt/golfsim/venv/bin/python -m gs_service --host 0.0.0.0 --port 8080
+Restart=always
+RestartSec=2
+StateDirectory=golfsim
+NoNewPrivileges=true
+ProtectSystem=full
+SupplementaryGroups=plugdev video
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gs-mcu"
+version = "1.0.0"
+description = "Host driver and CLI for the golf-sim Pico timing MCU (SerialMcuLink, MockMcuLink)"
+requires-python = ">=3.11"
+dependencies = ["gs-common", "pyserial>=3.5"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+gs-mcu = "gs_mcu.cli:main"
+
+[tool.setuptools]
+packages = ["gs_mcu"]
+
+# gs-common lives in this repository: with uv it is resolved by path.
+# With plain pip run: pip install -e ../../common -e .
+[tool.uv.sources]
+gs-common = { path = "../../common", editable = true }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

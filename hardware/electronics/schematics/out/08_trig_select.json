@@ -1,0 +1,51 @@
+{
+ "sheet": "08_trig_select",
+ "title": "08  Shot trigger: source select (JP2), polarity (JP3) and output to Pico GP5",
+ "covers": [
+  "trigsel"
+ ],
+ "refs": [
+  "C21",
+  "C22",
+  "C23",
+  "JP2",
+  "JP3",
+  "R45",
+  "R60",
+  "R61",
+  "R62",
+  "TP13",
+  "TP14",
+  "TP15",
+  "TP16",
+  "U10"
+ ],
+ "nets": [
+  "-> Pico GP5 (U1.7)",
+  "3V3",
+  "ACOU_N",
+  "GND_L",
+  "OPT_N",
+  "POL",
+  "TRIG_IN",
+  "TRIG_RAW",
+  "TRIG_X",
+  "VREF"
+ ],
+ "values": {
+  "JP2": "3P header 2.54",
+  "R60": "100k",
+  "R45": "10k",
+  "U10": "74HC86",
+  "JP3": "3P header 2.54",
+  "R61": "100R",
+  "R62": "100k",
+  "C21": "100n",
+  "C22": "100n",
+  "C23": "100n",
+  "TP13": "test point",
+  "TP14": "test point",
+  "TP15": "test point",
+  "TP16": "test point"
+ }
+}
